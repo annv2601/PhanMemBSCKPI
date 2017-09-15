@@ -42,6 +42,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\ChiTieuBSC\linqChiTieuBSC.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqChiTieuBSC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ChiTieuBSC\linqChiTieuBSCPhong.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqChiTieuBSCPhong.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ChiTieuKPI\linqChiTieuKPI.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqChiTieuKPI.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ChiTieuKPI\linqChiTieuKPIPhong.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqChiTieuKPIPhong.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DanhMucBK\linqDanhMucBK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqDanhMucBK.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\DanhMucMoHinh\linqDanhMucHeThong.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\NhanVien\linqNhanVien.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +101,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>linqThongTinNhanVien.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\PhanBoMucTieu\linqPhanBoMucTieu.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqPhanBoMucTieu.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -82,6 +117,46 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Database\ChiTieuBSC\linqChiTieuBSC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqChiTieuBSC.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\ChiTieuBSC\linqChiTieuBSC.dbml.layout">
+      <DependentUpon>linqChiTieuBSC.dbml</DependentUpon>
+    </None>
+    <None Include="Database\ChiTieuBSC\linqChiTieuBSCPhong.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqChiTieuBSCPhong.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\ChiTieuBSC\linqChiTieuBSCPhong.dbml.layout">
+      <DependentUpon>linqChiTieuBSCPhong.dbml</DependentUpon>
+    </None>
+    <None Include="Database\ChiTieuKPI\linqChiTieuKPI.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqChiTieuKPI.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\ChiTieuKPI\linqChiTieuKPI.dbml.layout">
+      <DependentUpon>linqChiTieuKPI.dbml</DependentUpon>
+    </None>
+    <None Include="Database\ChiTieuKPI\linqChiTieuKPIPhong.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqChiTieuKPIPhong.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\ChiTieuKPI\linqChiTieuKPIPhong.dbml.layout">
+      <DependentUpon>linqChiTieuKPIPhong.dbml</DependentUpon>
+    </None>
+    <None Include="Database\DanhMucBK\linqDanhMucBK.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqDanhMucBK.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\DanhMucBK\linqDanhMucBK.dbml.layout">
+      <DependentUpon>linqDanhMucBK.dbml</DependentUpon>
+    </None>
     <None Include="Database\DanhMucMoHinh\linqDanhMucHeThong.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>linqDanhMucHeThong.designer.cs</LastGenOutput>
@@ -114,6 +189,14 @@
     <None Include="Database\DonVi\linqMoHinhPhongBan.dbml.layout">
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
     </None>
+    <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKetQuaDanhGia.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.dbml.layout">
+      <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
+    </None>
     <None Include="Database\NhanVien\linqNhanVien.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>linqNhanVien.designer.cs</LastGenOutput>
@@ -129,6 +212,14 @@
     </None>
     <None Include="Database\NhanVien\linqThongTinNhanVien.dbml.layout">
       <DependentUpon>linqThongTinNhanVien.dbml</DependentUpon>
+    </None>
+    <None Include="Database\PhanBoMucTieu\linqPhanBoMucTieu.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqPhanBoMucTieu.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\PhanBoMucTieu\linqPhanBoMucTieu.dbml.layout">
+      <DependentUpon>linqPhanBoMucTieu.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

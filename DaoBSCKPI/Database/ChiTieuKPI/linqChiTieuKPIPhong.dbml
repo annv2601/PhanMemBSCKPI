@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqChiTieuKPIPhongDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblBKChiTieuKPIPhong_DanhSach" Method="sp_tblBKChiTieuKPIPhong_DanhSach">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKChiTieuKPIPhong_DanhSachResult">
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDDonVi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ma" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="TenKPI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MucTieuNam" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang1" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang2" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang3" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang4" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang5" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang6" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang7" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang8" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang9" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang10" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang11" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang12" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKChiTieuKPIPhong_ThemSua" Method="sp_tblBKChiTieuKPIPhong_ThemSua">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDKPI" Parameter="iDKPI" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDXuHuongYeuCau" Parameter="iDXuHuongYeuCau" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MucTieuNam" Parameter="mucTieuNam" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang1" Parameter="mucTieuThang1" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang2" Parameter="mucTieuThang2" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang3" Parameter="mucTieuThang3" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang4" Parameter="mucTieuThang4" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang5" Parameter="mucTieuThang5" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang6" Parameter="mucTieuThang6" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang7" Parameter="mucTieuThang7" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang8" Parameter="mucTieuThang8" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang9" Parameter="mucTieuThang9" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang10" Parameter="mucTieuThang10" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang11" Parameter="mucTieuThang11" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="MucTieuThang12" Parameter="mucTieuThang12" Type="System.Decimal" DbType="Decimal(22,3)" />
+    <Parameter Name="NguoiTao" Parameter="nguoiTao" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblBKChiTieuKPIPhong_ThongTin" Method="sp_tblBKChiTieuKPIPhong_ThongTin">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDKPI" Parameter="iDKPI" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKChiTieuKPIPhong_ThongTinResult">
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDDonVi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MucTieuNam" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang1" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang2" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang3" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang4" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang5" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang6" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang7" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang8" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang9" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang10" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang11" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="MucTieuThang12" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKChiTieuKPIPhong_Xoa" Method="sp_tblBKChiTieuKPIPhong_Xoa">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDKPI" Parameter="iDKPI" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqChiTieuBSCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblBKChiTieuBSC_DanhSach" Method="sp_tblBKChiTieuBSC_DanhSach">
+    <Parameter Name="IDChiTieuTren" Parameter="iDChiTieuTren" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKChiTieuBSC_DanhSachResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="STT" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDChiTieuTren" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Muc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STTsx" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="InDam" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InNghieng" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKChiTieuBSC_ThemSua" Method="sp_tblBKChiTieuBSC_ThemSua">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ma" Parameter="ma" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="STT" Parameter="sTT" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="TrongSo" Parameter="trongSo" Type="System.Decimal" DbType="Decimal(10,3)" />
+    <Parameter Name="MucTieu" Parameter="mucTieu" Type="System.Decimal" DbType="Decimal(10,3)" />
+    <Parameter Name="IDDonViTinh" Parameter="iDDonViTinh" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDChiTieuTren" Parameter="iDChiTieuTren" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Muc" Parameter="muc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDTanSuatDo" Parameter="iDTanSuatDo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDXuHuongYeuCau" Parameter="iDXuHuongYeuCau" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STTsx" Parameter="sTTsx" Type="System.Decimal" DbType="Decimal(8,2)" />
+    <Parameter Name="InDam" Parameter="inDam" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="InNghieng" Parameter="inNghieng" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblBKChiTieuBSC_ThongTin" Method="sp_tblBKChiTieuBSC_ThongTin">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKChiTieuBSC_ThongTinResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="STT" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDChiTieuTren" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Muc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STTsx" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="InDam" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="InNghieng" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NgayHeThong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
