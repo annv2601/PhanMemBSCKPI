@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="daDatatableVaList.cs" />
+    <Compile Include="DanhMucHeThong\daDanhMucHT.cs" />
+    <Compile Include="DanhMucHeThong\daNhomDanhMucHT.cs" />
     <Compile Include="Database\ChiTieuBSC\linqChiTieuBSC.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
