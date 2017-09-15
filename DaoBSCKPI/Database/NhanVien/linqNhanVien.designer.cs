@@ -75,6 +75,13 @@ namespace DaoBSCKPI.Database.NhanVien
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien);
 			return ((ISingleResult<sp_tblNhanVien_ThongTinResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNhanVien_SuaHoatDong")]
+		public int sp_tblNhanVien_SuaHoatDong([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, hoatDong);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_tblNhanVien_ThemSuaResult

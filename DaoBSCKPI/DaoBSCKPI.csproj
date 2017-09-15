@@ -42,7 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTieuBSC\daChiTieuBSC.cs" />
+    <Compile Include="ChiTieuBSC\daChiTieuBSCPhong.cs" />
+    <Compile Include="ChiTieuKPI\daChiTieuKPI.cs" />
+    <Compile Include="ChiTieuKPI\daChiTieuKPIPhong.cs" />
     <Compile Include="daDatatableVaList.cs" />
+    <Compile Include="DanhMucBSCKPI\daDanhMucBK.cs" />
+    <Compile Include="DanhMucBSCKPI\daNhomDanhMucBK.cs" />
     <Compile Include="DanhMucHeThong\daDanhMucHT.cs" />
     <Compile Include="DanhMucHeThong\daNhomDanhMucHT.cs" />
     <Compile Include="Database\ChiTieuBSC\linqChiTieuBSC.designer.cs">
@@ -110,6 +116,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqPhanBoMucTieu.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DonVi\daDonVi.cs" />
+    <Compile Include="DonVi\daMoHinhDonVi.cs" />
+    <Compile Include="DonVi\daMoHinhPhongBan.cs" />
+    <Compile Include="DonVi\daPhongBan.cs" />
+    <Compile Include="KetQuaDanhGia\daKetQuaDanhGia.cs" />
+    <Compile Include="NhanVien\daNhanVien.cs" />
+    <Compile Include="NhanVien\daThongTinNhanVien.cs" />
+    <Compile Include="PhanBoMucTieu\daPhanBoMucTieu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

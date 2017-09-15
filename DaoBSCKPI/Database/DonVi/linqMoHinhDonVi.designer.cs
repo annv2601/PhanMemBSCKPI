@@ -76,13 +76,6 @@ namespace DaoBSCKPI.Database.DonVi
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblMoHinhDonVi_SuaHoatDong")]
-		public int sp_tblMoHinhDonVi_SuaHoatDong([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, hoatDong);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblMoHinhDonVi_ThemSua")]
 		public int sp_tblMoHinhDonVi_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonViQuanLy", DbType="Int")] System.Nullable<int> iDDonViQuanLy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STTsx", DbType="Decimal(8,1)")] System.Nullable<decimal> sTTsx, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TuNgay", DbType="Date")] System.Nullable<System.DateTime> tuNgay, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DenNgay", DbType="Date")] System.Nullable<System.DateTime> denNgay, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GhiChu", DbType="NVarChar(150)")] string ghiChu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
 		{
