@@ -15,47 +15,48 @@
 
     <script src="resource/js/perfect-scrollbar.min.js?0.6.8"></script>
     <script src="resource/js/main.js"></script>
+    <style type="text/css">
+        .bold-highlight {
+            font-weight: bold;
+            font-size:16px;
+        }
+        .my-item span {
+            font-size:14px;
+        }
+    </style>
+
+    <ext:XScript runat="server">
+        <script>
+            var addTabCN = function (tabPanel, id, url, TieuDe) {
+                var tab = tabPanel.getComponent(id);
+
+                if (!tab) {
+                    tab = tabPanel.add({
+                        id       : id,
+                        title    : TieuDe,
+                        closable : true,
+                        
+                        loader   : {
+                            url      : url,
+                            renderer : "frame",
+                            loadMask : {
+                                showMask : true,
+                                msg      : "Nạp chức năng ..."
+                            }
+                        }
+                    });
+                }
+
+                tabPanel.setActiveTab(tab);
+            }
+        </script>
+    </ext:XScript>
 </head>
 <body>
-    <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Neptune" />
+    <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Default" />
 
     <ext:Viewport runat="server" Layout="BorderLayout">
-        <Items>
-            <ext:Container
-                ID="RedirectOverlay"
-                runat="server"
-                Cls="redirect-overlay"
-                WidthSpec="80%"
-                Modal="true"
-                Floating="true">
-                <LayoutConfig>
-                    <ext:VBoxLayoutConfig Align="Stretch" />
-                </LayoutConfig>
-                <Items>
-                    <ext:Component
-                        Cls="redirect-overlay-body"
-                        runat="server"
-                        Html="<p>Looks like you are browsing from a phone or a tablet device. Would you like to redirect to Ext.NET Mobile examples?</p>"/>
-
-                    <ext:Button
-                        runat="server"
-                        Text="Redirect"
-                        Flex="1"
-                        Handler="onRedirect" />
-
-                    <ext:Button
-                        runat="server"
-                        Text="Stay here"
-                        Flex="1"
-                        Handler="onStay" />
-
-                    <ext:Checkbox
-                        ID="RememberCheckbox"
-                        Cls="remember-me"
-                        runat="server"
-                        BoxLabel="Remember my choice" />
-                </Items>
-            </ext:Container>
+        <Items>           
 
             <ext:Panel
                 runat="server"
@@ -78,67 +79,63 @@
                                     <span></span>
                                 </label>
                             </div>
+                            <%--<ext:FieldContainer
+                                runat="server"
+                                FieldLabel=""
+                                AnchorHorizontal="100%"
+                                Layout="HBoxLayout">
+                                <Items>
+                                    <ext:Button runat="server" ID="btnBSC" Text="BSC" MarginSpec="0 0 0 50" UI="Warning" Scale="Large" Width="100">
+
+                                    </ext:Button>
+                                    <ext:Button runat="server" ID="btnKPI" Text="KPI" MarginSpec="0 0 0 10" UI="Warning" Scale="Large" Width="100">
+
+                                    </ext:Button>
+                                    <ext:Button runat="server" ID="btnBaoCao" Text="Báo cáo" MarginSpec="0 0 0 10" UI="Warning" Scale="Large" Width="100">
+
+                                    </ext:Button>
+                                </Items>
+                            </ext:FieldContainer>--%>
+                            
                         </nav>
                     </header>
-                </Content>
+                </Content>                
             </ext:Panel>
-            <ext:Panel
-                ID="rightnav"
+
+            <ext:Panel ID="pnlChucNang"
                 runat="server"
-                Region="East"
-                Width="270"
-                Header="false"
-                MarginSpec="0"
-                Hidden="true"
-                Border="false"
-                BodyCls="right-nav-menu">
-                <Content>
-                    <ul id="nav-menu" class="nav-menu">
-                        <li><a href="http://examples.ext.net/">Web Forms Examples</a></li>
-                        <li><a href="http://mvc.ext.net/">MVC Examples</a></li>
-                        <li><a href="http://mobile.ext.net/">Mobile Examples</a></li>
-                        <li><a href="http://mvc.mobile.ext.net/">MVC Mobile Examples</a></li>
-                        <li class="separator"></li>
-                        <li><a href="https://docs.sencha.com/extjs/6.5.1/classic/Ext.html">EXT JS Documentation</a></li>
-                        <li><a href="http://docs.ext.net/">Ext.NET Documentation</a></li>
-                        <li class="separator"></li>
-                        <li><a href="http://forums.ext.net/">Community Forums</a></li>
-                        <li><a href="http://ext.net/faq/">FAQ</a></li>
-                        <li><a href="http://ext.net/contact/">Contact</a></li>
-                        <li><a href="http://ext.net/">Ext.NET Home</a></li>
-                        <li class="separator"></li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#archives"><i class="fa collapse-icon"></i> Archives</a>
-                            <ul class="collapse" id="archives">
-                                <li class="section-title">Ext.NET 3</li>
-                                <li><a href="http://examples3.ext.net/">Web Forms Examples (3.3)</a></li>
-                                <li><a href="http://mvc3.ext.net/">MVC Examples (3.3)</a></li>
-                                <li class="separator"></li>
-                                <li class="section-title">Ext.NET 2</li>
-                                <li><a href="http://examples2.ext.net/">Web Forms Examples (2.5)</a></li>
-                                <li><a href="http://mvc2.ext.net/">MVC Examples (2.5)</a></li>
-                                <li class="separator"></li>
-                                <li class="section-title">Ext.NET 1</li>
-                                <li><a href="http://examples1.ext.net/">Web Forms Examples (1.7)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <a href="http://ext.net/store/" class="button button-success button-block button-sidebar-right">Get Ext.NET</a>
-                </Content>
-            </ext:Panel>
-            <ext:Panel
-                runat="server"
-                Region="West"
-                Layout="Fit"
-                Width="270"
-                Header="false"
-                MarginSpec="0"
-                Border="false">
+                    Region="West"
+                    Title="Chức năng"
+                    Width="300"
+                    Collapsible="true"
+                    Split="true"
+                    MinWidth="175"
+                    MaxWidth="400"
+                    MarginSpec="5 0 5 5"
+                    Layout="AccordionLayout">
                 <Items>
                     
                 </Items>
             </ext:Panel>
             
+            <ext:TabPanel
+                ID="TabPanelChinh"
+                runat="server"
+                Region="Center"
+                MarginSpec="0"
+                Cls="tabs"
+                MinTabWidth="115">
+                <Items>
+                    <ext:Panel
+                        ID="tabHome"
+                        runat="server"
+                        Title="Home"
+                        HideMode="Offsets"
+                        IconCls="fa fa-home">
+                       
+                    </ext:Panel>
+                </Items>
+            </ext:TabPanel>
         </Items>
     </ext:Viewport>
 </body>

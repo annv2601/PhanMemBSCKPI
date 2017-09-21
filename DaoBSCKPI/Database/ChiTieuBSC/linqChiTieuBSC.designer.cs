@@ -409,11 +409,17 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 		
 		private string _Ten;
 		
+		private string _TenHienThi;
+		
 		private System.Nullable<decimal> _TrongSo;
+		
+		private System.Nullable<decimal> _TrongSoHienThi;
 		
 		private System.Nullable<decimal> _MucTieu;
 		
 		private System.Nullable<int> _IDDonViTinh;
+		
+		private string _DonViTinh;
 		
 		private System.Nullable<int> _IDChiTieuTren;
 		
@@ -421,7 +427,11 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 		
 		private System.Nullable<int> _IDTanSuatDo;
 		
+		private string _TanSuatDo;
+		
 		private System.Nullable<int> _IDXuHuongYeuCau;
+		
+		private string _XuHuongYeuCau;
 		
 		private System.Nullable<decimal> _STTsx;
 		
@@ -499,6 +509,22 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenHienThi", DbType="NVarChar(266)")]
+		public string TenHienThi
+		{
+			get
+			{
+				return this._TenHienThi;
+			}
+			set
+			{
+				if ((this._TenHienThi != value))
+				{
+					this._TenHienThi = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSo", DbType="Decimal(8,3)")]
 		public System.Nullable<decimal> TrongSo
 		{
@@ -511,6 +537,22 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 				if ((this._TrongSo != value))
 				{
 					this._TrongSo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSoHienThi", DbType="Decimal(12,7)")]
+		public System.Nullable<decimal> TrongSoHienThi
+		{
+			get
+			{
+				return this._TrongSoHienThi;
+			}
+			set
+			{
+				if ((this._TrongSoHienThi != value))
+				{
+					this._TrongSoHienThi = value;
 				}
 			}
 		}
@@ -543,6 +585,22 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 				if ((this._IDDonViTinh != value))
 				{
 					this._IDDonViTinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViTinh", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string DonViTinh
+		{
+			get
+			{
+				return this._DonViTinh;
+			}
+			set
+			{
+				if ((this._DonViTinh != value))
+				{
+					this._DonViTinh = value;
 				}
 			}
 		}
@@ -595,6 +653,22 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TanSuatDo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string TanSuatDo
+		{
+			get
+			{
+				return this._TanSuatDo;
+			}
+			set
+			{
+				if ((this._TanSuatDo != value))
+				{
+					this._TanSuatDo = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDXuHuongYeuCau", DbType="Int")]
 		public System.Nullable<int> IDXuHuongYeuCau
 		{
@@ -607,6 +681,22 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 				if ((this._IDXuHuongYeuCau != value))
 				{
 					this._IDXuHuongYeuCau = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XuHuongYeuCau", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string XuHuongYeuCau
+		{
+			get
+			{
+				return this._XuHuongYeuCau;
+			}
+			set
+			{
+				if ((this._XuHuongYeuCau != value))
+				{
+					this._XuHuongYeuCau = value;
 				}
 			}
 		}

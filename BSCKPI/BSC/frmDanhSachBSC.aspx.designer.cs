@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BSCKPI {
+namespace BSCKPI.BSC {
     
     
-    public partial class Default {
+    public partial class frmDanhSachBSC {
         
         /// <summary>
-        /// ResourceManager1 control.
+        /// tpBSC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.ResourceManager ResourceManager1;
+        protected global::Ext.Net.TreePanel tpBSC;
         
         /// <summary>
-        /// pnlChucNang control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Panel pnlChucNang;
+        protected global::Ext.Net.Panel Panel1;
         
         /// <summary>
-        /// TabPanelChinh control.
+        /// ucBK1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TabPanel TabPanelChinh;
+        protected global::BSCKPI.UC.ucBSCKPI ucBK1;
         
         /// <summary>
-        /// tabHome control.
+        /// btnCapNhatBSC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Panel tabHome;
+        protected global::Ext.Net.Button btnCapNhatBSC;
     }
 }

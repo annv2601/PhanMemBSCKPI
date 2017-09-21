@@ -49,6 +49,7 @@
     <Compile Include="daDatatableVaList.cs" />
     <Compile Include="DanhMucBSCKPI\daDanhMucBK.cs" />
     <Compile Include="DanhMucBSCKPI\daNhomDanhMucBK.cs" />
+    <Compile Include="DanhMucHeThong\daChucNang.cs" />
     <Compile Include="DanhMucHeThong\daDanhMucHT.cs" />
     <Compile Include="DanhMucHeThong\daNhomDanhMucHT.cs" />
     <Compile Include="Database\ChiTieuBSC\linqChiTieuBSC.designer.cs">
@@ -75,6 +76,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>linqDanhMucBK.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DanhMucMoHinh\linqChucNang.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqChucNang.dbml</DependentUpon>
     </Compile>
     <Compile Include="Database\DanhMucMoHinh\linqDanhMucHeThong.designer.cs">
       <AutoGen>True</AutoGen>
@@ -173,6 +179,14 @@
     </None>
     <None Include="Database\DanhMucBK\linqDanhMucBK.dbml.layout">
       <DependentUpon>linqDanhMucBK.dbml</DependentUpon>
+    </None>
+    <None Include="Database\DanhMucMoHinh\linqChucNang.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqChucNang.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\DanhMucMoHinh\linqChucNang.dbml.layout">
+      <DependentUpon>linqChucNang.dbml</DependentUpon>
     </None>
     <None Include="Database\DanhMucMoHinh\linqDanhMucHeThong.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

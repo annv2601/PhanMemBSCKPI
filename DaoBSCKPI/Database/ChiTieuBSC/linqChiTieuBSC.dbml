@@ -46,13 +46,18 @@
       <Column Name="Ma" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="STT" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TenHienThi" Type="System.String" DbType="NVarChar(266)" CanBeNull="true" />
       <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="TrongSoHienThi" Type="System.Decimal" DbType="Decimal(12,7)" CanBeNull="true" />
       <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
       <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IDChiTieuTren" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Muc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="STTsx" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
       <Column Name="InDam" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="InNghieng" Type="System.Boolean" DbType="Bit" CanBeNull="true" />

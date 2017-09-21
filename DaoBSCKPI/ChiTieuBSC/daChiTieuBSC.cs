@@ -15,6 +15,8 @@ namespace DaoBSCKPI.ChiTieuBSC
 
         public sp_tblBKChiTieuBSC_ThongTinResult BSC { get => _BSC; set => _BSC = value; }
 
+        public List<sp_tblBKChiTieuBSC_DanhSachResult> lstBSC = new List<sp_tblBKChiTieuBSC_DanhSachResult>();
+
         public sp_tblBKChiTieuBSC_ThongTinResult ThongTin()
         {
             try
@@ -39,6 +41,12 @@ namespace DaoBSCKPI.ChiTieuBSC
             List<sp_tblBKChiTieuBSC_DanhSachResult> lst;
             lst = lBSC.sp_tblBKChiTieuBSC_DanhSach(BSC.IDChiTieuTren).ToList();
             return daDatatableVaList.ToDataTable(lst);
+        }
+
+        public List<sp_tblBKChiTieuBSC_DanhSachResult> lstDanhSach()
+        {
+            lstBSC = lBSC.sp_tblBKChiTieuBSC_DanhSach(BSC.IDChiTieuTren).ToList();
+            return lstBSC;
         }
     }
 }

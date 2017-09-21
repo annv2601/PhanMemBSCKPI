@@ -11,11 +11,11 @@ namespace DaoBSCKPI.DanhMucBSCKPI
     public class daDanhMucBK
     {
         private linqDanhMucBKDataContext lDM = new linqDanhMucBKDataContext();
-        
-        public DataTable DanhSach()
+
+        public DataTable DanhSach(int rNhom)
         {
-            List<sp_tblBKNhomDanhMuc_DanhSachResult> lst;
-            lst = lDM.sp_tblBKNhomDanhMuc_DanhSach().ToList();
+            List<sp_tblBKDanhMuc_DanhSachResult> lst;
+            lst = lDM.sp_tblBKDanhMuc_DanhSach(rNhom).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
     }

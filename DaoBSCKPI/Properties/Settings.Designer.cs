@@ -30,7 +30,8 @@ namespace DaoBSCKPI.Properties {
             "ID=chay")]
         public string BSCKPIConnectionString {
             get {
-                return ((string)(this["BSCKPIConnectionString"]));
+                //return ((string)(this["BSCKPIConnectionString"]));
+                return System.Configuration.ConfigurationManager.ConnectionStrings["BSCKPIConnectionStrings"].ConnectionString;
             }
         }
     }

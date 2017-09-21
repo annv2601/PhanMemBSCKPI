@@ -88,15 +88,24 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BSC\frmDanhSachBSC.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
     <Content Include="resource\js\examples.js" />
     <Content Include="resource\js\main.js" />
     <Content Include="resource\js\perfect-scrollbar.min.js" />
+    <Content Include="UC\ucBSCKPI.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BSC\frmDanhSachBSC.aspx.cs">
+      <DependentUpon>frmDanhSachBSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BSC\frmDanhSachBSC.aspx.designer.cs">
+      <DependentUpon>frmDanhSachBSC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,9 +114,23 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC\ucBSCKPI.ascx.cs">
+      <DependentUpon>ucBSCKPI.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\ucBSCKPI.ascx.designer.cs">
+      <DependentUpon>ucBSCKPI.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="KPI\" />
     <Folder Include="resource\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DaoBSCKPI\DaoBSCKPI.csproj">
+      <Project>{12e40ddc-137a-4814-8934-4ba870a56e35}</Project>
+      <Name>DaoBSCKPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

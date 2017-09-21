@@ -10,13 +10,21 @@ namespace DaoBSCKPI.DanhMucBSCKPI
 {
     public class daNhomDanhMucBK
     {
+        public enum eNhom
+        {
+            Đơn_Vị_Tính=1,
+            Tần_Suất=2,
+            Xu_Hướng=3
+        }
+
         private linqDanhMucBKDataContext lDM = new linqDanhMucBKDataContext();
 
-        public DataTable DanhSach(int rNhom)
+        public DataTable DanhSach()
         {
-            List<sp_tblBKDanhMuc_DanhSachResult> lst;
-            lst = lDM.sp_tblBKDanhMuc_DanhSach(rNhom).ToList();
+            List<sp_tblBKNhomDanhMuc_DanhSachResult> lst;
+            lst = lDM.sp_tblBKNhomDanhMuc_DanhSach().ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
+        
     }
 }
