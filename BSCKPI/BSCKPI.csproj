@@ -88,7 +88,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BieuDo\frmBieuDoBar.aspx" />
+    <Content Include="BieuDo\frmBieuDoPie.aspx" />
     <Content Include="BSC\frmDanhSachBSC.aspx" />
+    <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
@@ -99,12 +102,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BieuDo\frmBieuDoBar.aspx.cs">
+      <DependentUpon>frmBieuDoBar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BieuDo\frmBieuDoBar.aspx.designer.cs">
+      <DependentUpon>frmBieuDoBar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BieuDo\frmBieuDoPie.aspx.cs">
+      <DependentUpon>frmBieuDoPie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BieuDo\frmBieuDoPie.aspx.designer.cs">
+      <DependentUpon>frmBieuDoPie.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BSC\frmDanhSachBSC.aspx.cs">
       <DependentUpon>frmDanhSachBSC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BSC\frmDanhSachBSC.aspx.designer.cs">
       <DependentUpon>frmDanhSachBSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BSC\frmGiaoBSC.aspx.cs">
+      <DependentUpon>frmGiaoBSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BSC\frmGiaoBSC.aspx.designer.cs">
+      <DependentUpon>frmGiaoBSC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

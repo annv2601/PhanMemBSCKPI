@@ -48,5 +48,6 @@ namespace DaoBSCKPI.ChiTieuBSC
             lstBSC = lBSC.sp_tblBKChiTieuBSC_DanhSach(BSC.IDChiTieuTren).ToList();
             return lstBSC;
         }
+        
     }
 }

@@ -10,7 +10,16 @@
 namespace BSCKPI.BSC {
     
     
-    public partial class frmDanhSachBSC {
+    public partial class frmGiaoBSC {
+        
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// FieldContainer1 control.
@@ -29,6 +38,42 @@ namespace BSCKPI.BSC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.TreePanel tpBSC;
+        
+        /// <summary>
+        /// slbThang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbThang;
+        
+        /// <summary>
+        /// stoThang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoThang;
+        
+        /// <summary>
+        /// slbNam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbNam;
+        
+        /// <summary>
+        /// stoNam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoNam;
         
         /// <summary>
         /// tabBieuDo control.

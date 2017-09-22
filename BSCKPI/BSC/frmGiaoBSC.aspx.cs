@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DaoBSCKPI.ChiTieuBSC;
 using DaoBSCKPI.Database.ChiTieuBSC;
 
 using Ext.Net;
+
 namespace BSCKPI.BSC
 {
-    public partial class frmDanhSachBSC : System.Web.UI.Page
+    public partial class frmGiaoBSC : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
+                DanhSachThangNam();
                 Node TN = new Node();
                 TN = CayDanhSachBSC(0);
                 tpBSC.Root.Add(TN);
@@ -24,7 +27,30 @@ namespace BSCKPI.BSC
             }
         }
 
+
         #region Rieng
+
+        private void DanhSachThangNam()
+        {
+            DataTable BDL = new DataTable();
+            BDL.Columns.Add("ID", typeof(int));
+            BDL.Columns.Add("Ten", typeof(string));
+            int i;
+            for(i=1;i<=12;i++)
+            {
+                BDL.Rows.Add(i, "Tháng " + i.ToString());
+            }
+            stoThang.DataSource = BDL;
+            stoThang.DataBind();
+
+            BDL.Rows.Clear();
+            i = DateTime.Now.Year - 1;
+            BDL.Rows.Add(i, "Năm " + i.ToString());
+            i = i + 1;
+            BDL.Rows.Add(i, "Năm " + i.ToString());
+            stoNam.DataSource = BDL;
+            stoNam.DataBind();
+        }
         private List<ConfigItem> PhanTu(sp_tblBKChiTieuBSC_ThongTinResult pt)
         {
             List<ConfigItem> _lst = new List<ConfigItem>();
@@ -75,9 +101,9 @@ namespace BSCKPI.BSC
             dBSC.BSC.IDChiTieuTren = IDBSCTren;
             dBSC.BSC.ID = IDBSCTren;
             dBSC.lstDanhSach();
-            if (dBSC.lstBSC.Count==0)
-            {                
-                _lci=PhanTu(dBSC.ThongTin());
+            if (dBSC.lstBSC.Count == 0)
+            {
+                _lci = PhanTu(dBSC.ThongTin());
 
                 _treenode.NodeID = IDBSCTren.ToString();
                 _treenode.CustomAttributes.Add(_lci[0]);
@@ -135,7 +161,7 @@ namespace BSCKPI.BSC
         protected void btnCapNhatBSC_Click(object sender, DirectEventArgs e)
         {
             daChiTieuBSC dBSC = new daChiTieuBSC();
-            
+
             dBSC.BSC.ID = ucBK1.idBSC;
             dBSC.BSC.Ma = ucBK1.Ma;
             dBSC.BSC.Ten = ucBK1.Ten;
@@ -158,7 +184,6 @@ namespace BSCKPI.BSC
             tpBSC.Root.Add(TN);
             tpBSC.Render();
 
-            ucBK1.KhoiTaoDanhMuc();
             fdcNhapLieu.Render();
             tabBieuDo.Render();
         }
@@ -190,7 +215,7 @@ namespace BSCKPI.BSC
             ucBK1.InDam = dBSC.BSC.InDam.Value;
             ucBK1.InNghieng = dBSC.BSC.InNghieng.Value;
 
-           
+
         }
         #endregion
     }

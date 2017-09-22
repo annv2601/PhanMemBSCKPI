@@ -173,7 +173,7 @@ namespace BSCKPI.UC
         public void KhoiTao()
         {
             idBSC = 0;
-            idChiTieuTren = 0;
+            //idChiTieuTren = 0;
             Ma = "";
             Ten = "";
             TrongSo = 0;
@@ -185,6 +185,13 @@ namespace BSCKPI.UC
             DonViTinh = -1;
             TanSuatDo = -1;
             XuHuongYeuCau = -1;
+        }
+
+        public void KhoiTaoDanhMuc()
+        {
+            DanhSachDanhMuc((int)daNhomDanhMucBK.eNhom.Đơn_Vị_Tính);
+            DanhSachDanhMuc((int)daNhomDanhMucBK.eNhom.Tần_Suất);
+            DanhSachDanhMuc((int)daNhomDanhMucBK.eNhom.Xu_Hướng);
         }
         #endregion
     }

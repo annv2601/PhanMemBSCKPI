@@ -24,7 +24,7 @@
                             FieldLabel="Đơn vị tính"
                             DisplayField="Ten"
                             ValueField="ID"
-                            Width="120"
+                            Width="120" QueryMode="Local"
                             TypeAhead="true" MarginSpec="0 0 0 10">
                             <Store>
                                 <ext:Store runat="server" ID="stoDonViTinh" AutoDataBind="true">
@@ -39,7 +39,7 @@
                                 </ext:Store>
                             </Store>
                         </ext:ComboBox>
-                        <ext:NumberField ID="txtTrongSo" runat="server" FieldLabel="Trọng số" Width="100" AllowDecimals="true" DecimalPrecision="3" MarginSpec="0 0 0 10" MinValue="0" MaxValue="100"/>
+                        <ext:NumberField ID="txtTrongSo" runat="server" FieldLabel="Trọng số (%)" Width="100" AllowDecimals="true" DecimalPrecision="3" MarginSpec="0 0 0 10" MinValue="0" MaxValue="100"/>
                     </Items>
                 </ext:FieldContainer>
                 <ext:FieldContainer runat="server" Layout="HBoxLayout">
@@ -55,7 +55,7 @@
                             FieldLabel="Tần suất"
                             DisplayField="Ten"
                             ValueField="ID"
-                            Width="100"
+                            Width="100" QueryMode="Local"
                             TypeAhead="true" MarginSpec="0 0 0 30">
                             <Store>
                                 <ext:Store runat="server" ID="stoTanSuat" AutoDataBind="true">
@@ -76,7 +76,7 @@
                             FieldLabel="Xu hướng"
                             DisplayField="Ten"
                             ValueField="ID"
-                            Width="120"
+                            Width="120" QueryMode="Local"
                             TypeAhead="true" MarginSpec="0 0 0 10">
                             <Store>
                                 <ext:Store runat="server" ID="stoXuHuong" AutoDataBind="true">

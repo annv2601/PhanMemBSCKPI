@@ -55,10 +55,10 @@
 <body>
     <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Default" />
 
-    <ext:Viewport runat="server" Layout="BorderLayout">
+    <ext:Viewport runat="server" Layout="BorderLayout" UI="Warning">
         <Items>           
 
-            <ext:Panel
+            <%--<ext:Panel
                 runat="server"
                 Header="false"
                 Region="North"
@@ -68,7 +68,7 @@
                     <header class="site-header" role="banner">
                         <nav class="top-navigation">
                             <div class="logo-container">
-                                <%--<img src="resources/images/extdotnet-logo.svg" />--%>
+                               
                             </div>
                             <div class="navigation-bar">
                                 <div class="platform-selector-container">
@@ -79,34 +79,16 @@
                                     <span></span>
                                 </label>
                             </div>
-                            <%--<ext:FieldContainer
-                                runat="server"
-                                FieldLabel=""
-                                AnchorHorizontal="100%"
-                                Layout="HBoxLayout">
-                                <Items>
-                                    <ext:Button runat="server" ID="btnBSC" Text="BSC" MarginSpec="0 0 0 50" UI="Warning" Scale="Large" Width="100">
-
-                                    </ext:Button>
-                                    <ext:Button runat="server" ID="btnKPI" Text="KPI" MarginSpec="0 0 0 10" UI="Warning" Scale="Large" Width="100">
-
-                                    </ext:Button>
-                                    <ext:Button runat="server" ID="btnBaoCao" Text="Báo cáo" MarginSpec="0 0 0 10" UI="Warning" Scale="Large" Width="100">
-
-                                    </ext:Button>
-                                </Items>
-                            </ext:FieldContainer>--%>
-                            
                         </nav>
                     </header>
                 </Content>                
-            </ext:Panel>
+            </ext:Panel>--%>
 
             <ext:Panel ID="pnlChucNang"
                 runat="server"
                     Region="West"
                     Title="Chức năng"
-                    Width="300"
+                    Width="200"
                     Collapsible="true"
                     Split="true"
                     MinWidth="175"
@@ -136,6 +118,24 @@
                     </ext:Panel>
                 </Items>
             </ext:TabPanel>
+
+            <%--<ext:Panel ID="tabBieuDo"
+                runat="server"
+                Title="Biểu đồ"
+                Region="East"
+                Collapsible="true"
+                Split="true"
+                MinWidth="100"
+                Width="200"
+                Layout="Fit" LayoutOnTabChange="true" HideMode="Offsets">
+                <Items>
+                    <ext:FieldContainer runat="server">
+                        <Loader runat="server" Mode="Frame" Url="/BieuDo/frmBieuDoPie.aspx">
+
+                        </Loader>
+                    </ext:FieldContainer>
+                </Items>
+            </ext:Panel>--%>
         </Items>
     </ext:Viewport>
 </body>

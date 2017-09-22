@@ -1,38 +1,64 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmDanhSachBSC.aspx.cs" Inherits="BSCKPI.BSC.frmDanhSachBSC" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmGiaoBSC.aspx.cs" Inherits="BSCKPI.BSC.frmGiaoBSC" %>
 <%@ Register src="~/UC/ucBSCKPI.ascx" tagname="BK" tagprefix="uc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <ext:XScript runat="server">
-        <script>
-            var TaiBieuDo = function ()
-            {
-
-            }
-        </script>
-    </ext:XScript>
 </head>
 <body>
     <ext:ResourceManager runat="server" />
-    <form runat="server">
-    <ext:FieldContainer runat="server" Layout="HBoxLayout" ID="FieldContainer1" >
+    <form id="form1" runat="server">
+        <ext:FieldContainer runat="server" Layout="HBoxLayout" ID="FieldContainer1" >
          <Items>
          
             <ext:TreePanel
             runat="server" ID="tpBSC"
             Title="Danh sách BSC"
             Width="1000"
-            Height="420"
+            Height="380"
             Collapsible="false"
             UseArrows="true"
             RootVisible="false"
             MultiSelect="false"
             SingleExpand="false"
             FolderSort="true">
-        
+            <TopBar>
+                <ext:Toolbar runat="server">
+                    <Items>
+                        <ext:SelectBox runat="server" ID="slbThang" 
+                            EmptyText="Tháng ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10">
+                            <Store>
+                                <ext:Store runat="server" ID="stoThang">
+                                    <Model>
+                                        <ext:Model runat="server">
+                                            <Fields>
+                                                <ext:ModelField Name="ID" />
+                                                <ext:ModelField Name="Ten" />
+                                            </Fields>
+                                        </ext:Model>
+                                    </Model>
+                                </ext:Store>
+                            </Store>
+                        </ext:SelectBox>
+                        <ext:SelectBox runat="server" ID="slbNam" QueryMode="Local" TypeAhead="true"
+                            EmptyText="Năm ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10">
+                            <Store>
+                                <ext:Store runat="server" ID="stoNam" AutoDataBind="true">
+                                    <Model>
+                                        <ext:Model runat="server">
+                                            <Fields>
+                                                <ext:ModelField Name="ID" />
+                                                <ext:ModelField Name="Ten" />
+                                            </Fields>
+                                        </ext:Model>
+                                    </Model>
+                                </ext:Store>
+                            </Store>
+                        </ext:SelectBox>
+                    </Items>
+                </ext:Toolbar>
+            </TopBar>
             <Fields>                
                 <ext:ModelField Name="Ma" />
                 <ext:ModelField Name="Ten" />
