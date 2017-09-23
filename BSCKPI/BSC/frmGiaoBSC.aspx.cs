@@ -7,8 +7,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DaoBSCKPI.ChiTieuBSC;
 using DaoBSCKPI.Database.ChiTieuBSC;
-
+using DaoBSCKPI.NhanVien;
+using DaoBSCKPI;
 using Ext.Net;
+using BSCKPI.UIHelper;
 
 namespace BSCKPI.BSC
 {
@@ -18,15 +20,25 @@ namespace BSCKPI.BSC
         {
             if (!X.IsAjaxRequest)
             {
-                DanhSachThangNam();
-                Node TN = new Node();
-                TN = CayDanhSachBSC(0);
-                tpBSC.Root.Add(TN);
+                daThongTinNhanVien dTTNV = new daThongTinNhanVien();
+                dTTNV.TTNV.IDDonVi = 2;
+                dTTNV.TTNV.IDPhongBan = 2;
+                dTTNV.TTNV.IDNhanVien = Guid.Empty;
+                daPhien.NguoiDung = dTTNV.TTNV;
 
+                DanhSachThangNam();
+                
                 ucBK1.KhoiTao();
+
+                LaChon = true;
             }
         }
 
+        private bool LaChon
+        {
+            get { return Session["ChonThangNamBSC"] == null ? false : (bool)Session["ChonThangNamBSC"]; }
+            set { Session["ChonThangNamBSC"] = value; }
+        }
 
         #region Rieng
 
@@ -51,7 +63,7 @@ namespace BSCKPI.BSC
             stoNam.DataSource = BDL;
             stoNam.DataBind();
         }
-        private List<ConfigItem> PhanTu(sp_tblBKChiTieuBSC_ThongTinResult pt)
+        private List<ConfigItem> PhanTu(sp_tblBKChiTieuBSCPhong_ThongTinHienThiResult pt)
         {
             List<ConfigItem> _lst = new List<ConfigItem>();
             ConfigItem _ci = new ConfigItem();
@@ -62,12 +74,17 @@ namespace BSCKPI.BSC
 
             _ci = new ConfigItem();
             _ci.Name = "Ten";
-            _ci.Value = pt.TenHienThi;
+            _ci.Value = pt.TenBSC;
             _lst.Add(_ci);
 
             _ci = new ConfigItem();
             _ci.Name = "TrongSo";
-            _ci.Value = pt.TrongSoHienThi.ToString();
+            _ci.Value = pt.TrongSoChiTieu.ToString();
+            _lst.Add(_ci);
+
+            _ci = new ConfigItem();
+            _ci.Name = "TrongSoChung";
+            _ci.Value = pt.TrongSoChung.ToString();
             _lst.Add(_ci);
 
             _ci = new ConfigItem();
@@ -77,7 +94,7 @@ namespace BSCKPI.BSC
 
             _ci = new ConfigItem();
             _ci.Name = "DonViTinh";
-            _ci.Value = pt.DonViTinh;
+            _ci.Value = pt.DonViTing;
             _lst.Add(_ci);
 
             _ci = new ConfigItem();
@@ -93,17 +110,22 @@ namespace BSCKPI.BSC
             return _lst;
         }
 
-        private Node CayDanhSachBSC(int IDBSCTren)
+        private Node CayDanhSachBSC(daThamSo TS,int IDBSCTren)
         {
             Node _treenode = new Node();
             List<ConfigItem> _lci = new List<ConfigItem>();
-            daChiTieuBSC dBSC = new daChiTieuBSC();
-            dBSC.BSC.IDChiTieuTren = IDBSCTren;
-            dBSC.BSC.ID = IDBSCTren;
-            dBSC.lstDanhSach();
-            if (dBSC.lstBSC.Count == 0)
+            daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
+
+            dBSCP.BSCP.Thang = TS.Thang;
+            dBSCP.BSCP.Nam = TS.Nam;
+            dBSCP.BSCP.IDDonVi = TS.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = TS.IDPhongBan;
+            dBSCP.BSCP.IDBSC = IDBSCTren;
+            dBSCP.DanhSachNhom(IDBSCTren);
+            if (dBSCP.lstBSCPhong.Count == 0)
             {
-                _lci = PhanTu(dBSC.ThongTin());
+                
+                _lci = PhanTu(dBSCP.ThongTinHienThi());
 
                 _treenode.NodeID = IDBSCTren.ToString();
                 _treenode.CustomAttributes.Add(_lci[0]);
@@ -122,9 +144,9 @@ namespace BSCKPI.BSC
             }
             else
             {
-                if (dBSC.ThongTin() != null)
+                if (dBSCP.ThongTinHienThi() != null)
                 {
-                    _lci = PhanTu(dBSC.BSC);
+                    _lci = PhanTu(dBSCP.HtBSCP);
                     _treenode.NodeID = IDBSCTren.ToString();
                     _treenode.CustomAttributes.Add(_lci[0]);
                     _treenode.CustomAttributes.Add(_lci[1]);
@@ -135,13 +157,45 @@ namespace BSCKPI.BSC
                     _treenode.CustomAttributes.Add(_lci[6]);
                     _treenode.Leaf = false;
                 }
-                foreach (sp_tblBKChiTieuBSC_DanhSachResult pt in dBSC.lstBSC)
+                foreach (sp_tblBKChiTieuBSCPhong_DanhSach_NhomIDResult pt in dBSCP.lstBSCPhong)
                 {
-                    _treenode.Children.Add(CayDanhSachBSC(pt.ID));
+                    _treenode.Children.Add(CayDanhSachBSC(TS,pt.IDBSC.Value));
                 }
             }
 
             return _treenode;
+        }
+
+        private void HienThiBieu()
+        {
+            LaChon = false;
+            daThamSo dTS = new daThamSo();
+            dTS.Thang = byte.Parse(slbThang.SelectedItem.Value);
+            dTS.Nam = int.Parse(slbNam.SelectedItem.Value);
+            dTS.IDDonVi = daPhien.NguoiDung.IDDonVi.Value;
+            dTS.IDPhongBan = daPhien.NguoiDung.IDPhongBan.Value;
+            dTS.IDNguoiDung = daPhien.NguoiDung.IDNhanVien.ToString();
+            daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
+            dBSCP.BSCP.Thang = dTS.Thang;
+            dBSCP.BSCP.Nam = dTS.Nam;
+            dBSCP.BSCP.IDDonVi = dTS.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = dTS.IDPhongBan;
+            dBSCP.BSCP.NguoiTao = dTS.IDNguoiDung;
+            dBSCP.KhoiTao();
+
+            DanhSachThangNam();
+
+            tpBSC.Root.Clear();
+            Node TN = new Node();
+            TN = CayDanhSachBSC(dTS, 0);
+            tpBSC.Root.Add(TN);
+            tpBSC.Title = "Danh sách BSC Đơn vị tháng " + dTS.Thang.ToString() + " năm " + dTS.Nam.ToString();
+            tpBSC.ExpandAll();
+            tpBSC.Render();
+
+            ucBK1.KhoiTaoDanhMuc();
+            fdcNhapLieu.Render();
+            tabBieuDo.Render();
         }
         #endregion
 
@@ -158,34 +212,32 @@ namespace BSCKPI.BSC
                 ucBK1.idChiTieuTren = 0;
             }
         }
+
         protected void btnCapNhatBSC_Click(object sender, DirectEventArgs e)
         {
-            daChiTieuBSC dBSC = new daChiTieuBSC();
+            if (slbThang.SelectedItem.Value == null || slbNam.SelectedItem.Value == null)
+            {
+                return;
+            }
+            daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
+            dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
+            dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
+            dBSCP.BSCP.IDDonVi = daPhien.NguoiDung.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dBSCP.BSCP.IDBSC = ucBK1.idBSC;
 
-            dBSC.BSC.ID = ucBK1.idBSC;
-            dBSC.BSC.Ma = ucBK1.Ma;
-            dBSC.BSC.Ten = ucBK1.Ten;
-            dBSC.BSC.TrongSo = ucBK1.TrongSo;
-            dBSC.BSC.MucTieu = ucBK1.MucTieu;
-            dBSC.BSC.IDDonViTinh = ucBK1.DonViTinh;
-            dBSC.BSC.IDChiTieuTren = ucBK1.idChiTieuTren;
-            dBSC.BSC.Muc = ucBK1.Muc;
-            dBSC.BSC.IDTanSuatDo = ucBK1.TanSuatDo;
-            dBSC.BSC.IDXuHuongYeuCau = ucBK1.XuHuongYeuCau;
-            dBSC.BSC.STTsx = ucBK1.STTsx;
-            dBSC.BSC.InDam = ucBK1.InDam;
-            dBSC.BSC.InNghieng = ucBK1.InNghieng;
-            dBSC.ThemSua();
+            dBSCP.BSCP.TrongSoChiTieu = ucBK1.TrongSo;
+            dBSCP.BSCP.TrongSoChung = (dBSCP.LayTrongSoChung() * ucBK1.TrongSo / 100)*100;
+            dBSCP.BSCP.MucTieu = ucBK1.MucTieu;
+            dBSCP.BSCP.IDDonViTinh = ucBK1.DonViTinh;
+
+            dBSCP.BSCP.IDTanSuatDo = ucBK1.TanSuatDo;
+            dBSCP.BSCP.IDXuHuongYeuCau = ucBK1.XuHuongYeuCau;
+            dBSCP.ThemSua();
             ucBK1.KhoiTao();
 
-            tpBSC.Root.Clear();
-            Node TN = new Node();
-            TN = CayDanhSachBSC(0);
-            tpBSC.Root.Add(TN);
-            tpBSC.Render();
-
-            fdcNhapLieu.Render();
-            tabBieuDo.Render();
+            HienThiBieu();
+            LaChon = true;
         }
 
         protected void tpBSC_Click(object sender, DirectEventArgs e)
@@ -198,24 +250,45 @@ namespace BSCKPI.BSC
 
             //ucBK1.idChiTieuTren = int.Parse(tpBSC.SelectedNodes[0].NodeID);
 
-            daChiTieuBSC dBSC = new daChiTieuBSC();
-            dBSC.BSC.ID = int.Parse(tpBSC.SelectedNodes[0].NodeID);
-            dBSC.ThongTin();
-            ucBK1.idBSC = dBSC.BSC.ID;
-            ucBK1.Ma = dBSC.BSC.Ma;
-            ucBK1.Ten = dBSC.BSC.Ten;
-            ucBK1.idChiTieuTren = dBSC.BSC.IDChiTieuTren.Value;
-            ucBK1.MucTieu = dBSC.BSC.MucTieu.Value;
-            ucBK1.DonViTinh = dBSC.BSC.IDDonViTinh.Value;
-            ucBK1.TrongSo = dBSC.BSC.TrongSo.Value;
-            ucBK1.Muc = dBSC.BSC.Muc.Value;
-            ucBK1.TanSuatDo = dBSC.BSC.IDTanSuatDo.Value;
-            ucBK1.XuHuongYeuCau = dBSC.BSC.IDXuHuongYeuCau.Value;
-            ucBK1.STTsx = dBSC.BSC.STTsx.Value;
-            ucBK1.InDam = dBSC.BSC.InDam.Value;
-            ucBK1.InNghieng = dBSC.BSC.InNghieng.Value;
+            daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
+            dBSCP.BSCP.IDBSC = int.Parse(tpBSC.SelectedNodes[0].NodeID);
+            dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
+            dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
+            dBSCP.BSCP.IDDonVi = daPhien.NguoiDung.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dBSCP.ThongTinHienThi();
+            ucBK1.idBSC = dBSCP.HtBSCP.IDBSC.Value;
+            ucBK1.Ma = dBSCP.HtBSCP.Ma;
+            ucBK1.Ten = dBSCP.HtBSCP.TenBSC;
+            ucBK1.idChiTieuTren = dBSCP.HtBSCP.IDChiTieuTren.Value;
+            ucBK1.MucTieu = dBSCP.HtBSCP.MucTieu.Value;
+            ucBK1.DonViTinh = dBSCP.HtBSCP.IDDonViTinh.Value;
+            ucBK1.TrongSo = dBSCP.HtBSCP.TrongSoChiTieu.Value * 100;
+            
+            ucBK1.TanSuatDo = dBSCP.HtBSCP.IDTanSuatDo.Value;
+            ucBK1.XuHuongYeuCau = dBSCP.HtBSCP.IDXuHuongYeuCau.Value;
+            
 
 
+        }
+
+        protected void slbThang_Change(object sender, DirectEventArgs e)
+        {            
+            if (slbThang.SelectedItem.Value==null || slbNam.SelectedItem.Value==null)
+            {
+                return;
+            }
+            if (LaChon)
+            {
+                HienThiBieu();               
+            }
+
+        }
+
+        protected void btnHienThi_Click(object sender, DirectEventArgs e)
+        {
+            HienThiBieu();
+            LaChon = true;
         }
         #endregion
     }

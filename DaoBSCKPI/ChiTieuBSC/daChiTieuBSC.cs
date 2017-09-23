@@ -29,7 +29,7 @@ namespace DaoBSCKPI.ChiTieuBSC
                 return null;
             }
         }
-
+        
         public void ThemSua()
         {
             lBSC.sp_tblBKChiTieuBSC_ThemSua(BSC.ID, BSC.Ma, BSC.STT, BSC.Ten, BSC.TrongSo, BSC.MucTieu, BSC.IDDonViTinh, BSC.IDChiTieuTren, BSC.Muc, BSC.IDTanSuatDo,

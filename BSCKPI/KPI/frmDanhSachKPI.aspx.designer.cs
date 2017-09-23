@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BSCKPI.BSC {
+namespace BSCKPI.KPI {
     
     
-    public partial class frmGiaoBSC {
+    public partial class frmDanhSachKPI {
         
         /// <summary>
         /// form1 control.
@@ -22,76 +22,22 @@ namespace BSCKPI.BSC {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// FieldContainer1 control.
+        /// stoKPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldContainer FieldContainer1;
+        protected global::Ext.Net.Store stoKPI;
         
         /// <summary>
-        /// tpBSC control.
+        /// grdKPI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TreePanel tpBSC;
-        
-        /// <summary>
-        /// slbThang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.SelectBox slbThang;
-        
-        /// <summary>
-        /// stoThang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store stoThang;
-        
-        /// <summary>
-        /// slbNam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.SelectBox slbNam;
-        
-        /// <summary>
-        /// stoNam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store stoNam;
-        
-        /// <summary>
-        /// btnHienThi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Button btnHienThi;
-        
-        /// <summary>
-        /// tabBieuDo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Panel tabBieuDo;
+        protected global::Ext.Net.GridPanel grdKPI;
         
         /// <summary>
         /// fdcNhapLieu control.
@@ -119,6 +65,15 @@ namespace BSCKPI.BSC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BSCKPI.UC.ucBSCKPI ucBK1;
+        
+        /// <summary>
+        /// btnThemMoiBSC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button btnThemMoiBSC;
         
         /// <summary>
         /// btnCapNhatBSC control.

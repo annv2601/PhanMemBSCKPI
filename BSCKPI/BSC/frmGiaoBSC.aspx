@@ -14,9 +14,9 @@
          
             <ext:TreePanel
             runat="server" ID="tpBSC"
-            Title="Danh sách BSC"
+            Title="Danh sách BSC Đơn vị" TitleAlign="Center"
             Width="1000"
-            Height="380"
+            Height="420"
             Collapsible="false"
             UseArrows="true"
             RootVisible="false"
@@ -27,7 +27,12 @@
                 <ext:Toolbar runat="server">
                     <Items>
                         <ext:SelectBox runat="server" ID="slbThang" 
-                            EmptyText="Tháng ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10">
+                            EmptyText="Tháng ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10" RenderXType="True">
+                            <DirectEvents>
+                                <Change OnEvent="slbThang_Change">
+                                    <EventMask ShowMask="true" Msg="Thực thi ......" />
+                                </Change>
+                            </DirectEvents>
                             <Store>
                                 <ext:Store runat="server" ID="stoThang">
                                     <Model>
@@ -42,7 +47,12 @@
                             </Store>
                         </ext:SelectBox>
                         <ext:SelectBox runat="server" ID="slbNam" QueryMode="Local" TypeAhead="true"
-                            EmptyText="Năm ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10">
+                            EmptyText="Năm ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10" RenderXType="true">
+                            <DirectEvents>
+                                <Change OnEvent="slbThang_Change">
+                                    <EventMask ShowMask="true" Msg="Thực thi ......" />
+                                </Change>
+                            </DirectEvents>
                             <Store>
                                 <ext:Store runat="server" ID="stoNam" AutoDataBind="true">
                                     <Model>
@@ -56,6 +66,11 @@
                                 </ext:Store>
                             </Store>
                         </ext:SelectBox>
+                        <ext:Button ID="btnHienThi" runat="server" Icon="PageRefresh" ToolTip="Hiển thị lại dữ liệu" MarginSpec="0 0 0 10">
+                            <DirectEvents>
+                                <Click OnEvent="btnHienThi_Click" />
+                            </DirectEvents>
+                        </ext:Button>
                     </Items>
                 </ext:Toolbar>
             </TopBar>
@@ -63,6 +78,7 @@
                 <ext:ModelField Name="Ma" />
                 <ext:ModelField Name="Ten" />
                 <ext:ModelField Name="TrongSo" Type="Float" />
+                <ext:ModelField Name="TrongSoChung" Type="Float" />
                 <ext:ModelField Name="MucTieu" Type="Float" />
                 <ext:ModelField Name="DonViTinh" />
                 <ext:ModelField Name="TanSuatDo" />
@@ -81,7 +97,9 @@
                         Text="Trọng số"
                         Flex="1"
                         Sortable="true"
-                        DataIndex="TrongSo" FormatterFn="Percent"/>
+                        DataIndex="TrongSo" FormatterFn="Percent" Width="100" />
+                    <ext:NumberColumn runat="server" Text="Trọng số chung" DataIndex="TrongSoChung" Format="000,000,000,000.00%" Width="100"/>
+                    <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000,000.000" Width="200"/>
                    <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
                     <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo" />
                     <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau" />
@@ -119,11 +137,11 @@
             </ext:Panel>
              <ext:FieldContainer runat="server" Layout="VBoxLayout" >
                 <Items>
-                    <ext:Button ID="btnThemMoiBSC" runat="server" Text="Thêm mới" Icon="Add" Width="150" Height="50" MarginSpec="20 0 0 0">
+                    <%--<ext:Button ID="btnThemMoiBSC" runat="server" Text="Thêm mới" Icon="Add" Width="150" Height="50" MarginSpec="20 0 0 0">
                         <DirectEvents>
                             <Click OnEvent="btnThemMoiBSC_Click" />
                         </DirectEvents>
-                    </ext:Button>
+                    </ext:Button>--%>
                     <ext:Button ID="btnCapNhatBSC" runat="server" Text="Cập nhật" Icon="Accept" Width="150" Height="50" MarginSpec="50 0 0 0">
                         <DirectEvents>
                             <Click OnEvent="btnCapNhatBSC_Click" />

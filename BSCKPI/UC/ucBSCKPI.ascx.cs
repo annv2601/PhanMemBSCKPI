@@ -24,7 +24,7 @@ namespace BSCKPI.UC
         }
 
         #region Thuoc tinh
-        public int idBSC
+        /*public int idBSC
         {
             get { return Session["IDBSCThemSua"] == null ? 0 : (int)Session["IDBSCThemSua"]; }
             set { Session["IDBSCThemSua"] = value; }
@@ -34,6 +34,18 @@ namespace BSCKPI.UC
         {
             get { return Session["IDChiTieuTrenBSC"] == null ? 0 : (int)Session["IDChiTieuTrenBSC"]; }
             set { Session["IDChiTieuTrenBSC"] = value; }
+        }*/
+
+        public int idBSC
+        {
+            get { return txtIDBSC.Text == "" ? 0 : int.Parse(txtIDBSC.Text); }
+            set { txtIDBSC.Text = value.ToString(); }
+        }
+
+        public int idChiTieuTren
+        {
+            get { return txtidChiTieuTren.Text == "" ? 0 : int.Parse(txtidChiTieuTren.Text); }
+            set { txtidChiTieuTren.Text = value.ToString(); }
         }
 
         public string Ma

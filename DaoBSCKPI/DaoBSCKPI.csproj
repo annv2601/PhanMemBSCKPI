@@ -122,6 +122,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqPhanBoMucTieu.dbml</DependentUpon>
     </Compile>
+    <Compile Include="daThamSo.cs" />
     <Compile Include="DonVi\daDonVi.cs" />
     <Compile Include="DonVi\daMoHinhDonVi.cs" />
     <Compile Include="DonVi\daMoHinhPhongBan.cs" />

@@ -93,6 +93,7 @@
     <Content Include="BSC\frmDanhSachBSC.aspx" />
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="KPI\frmDanhSachKPI.aspx" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
     <Content Include="resource\js\examples.js" />
@@ -137,6 +138,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KPI\frmDanhSachKPI.aspx.cs">
+      <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmDanhSachKPI.aspx.designer.cs">
+      <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC\ucBSCKPI.ascx.cs">
       <DependentUpon>ucBSCKPI.ascx</DependentUpon>
@@ -145,9 +153,9 @@
     <Compile Include="UC\ucBSCKPI.ascx.designer.cs">
       <DependentUpon>ucBSCKPI.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UIHelper\daPhien.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="KPI\" />
     <Folder Include="resource\images\" />
   </ItemGroup>
   <ItemGroup>

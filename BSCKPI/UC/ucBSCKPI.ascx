@@ -17,6 +17,8 @@
                 <ext:FieldContainer runat="server" Layout="HBoxLayout">
                     <FieldDefaults LabelAlign="Top" />
                     <Items>
+                        <ext:Hidden runat="server" ID="txtIDBSC" />
+                        <ext:Hidden runat="server" ID="txtidChiTieuTren" />
                         <ext:TextField ID="txtTen" runat="server" FieldLabel="Tên" Width="450" MarginSpec="0 0 0 10"/>
                         <ext:NumberField ID="txtMucTieu" runat="server" FieldLabel="Mục tiêu" Width="100" AllowDecimals="true" DecimalPrecision="3" MarginSpec="0 0 0 10"/>
                         <ext:ComboBox ID="cboDonViTinh"

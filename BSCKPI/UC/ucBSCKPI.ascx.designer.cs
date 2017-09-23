@@ -31,6 +31,24 @@ namespace BSCKPI.UC {
         protected global::Ext.Net.Panel Panel2;
         
         /// <summary>
+        /// txtIDBSC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Hidden txtIDBSC;
+        
+        /// <summary>
+        /// txtidChiTieuTren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Hidden txtidChiTieuTren;
+        
+        /// <summary>
         /// txtTen control.
         /// </summary>
         /// <remarks>
