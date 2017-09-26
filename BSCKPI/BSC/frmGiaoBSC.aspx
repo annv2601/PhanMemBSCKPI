@@ -121,7 +121,7 @@
                 Width="400"
                 Height="380"
                 Layout="Fit">
-                 <Loader ID="lBieuDo" runat="server" Mode="Frame" Url="/BieuDo/frmBieuDoPie.aspx">
+                 <Loader ID="lBieuDo" runat="server" Mode="Frame" Url="">
 
                 </Loader>
             </ext:Panel>

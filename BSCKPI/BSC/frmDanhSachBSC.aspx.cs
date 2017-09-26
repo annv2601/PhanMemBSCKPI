@@ -8,6 +8,7 @@ using DaoBSCKPI.ChiTieuBSC;
 using DaoBSCKPI.Database.ChiTieuBSC;
 
 using Ext.Net;
+using BSCKPI.UIHelper;
 namespace BSCKPI.BSC
 {
     public partial class frmDanhSachBSC : System.Web.UI.Page
@@ -168,6 +169,7 @@ namespace BSCKPI.BSC
             #region Hien thi bieu do
             Session["MaBieuDo"] = "BieuDoBSC";
             Session["IDBSCTren"] = tpBSC.SelectedNodes[0].NodeID;
+            tabBieuDo.Loader.Url = daPhien.LayDiaChiURL("/BieuDo/frmBieuDoPie.aspx");
             tabBieuDo.Loader.LoadContent();
             #endregion
 

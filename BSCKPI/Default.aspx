@@ -111,7 +111,7 @@
                     <ext:Panel
                         ID="tabHome"
                         runat="server"
-                        Title="Home"
+                        Title="Trang chính"
                         HideMode="Offsets"
                         IconCls="fa fa-home">
                        

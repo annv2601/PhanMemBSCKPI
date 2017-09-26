@@ -8,7 +8,7 @@ using DaoBSCKPI.Database.ChiTieuKPI;
 
 namespace DaoBSCKPI.ChiTieuKPI
 {
-    class daChiTieuKPI
+    public class daChiTieuKPI
     {
         private linqChiTieuKPIDataContext lKPI = new linqChiTieuKPIDataContext();
         private sp_tblBKChiTieuKPI_ThongTinResult _KPI = new sp_tblBKChiTieuKPI_ThongTinResult();
@@ -31,7 +31,7 @@ namespace DaoBSCKPI.ChiTieuKPI
         public void ThemSua()
         {
             lKPI.sp_tblBKChiTieuKPI_ThemSua(KPI.ID, KPI.Ma, KPI.STT, KPI.Ten, KPI.TrongSo, KPI.MucTieu, KPI.IDDonViTinh, KPI.IDBSC, KPI.Muc, KPI.IDTanSuatDo, KPI.IDXuHuongYeuCau,
-                KPI.STTsx, KPI.InDam, KPI.InNghieng, KPI.NguoiTao, KPI.TrangThai, KPI.NguoiThaoTac);
+                KPI.IDDonVi,KPI.IDPhongBan,KPI.ChiTieuChung,KPI.STTsx, KPI.InDam, KPI.InNghieng, KPI.NguoiTao, KPI.TrangThai, KPI.NguoiThaoTac);
         }
 
         public void GanVoiBSC()
@@ -41,7 +41,14 @@ namespace DaoBSCKPI.ChiTieuKPI
 
         public void DoiTrangThai()
         {
-            lKPI.sp_tblBKChiTieuKPI_DoiTrangThai(KPI.ID, KPI.TrangThai, KPI.NguoiThaoTac);
+            lKPI.sp_tblBKChiTieuKPI_DoiTrangThai(KPI.ID, KPI.TrangThai,KPI.ChiTieuChung,KPI.GhiChuTrangThai, KPI.NguoiThaoTac);
         }
+
+        public DataTable DanhSach()
+        {
+            List<sp_tblBKChiTieuKPI_DanhSachResult> lst;
+            lst = lKPI.sp_tblBKChiTieuKPI_DanhSach(KPI.IDDonVi, KPI.IDPhongBan).ToList();
+            return daDatatableVaList.ToDataTable(lst);
+        }     
     }
 }

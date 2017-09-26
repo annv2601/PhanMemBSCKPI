@@ -6,8 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DaoBSCKPI.DanhMucHeThong;
 using DaoBSCKPI.Database.DanhMucMoHinh;
+using DaoBSCKPI.NhanVien;
 
 using Ext.Net;
+using BSCKPI.UIHelper;
 
 namespace BSCKPI
 {
@@ -17,7 +19,15 @@ namespace BSCKPI
         {
             if(!X.IsAjaxRequest)
             {
+                daThongTinNhanVien dTTNV = new daThongTinNhanVien();
+                dTTNV.TTNV.IDDonVi = 2;
+                dTTNV.TTNV.IDPhongBan = 2;
+                dTTNV.TTNV.IDNhanVien = Guid.Empty;
+                daPhien.NguoiDung = dTTNV.TTNV;
+
+
                 DanhSachChucNang();
+
             }
         }
 
@@ -42,8 +52,8 @@ namespace BSCKPI
                     mni.ID = "mnuiBSC" + pt.ID.ToString();
                     mni.Text = pt.Ten;
                     mni.Cls = "my-item";
-                    mni.Icon = Icon.ArrowIn;
-                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + pt.dcUrl + "','" + pt.TieuDe + "');";
+                    mni.Icon = Icon.ArrowRight;
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
                     mp.Menu.Add(mni);
                 }                
                 pnlChucNang.Add(mp);
@@ -63,7 +73,9 @@ namespace BSCKPI
                     mni = new Ext.Net.MenuItem();
                     mni.ID = "mnuiKPI" + pt.ID.ToString();
                     mni.Text = pt.Ten;
+                    mni.Icon = Icon.ArrowRight;
                     mni.Cls = "my-item";
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCNKPI" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
                     mp.Menu.Add(mni);
                 }
                 pnlChucNang.Add(mp);
@@ -83,7 +95,9 @@ namespace BSCKPI
                     mni = new Ext.Net.MenuItem();
                     mni.ID = "mnuiBaoCao" + pt.ID.ToString();
                     mni.Text = pt.Ten;
+                    mni.Icon = Icon.ArrowRight;
                     mni.Cls = "my-item";
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
                     mp.Menu.Add(mni);
                 }
                 pnlChucNang.Add(mp);

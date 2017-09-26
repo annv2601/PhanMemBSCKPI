@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,6 +157,7 @@
     <Compile Include="UIHelper\daPhien.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BaoCao\" />
     <Folder Include="resource\images\" />
   </ItemGroup>
   <ItemGroup>

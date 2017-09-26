@@ -20,12 +20,7 @@ namespace BSCKPI.BSC
         {
             if (!X.IsAjaxRequest)
             {
-                daThongTinNhanVien dTTNV = new daThongTinNhanVien();
-                dTTNV.TTNV.IDDonVi = 2;
-                dTTNV.TTNV.IDPhongBan = 2;
-                dTTNV.TTNV.IDNhanVien = Guid.Empty;
-                daPhien.NguoiDung = dTTNV.TTNV;
-
+                
                 DanhSachThangNam();
                 
                 ucBK1.KhoiTao();
@@ -245,6 +240,7 @@ namespace BSCKPI.BSC
             #region Hien thi bieu do
             Session["MaBieuDo"] = "BieuDoBSC";
             Session["IDBSCTren"] = tpBSC.SelectedNodes[0].NodeID;
+            tabBieuDo.Loader.Url = daPhien.LayDiaChiURL("/BieuDo/frmBieuDoPie.aspx");
             tabBieuDo.Loader.LoadContent();
             #endregion
 

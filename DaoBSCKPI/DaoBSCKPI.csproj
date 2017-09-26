@@ -107,6 +107,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Database\Khac\linqTrangThai.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqTrangThai.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\NhanVien\linqNhanVien.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +133,7 @@
     <Compile Include="DonVi\daMoHinhPhongBan.cs" />
     <Compile Include="DonVi\daPhongBan.cs" />
     <Compile Include="KetQuaDanhGia\daKetQuaDanhGia.cs" />
+    <Compile Include="Khac\daTrangThai.cs" />
     <Compile Include="NhanVien\daNhanVien.cs" />
     <Compile Include="NhanVien\daThongTinNhanVien.cs" />
     <Compile Include="PhanBoMucTieu\daPhanBoMucTieu.cs" />
@@ -228,6 +234,14 @@
     </None>
     <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.dbml.layout">
       <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
+    </None>
+    <None Include="Database\Khac\linqTrangThai.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqTrangThai.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\Khac\linqTrangThai.dbml.layout">
+      <DependentUpon>linqTrangThai.dbml</DependentUpon>
     </None>
     <None Include="Database\NhanVien\linqNhanVien.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

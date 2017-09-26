@@ -20,7 +20,7 @@
                         <ext:Hidden runat="server" ID="txtIDBSC" />
                         <ext:Hidden runat="server" ID="txtidChiTieuTren" />
                         <ext:TextField ID="txtTen" runat="server" FieldLabel="Tên" Width="450" MarginSpec="0 0 0 10"/>
-                        <ext:NumberField ID="txtMucTieu" runat="server" FieldLabel="Mục tiêu" Width="100" AllowDecimals="true" DecimalPrecision="3" MarginSpec="0 0 0 10"/>
+                        <ext:NumberField ID="txtMucTieu" runat="server" FieldLabel="Mục tiêu" Width="150" AllowDecimals="true" DecimalPrecision="3" MarginSpec="0 0 0 10"/>
                         <ext:ComboBox ID="cboDonViTinh"
                             runat="server"
                             FieldLabel="Đơn vị tính"
@@ -57,7 +57,7 @@
                             FieldLabel="Tần suất"
                             DisplayField="Ten"
                             ValueField="ID"
-                            Width="100" QueryMode="Local"
+                            Width="150" QueryMode="Local"
                             TypeAhead="true" MarginSpec="0 0 0 30">
                             <Store>
                                 <ext:Store runat="server" ID="stoTanSuat" AutoDataBind="true">

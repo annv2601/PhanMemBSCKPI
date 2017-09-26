@@ -197,6 +197,8 @@ namespace BSCKPI.UC
             DonViTinh = -1;
             TanSuatDo = -1;
             XuHuongYeuCau = -1;
+
+            txtTen.Focus();
         }
 
         public void KhoiTaoDanhMuc()
