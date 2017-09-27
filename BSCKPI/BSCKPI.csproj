@@ -95,6 +95,7 @@
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="KPI\frmDanhSachKPI.aspx" />
+    <Content Include="KPI\frmKPIPhong.aspx" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
     <Content Include="resource\js\examples.js" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="KPI\frmDanhSachKPI.aspx.designer.cs">
       <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KPI\frmKPIPhong.aspx.cs">
+      <DependentUpon>frmKPIPhong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmKPIPhong.aspx.designer.cs">
+      <DependentUpon>frmKPIPhong.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC\ucBSCKPI.ascx.cs">

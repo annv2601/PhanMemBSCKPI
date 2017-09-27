@@ -63,15 +63,28 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_DanhSach")]
-		public ISingleResult<sp_tblBKChiTieuKPIPhong_DanhSachResult> sp_tblBKChiTieuKPIPhong_DanhSach([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan)
+		public ISingleResult<sp_tblBKChiTieuKPIPhong_DanhSachResult> sp_tblBKChiTieuKPIPhong_DanhSach([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan);
 			return ((ISingleResult<sp_tblBKChiTieuKPIPhong_DanhSachResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_Xoa")]
+		public int sp_tblBKChiTieuKPIPhong_Xoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan, iDKPI);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_KhoiTao")]
+		public int sp_tblBKChiTieuKPIPhong_KhoiTao([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan, nguoiTao);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_ThemSua")]
 		public int sp_tblBKChiTieuKPIPhong_ThemSua(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, 
@@ -92,29 +105,20 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MucTieuThang12", DbType="Decimal(22,3)")] System.Nullable<decimal> mucTieuThang12, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, iDKPI, iDXuHuongYeuCau, mucTieuNam, mucTieuThang1, mucTieuThang2, mucTieuThang3, mucTieuThang4, mucTieuThang5, mucTieuThang6, mucTieuThang7, mucTieuThang8, mucTieuThang9, mucTieuThang10, mucTieuThang11, mucTieuThang12, nguoiTao);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan, iDKPI, iDXuHuongYeuCau, mucTieuNam, mucTieuThang1, mucTieuThang2, mucTieuThang3, mucTieuThang4, mucTieuThang5, mucTieuThang6, mucTieuThang7, mucTieuThang8, mucTieuThang9, mucTieuThang10, mucTieuThang11, mucTieuThang12, nguoiTao);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_ThongTin")]
-		public ISingleResult<sp_tblBKChiTieuKPIPhong_ThongTinResult> sp_tblBKChiTieuKPIPhong_ThongTin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
+		public ISingleResult<sp_tblBKChiTieuKPIPhong_ThongTinResult> sp_tblBKChiTieuKPIPhong_ThongTin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, iDKPI);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan, iDKPI);
 			return ((ISingleResult<sp_tblBKChiTieuKPIPhong_ThongTinResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_Xoa")]
-		public int sp_tblBKChiTieuKPIPhong_Xoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, iDKPI);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
 	public partial class sp_tblBKChiTieuKPIPhong_DanhSachResult
 	{
-		
-		private System.Nullable<short> _Thang;
 		
 		private System.Nullable<int> _Nam;
 		
@@ -164,22 +168,6 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 		
 		public sp_tblBKChiTieuKPIPhong_DanhSachResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thang", DbType="SmallInt")]
-		public System.Nullable<short> Thang
-		{
-			get
-			{
-				return this._Thang;
-			}
-			set
-			{
-				if ((this._Thang != value))
-				{
-					this._Thang = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nam", DbType="Int")]
@@ -554,8 +542,6 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 	public partial class sp_tblBKChiTieuKPIPhong_ThongTinResult
 	{
 		
-		private System.Nullable<short> _Thang;
-		
 		private System.Nullable<int> _Nam;
 		
 		private System.Nullable<int> _IDDonVi;
@@ -598,22 +584,6 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 		
 		public sp_tblBKChiTieuKPIPhong_ThongTinResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thang", DbType="SmallInt")]
-		public System.Nullable<short> Thang
-		{
-			get
-			{
-				return this._Thang;
-			}
-			set
-			{
-				if ((this._Thang != value))
-				{
-					this._Thang = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nam", DbType="Int")]

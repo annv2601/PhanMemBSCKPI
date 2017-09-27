@@ -19,7 +19,7 @@ namespace DaoBSCKPI.ChiTieuKPI
         {
             try
             {
-                KPIP = lKPIP.sp_tblBKChiTieuKPIPhong_ThongTin(KPIP.Thang, KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI).Single();
+                KPIP = lKPIP.sp_tblBKChiTieuKPIPhong_ThongTin(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI).Single();
                 return KPIP;
             }
             catch
@@ -30,20 +30,25 @@ namespace DaoBSCKPI.ChiTieuKPI
 
         public void ThemSua()
         {
-            lKPIP.sp_tblBKChiTieuKPIPhong_ThemSua(KPIP.Thang, KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI, KPIP.IDXuHuongYeuCau, KPIP.MucTieuNam, KPIP.MucTieuThang1,
+            lKPIP.sp_tblBKChiTieuKPIPhong_ThemSua(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI, KPIP.IDXuHuongYeuCau, KPIP.MucTieuNam, KPIP.MucTieuThang1,
                 KPIP.MucTieuThang2, KPIP.MucTieuThang3, KPIP.MucTieuThang4, KPIP.MucTieuThang5, KPIP.MucTieuThang6, KPIP.MucTieuThang7, KPIP.MucTieuThang8, KPIP.MucTieuThang9,
                 KPIP.MucTieuThang10, KPIP.MucTieuThang11, KPIP.MucTieuThang12, KPIP.NguoiTao);
         }
 
         public void Xoa()
         {
-            lKPIP.sp_tblBKChiTieuKPIPhong_Xoa(KPIP.Thang, KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI);
+            lKPIP.sp_tblBKChiTieuKPIPhong_Xoa(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI);
+        }
+
+        public void KhoiTao()
+        {
+            lKPIP.sp_tblBKChiTieuKPIPhong_KhoiTao(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.NguoiTao);
         }
 
         public DataTable DanhSach()
         {
             List<sp_tblBKChiTieuKPIPhong_DanhSachResult> lst;
-            lst = lKPIP.sp_tblBKChiTieuKPIPhong_DanhSach(KPIP.Thang, KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan).ToList();
+            lst = lKPIP.sp_tblBKChiTieuKPIPhong_DanhSach(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
     }
