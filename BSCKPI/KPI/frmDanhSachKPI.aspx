@@ -40,7 +40,7 @@
     <form id="form1" runat="server">
         <ext:Store ID="stoKPI" runat="server">
                     <Model>
-                        <ext:Model runat="server">
+                        <ext:Model runat="server" IDProperty="ID">
                             <Fields>
                                 <ext:ModelField Name="ID" />
                                 <ext:ModelField Name="Ma" />

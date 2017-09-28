@@ -1,26 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqPhanBoMucTieuDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.sp_tblBKPhanBoMucTieu_DanhSach" Method="sp_tblBKPhanBoMucTieu_DanhSach">
-    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IDNhanVien" Parameter="iDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" />
-    <ElementType Name="sp_tblBKPhanBoMucTieu_DanhSachResult">
-      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TenKPI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="MaKPI" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
-      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_tblBKPhanBoMucTieu_KhoiTao" Method="sp_tblBKPhanBoMucTieu_KhoiTao">
     <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
@@ -65,5 +44,82 @@
     <Parameter Name="IDNhanVien" Parameter="iDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" />
     <Parameter Name="IDKPI" Parameter="iDKPI" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblBKPhanBoMucTieu_KiemTraCoSoLieu" Method="sp_tblBKPhanBoMucTieu_KiemTraCoSoLieu">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKPhanBoMucTieu_KiemTraCoSoLieuResult">
+      <Column Name="SoLuongCo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKPhanBoMucTieu_DanhSach_ChiTieu" Method="sp_tblBKPhanBoMucTieu_DanhSach_ChiTieu">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKPhanBoMucTieu_DanhSach_ChiTieuResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(266)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKPhanBoMucTieu_DanhSach" Method="sp_tblBKPhanBoMucTieu_DanhSach">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDNhanVien" Parameter="iDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="sp_tblBKPhanBoMucTieu_DanhSachResult">
+      <Column Name="ThuTu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKPI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MaKPI" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKPhanBoMucTieu_DanhSach_DonVi" Method="sp_tblBKPhanBoMucTieu_DanhSach_DonVi">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDKPI" Parameter="iDKPI" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKPhanBoMucTieu_DanhSach_DonViResult">
+      <Column Name="ThuTu" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenNhanVien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKPI" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MaKPI" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDXuHuongYeuCau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XuHuongYeuCau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ChucDanh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MoTaCongViec" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
