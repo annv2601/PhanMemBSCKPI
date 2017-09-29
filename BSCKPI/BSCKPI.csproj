@@ -95,7 +95,9 @@
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="KPI\frmDanhSachKPI.aspx" />
+    <Content Include="KPI\frmKetQuaDanhGiaCaNhan.aspx" />
     <Content Include="KPI\frmKPIPhong.aspx" />
+    <Content Include="KPI\frmNhiemVuChinh.aspx" />
     <Content Include="KPI\frmPhanBoMucTieuCaNhan.aspx" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
@@ -103,6 +105,7 @@
     <Content Include="resource\js\main.js" />
     <Content Include="resource\js\perfect-scrollbar.min.js" />
     <Content Include="UC\ucBSCKPI.ascx" />
+    <Content Include="UC\ucNhiemVuTrongTam.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -148,12 +151,26 @@
     <Compile Include="KPI\frmDanhSachKPI.aspx.designer.cs">
       <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KPI\frmKetQuaDanhGiaCaNhan.aspx.cs">
+      <DependentUpon>frmKetQuaDanhGiaCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmKetQuaDanhGiaCaNhan.aspx.designer.cs">
+      <DependentUpon>frmKetQuaDanhGiaCaNhan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KPI\frmKPIPhong.aspx.cs">
       <DependentUpon>frmKPIPhong.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="KPI\frmKPIPhong.aspx.designer.cs">
       <DependentUpon>frmKPIPhong.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KPI\frmNhiemVuChinh.aspx.cs">
+      <DependentUpon>frmNhiemVuChinh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmNhiemVuChinh.aspx.designer.cs">
+      <DependentUpon>frmNhiemVuChinh.aspx</DependentUpon>
     </Compile>
     <Compile Include="KPI\frmPhanBoMucTieuCaNhan.aspx.cs">
       <DependentUpon>frmPhanBoMucTieuCaNhan.aspx</DependentUpon>
@@ -169,6 +186,13 @@
     </Compile>
     <Compile Include="UC\ucBSCKPI.ascx.designer.cs">
       <DependentUpon>ucBSCKPI.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC\ucNhiemVuTrongTam.ascx.cs">
+      <DependentUpon>ucNhiemVuTrongTam.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC\ucNhiemVuTrongTam.ascx.designer.cs">
+      <DependentUpon>ucNhiemVuTrongTam.ascx</DependentUpon>
     </Compile>
     <Compile Include="UIHelper\daPhien.cs" />
   </ItemGroup>

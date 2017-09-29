@@ -12,8 +12,10 @@ namespace DaoBSCKPI.NhanVien
     {
         private linqThongTinNhanVienDataContext lTT = new linqThongTinNhanVienDataContext();
         private sp_tblThongTinNhanVien_ThongTinResult _TTNV = new sp_tblThongTinNhanVien_ThongTinResult();
+        private sp_tblThongTinNhanVien_TimResult _Tim = new sp_tblThongTinNhanVien_TimResult();
 
         public sp_tblThongTinNhanVien_ThongTinResult TTNV { get => _TTNV; set => _TTNV = value; }
+        public sp_tblThongTinNhanVien_TimResult Tim { get => _Tim; set => _Tim = value; }
 
         public sp_tblThongTinNhanVien_ThongTinResult ThongTin()
         {
@@ -21,6 +23,19 @@ namespace DaoBSCKPI.NhanVien
             {
                 TTNV = lTT.sp_tblThongTinNhanVien_ThongTin(TTNV.Thang, TTNV.Nam, TTNV.IDNhanVien).Single();
                 return TTNV;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public sp_tblThongTinNhanVien_TimResult TimTT()
+        {
+            try
+            {
+                Tim = lTT.sp_tblThongTinNhanVien_Tim(TTNV.Thang,TTNV.Nam,TTNV.IDNhanVien).Single();
+                return Tim;
             }
             catch
             {

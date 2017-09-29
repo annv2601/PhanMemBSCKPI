@@ -85,6 +85,33 @@ namespace BSCKPI.KPI {
         protected global::Ext.Net.Store stoChiTieu;
         
         /// <summary>
+        /// lblDonViTinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblDonViTinh;
+        
+        /// <summary>
+        /// lblTanSuatDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblTanSuatDo;
+        
+        /// <summary>
+        /// lblXuHuongYeuCau control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblXuHuongYeuCau;
+        
+        /// <summary>
         /// grdPBNhanVien control.
         /// </summary>
         /// <remarks>
@@ -200,6 +227,33 @@ namespace BSCKPI.KPI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Store stoNhanVien;
+        
+        /// <summary>
+        /// lblChucVu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblChucVu;
+        
+        /// <summary>
+        /// lblChucDanh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblChucDanh;
+        
+        /// <summary>
+        /// lblMoTaCongViec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label lblMoTaCongViec;
         
         /// <summary>
         /// grdPBChiTieu control.

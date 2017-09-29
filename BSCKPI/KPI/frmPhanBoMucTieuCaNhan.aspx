@@ -105,20 +105,28 @@
             <Items>
                 <ext:Panel ID="pnlPBNhanVien" runat="server" Header="false">
                     <Items>
-                        <ext:SelectBox runat="server" ID="slbChiTieuKPI" QueryMode="Local" FieldLabel="Chỉ tiêu KPI" MarginSpec="0 0 10 0"
-                            DisplayField="Ten" ValueField="ID" LabelStyle="font-weight:bold;" Width="350">
-                            <Listeners>
-                                <Select Handler="#{stoPhanBoNV}.reload();" />
-                            </Listeners>
-                            <Store>
-                                <ext:Store runat="server" ID="stoChiTieu" OnReadData="DanhSachChiTieu">
-                                    <Fields>
-                                        <ext:ModelField Name="Ten" />
-                                        <ext:ModelField Name="ID" />
-                                    </Fields>
-                                </ext:Store>
-                            </Store>
-                        </ext:SelectBox>
+                        <ext:FieldContainer runat="server" Layout="HBoxLayout" MarginSpec="0 0 10 0">
+                            <Items>
+                                <ext:SelectBox runat="server" ID="slbChiTieuKPI" QueryMode="Local" FieldLabel="Chỉ tiêu KPI"
+                                    DisplayField="Ten" ValueField="ID" LabelStyle="font-weight:bold;" Width="350">
+                                    <Listeners>
+                                        <Select Handler="#{stoPhanBoNV}.reload();" />
+                                    </Listeners>
+                                    <Store>
+                                        <ext:Store runat="server" ID="stoChiTieu" OnReadData="DanhSachChiTieu">
+                                            <Fields>
+                                                <ext:ModelField Name="Ten" />
+                                                <ext:ModelField Name="ID" />
+                                            </Fields>
+                                        </ext:Store>
+                                    </Store>
+                                </ext:SelectBox>
+                                <ext:Label runat="server" ID="lblDonViTinh" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 50"/>
+                                <ext:Label runat="server" ID="lblTanSuatDo" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 20"/>
+                                <ext:Label runat="server" ID="lblXuHuongYeuCau" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 20"/>
+                            </Items>
+                        </ext:FieldContainer>
+                        
                         <ext:GridPanel runat="server" ID="grdPBNhanVien">
                             <Store>
                             <ext:Store runat="server" ID="stoPhanBoNV" OnReadData="DanhSachPBMTCT">
@@ -181,20 +189,28 @@
                 </ext:Panel>
                 <ext:Panel ID="pnlPBChiTieu" runat="server" Header="false">
                     <Items>
-                        <ext:SelectBox runat="server" ID="slbNhanVien" QueryMode="Local" FieldLabel="Nhân viên" MarginSpec="0 0 10 0"
-                            DisplayField="TenNhanVien" ValueField="IDNhanVien" LabelStyle="font-weight:bold;" Width="350">
-                            <Listeners>
-                                <Select Handler="#{stoPhanBoCT}.reload();" />
-                            </Listeners>
-                            <Store>
-                                <ext:Store runat="server" ID="stoNhanVien" OnReadData="DanhSachNhanVien">
-                                    <Fields>
-                                        <ext:ModelField Name="TenNhanVien" />
-                                        <ext:ModelField Name="IDNhanVien" />
-                                    </Fields>
-                                </ext:Store>
-                            </Store>
-                        </ext:SelectBox>
+                        <ext:FieldContainer runat="server" Layout="HBoxLayout" MarginSpec="0 0 10 0">
+                            <Items>
+                                <ext:SelectBox runat="server" ID="slbNhanVien" QueryMode="Local" FieldLabel="Nhân viên"
+                                    DisplayField="TenNhanVien" ValueField="IDNhanVien" LabelStyle="font-weight:bold;" Width="350">
+                                    <Listeners>
+                                        <Select Handler="#{stoPhanBoCT}.reload();" />
+                                    </Listeners>
+                                    <Store>
+                                        <ext:Store runat="server" ID="stoNhanVien" OnReadData="DanhSachNhanVien">
+                                            <Fields>
+                                                <ext:ModelField Name="TenNhanVien" />
+                                                <ext:ModelField Name="IDNhanVien" />
+                                            </Fields>
+                                        </ext:Store>
+                                    </Store>
+                                </ext:SelectBox>
+                                <ext:Label runat="server" ID="lblChucVu" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 50"/>
+                                <ext:Label runat="server" ID="lblChucDanh" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 20"/>
+                                <ext:Label runat="server" ID="lblMoTaCongViec" Text="" StyleSpec="font-weight:bold;" MarginSpec="10 0 0 20"/>
+                            </Items>
+                        </ext:FieldContainer>
+                        
                         <ext:GridPanel runat="server" ID="grdPBChiTieu">
                             <Store>
                                 <ext:Store runat="server" ID="stoPhanBoCT" OnReadData="DanhSachPBMTNV">

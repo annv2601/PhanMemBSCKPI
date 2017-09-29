@@ -12,8 +12,10 @@ namespace DaoBSCKPI.ChiTieuKPI
     {
         private linqChiTieuKPIDataContext lKPI = new linqChiTieuKPIDataContext();
         private sp_tblBKChiTieuKPI_ThongTinResult _KPI = new sp_tblBKChiTieuKPI_ThongTinResult();
+        private sp_tblBKChiTieuKPI_TimResult _Tim = new sp_tblBKChiTieuKPI_TimResult();
 
         public sp_tblBKChiTieuKPI_ThongTinResult KPI { get => _KPI; set => _KPI = value; }
+        public sp_tblBKChiTieuKPI_TimResult Tim { get => _Tim; set => _Tim = value; }
 
         public sp_tblBKChiTieuKPI_ThongTinResult ThongTin()
         {
@@ -21,6 +23,19 @@ namespace DaoBSCKPI.ChiTieuKPI
             {
                 KPI = lKPI.sp_tblBKChiTieuKPI_ThongTin(KPI.ID).Single();
                 return KPI;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public sp_tblBKChiTieuKPI_TimResult TimTT()
+        {
+            try
+            {
+                Tim = lKPI.sp_tblBKChiTieuKPI_Tim(KPI.ID).Single();
+                return Tim;
             }
             catch
             {

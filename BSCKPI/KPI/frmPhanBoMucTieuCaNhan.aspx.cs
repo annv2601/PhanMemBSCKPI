@@ -100,6 +100,25 @@ namespace BSCKPI.KPI
                 dPBMT.MT.IDNhanVien = Guid.Parse(slbNhanVien.SelectedItem.Value);
                 stoPhanBoCT.DataSource = dPBMT.DanhSach();
                 stoPhanBoCT.DataBind();
+
+                daThongTinNhanVien dTTNV = new daThongTinNhanVien();
+                dTTNV.TTNV.IDNhanVien = dPBMT.MT.IDNhanVien;
+                dTTNV.TTNV.Thang = dPBMT.MT.Thang;
+                dTTNV.TTNV.Nam = dPBMT.MT.Nam;
+                
+                
+                if(dTTNV.TimTT()!=null)
+                {
+                    lblChucVu.Text = "CV: "+dTTNV.Tim.ChucVu;
+                    lblChucDanh.Text = "CD: "+dTTNV.Tim.ChucDanh;
+                    lblMoTaCongViec.Text = "MTCV: "+dTTNV.Tim.MoTaCongViec;
+                }
+                else
+                {
+                    lblChucVu.Text = "";
+                    lblChucDanh.Text = "";
+                    lblMoTaCongViec.Text = "";
+                }
             }
         }
 
@@ -115,6 +134,21 @@ namespace BSCKPI.KPI
                 dPBMT.MT.IDKPI = int.Parse(slbChiTieuKPI.SelectedItem.Value);
                 stoPhanBoNV.DataSource = dPBMT.DanhSach_DonVi();
                 stoPhanBoNV.DataBind();
+
+                daChiTieuKPI dKPI = new daChiTieuKPI();
+                dKPI.KPI.ID = dPBMT.MT.IDKPI.Value;
+                if(dKPI.TimTT()!=null)
+                {
+                    lblDonViTinh.Text ="ĐVT: "+ dKPI.Tim.DonViTinh;
+                    lblTanSuatDo.Text ="TSĐ: " + dKPI.Tim.TanSuatDo;
+                    lblXuHuongYeuCau.Text ="XHYC: "+ dKPI.Tim.XuHuongYeuCau;
+                }
+                else
+                {
+                    lblDonViTinh.Text = "";
+                    lblTanSuatDo.Text = "";
+                    lblXuHuongYeuCau.Text = "";
+                }
             }
         }
 
