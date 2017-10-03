@@ -31,6 +31,15 @@ namespace BSCKPI.UC {
         protected global::Ext.Net.Hidden txtID;
         
         /// <summary>
+        /// txtTrangThai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Hidden txtTrangThai;
+        
+        /// <summary>
         /// cboNhanVien control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace BSCKPI.UC {
         protected global::Ext.Net.Store stoNhanVien;
         
         /// <summary>
-        /// txtTen control.
+        /// txtMucTieu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextArea txtTen;
+        protected global::Ext.Net.NumberField txtMucTieu;
         
         /// <summary>
         /// cboDonViTinh control.
@@ -94,12 +103,12 @@ namespace BSCKPI.UC {
         protected global::Ext.Net.Store stoTanSuat;
         
         /// <summary>
-        /// txtMucTieu control.
+        /// txtTen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.NumberField txtMucTieu;
+        protected global::Ext.Net.TextArea txtTen;
     }
 }

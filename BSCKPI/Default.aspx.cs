@@ -97,7 +97,7 @@ namespace BSCKPI
                     mni.Text = pt.Ten;
                     mni.Icon = Icon.ArrowRight;
                     mni.Cls = "my-item";
-                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";                    
                     mp.Menu.Add(mni);
                 }
                 pnlChucNang.Add(mp);

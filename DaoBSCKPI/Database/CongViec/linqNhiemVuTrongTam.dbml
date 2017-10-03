@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqNhiemVuTrongTamDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblcvNhiemVuTrongTam_DanhSach" Method="sp_tblcvNhiemVuTrongTam_DanhSach">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblcvNhiemVuTrongTam_DanhSachResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenNhanVien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenCongViec" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TanSuatDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvNhiemVuTrongTam_ThongTin" Method="sp_tblcvNhiemVuTrongTam_ThongTin">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblcvNhiemVuTrongTam_ThongTinResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenCongViec" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MucTieu" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="IDTanSuatDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgayTrangThai" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvNhiemVuTrongTam_ThemSua" Method="sp_tblcvNhiemVuTrongTam_ThemSua">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDNhanVien" Parameter="iDNhanVien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="TenCongViec" Parameter="tenCongViec" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="MucTieu" Parameter="mucTieu" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="IDTanSuatDo" Parameter="iDTanSuatDo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonViTinh" Parameter="iDDonViTinh" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDTrangThai" Parameter="iDTrangThai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NguoiTao" Parameter="nguoiTao" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

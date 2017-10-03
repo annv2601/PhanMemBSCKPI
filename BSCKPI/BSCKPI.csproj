@@ -94,6 +94,7 @@
     <Content Include="BSC\frmDanhSachBSC.aspx" />
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="KetQuaDanhGia\frmBangCaNhan.aspx" />
     <Content Include="KPI\frmDanhSachKPI.aspx" />
     <Content Include="KPI\frmKetQuaDanhGiaCaNhan.aspx" />
     <Content Include="KPI\frmKPIPhong.aspx" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KetQuaDanhGia\frmBangCaNhan.aspx.cs">
+      <DependentUpon>frmBangCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KetQuaDanhGia\frmBangCaNhan.aspx.designer.cs">
+      <DependentUpon>frmBangCaNhan.aspx</DependentUpon>
     </Compile>
     <Compile Include="KPI\frmDanhSachKPI.aspx.cs">
       <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>

@@ -33,7 +33,9 @@ namespace BSCKPI.UC
             get { return Guid.Parse(cboNhanVien.SelectedItem.Value); }
             set
             {
-                cboNhanVien.SelectedItems.Clear();
+                cboNhanVien.SelectedItem.Value = value.ToString();
+                cboNhanVien.UpdateSelectedItems();
+                /*cboNhanVien.SelectedItems.Clear();
                 if(value==Guid.Empty)
                 {
                     cboNhanVien.SelectedItems.Add(new Ext.Net.ListItem {Text=string.Empty,Mode=ParameterMode.Raw });
@@ -42,7 +44,7 @@ namespace BSCKPI.UC
                 {
                     cboNhanVien.SelectedItems.Add(new Ext.Net.ListItem { Value=value.ToString(), Mode = ParameterMode.Raw });
                 }
-                cboNhanVien.UpdateSelectedItems();
+                cboNhanVien.UpdateSelectedItems();*/
             }
         }
 
@@ -98,6 +100,12 @@ namespace BSCKPI.UC
         {
             get { return Convert.ToDecimal(txtMucTieu.Number); }
             set { txtMucTieu.Number = Convert.ToDouble(value); }
+        }
+
+        public int TrangThai
+        {
+            get { return int.Parse(txtTrangThai.Text); }
+            set { txtTrangThai.Text = value.ToString(); }
         }
         #endregion
 

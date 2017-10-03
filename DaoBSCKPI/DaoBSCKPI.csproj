@@ -46,6 +46,7 @@
     <Compile Include="ChiTieuBSC\daChiTieuBSCPhong.cs" />
     <Compile Include="ChiTieuKPI\daChiTieuKPI.cs" />
     <Compile Include="ChiTieuKPI\daChiTieuKPIPhong.cs" />
+    <Compile Include="CongViec\daNhiemVuTrongTam.cs" />
     <Compile Include="daDatatableVaList.cs" />
     <Compile Include="DanhMucBSCKPI\daDanhMucBK.cs" />
     <Compile Include="DanhMucBSCKPI\daNhomDanhMucBK.cs" />
@@ -71,6 +72,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>linqChiTieuKPIPhong.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CongViec\linqKQNhiemVuTrongTam.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKQNhiemVuTrongTam.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CongViec\linqNhiemVuTrongTam.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqNhiemVuTrongTam.dbml</DependentUpon>
     </Compile>
     <Compile Include="Database\DanhMucBK\linqDanhMucBK.designer.cs">
       <AutoGen>True</AutoGen>
@@ -178,6 +189,22 @@
     </None>
     <None Include="Database\ChiTieuKPI\linqChiTieuKPIPhong.dbml.layout">
       <DependentUpon>linqChiTieuKPIPhong.dbml</DependentUpon>
+    </None>
+    <None Include="Database\CongViec\linqKQNhiemVuTrongTam.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKQNhiemVuTrongTam.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\CongViec\linqKQNhiemVuTrongTam.dbml.layout">
+      <DependentUpon>linqKQNhiemVuTrongTam.dbml</DependentUpon>
+    </None>
+    <None Include="Database\CongViec\linqNhiemVuTrongTam.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqNhiemVuTrongTam.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\CongViec\linqNhiemVuTrongTam.dbml.layout">
+      <DependentUpon>linqNhiemVuTrongTam.dbml</DependentUpon>
     </None>
     <None Include="Database\DanhMucBK\linqDanhMucBK.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

@@ -34,5 +34,15 @@ namespace DaoBSCKPI.Properties {
                 return System.Configuration.ConfigurationManager.ConnectionStrings["BSCKPIConnectionStrings"].ConnectionString;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.200.160;Initial Catalog=BSCKPI;User ID=chay")]
+        public string BSCKPIConnectionString1 {
+            get {
+                return ((string)(this["BSCKPIConnectionString1"]));
+            }
+        }
     }
 }
