@@ -46,6 +46,7 @@
     <Compile Include="ChiTieuBSC\daChiTieuBSCPhong.cs" />
     <Compile Include="ChiTieuKPI\daChiTieuKPI.cs" />
     <Compile Include="ChiTieuKPI\daChiTieuKPIPhong.cs" />
+    <Compile Include="CongViec\daKQNhiemVuTrongTam.cs" />
     <Compile Include="CongViec\daNhiemVuTrongTam.cs" />
     <Compile Include="daDatatableVaList.cs" />
     <Compile Include="DanhMucBSCKPI\daDanhMucBK.cs" />
@@ -113,10 +114,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Database\KetQuaDanhGia\clsBangDanhGia.cs" />
+    <Compile Include="Database\KetQuaDanhGia\linqBangDanhGia.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqBangDanhGia.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\KetQuaDanhGia\linqKetQuaDanhGiaKhongMucTieu.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKetQuaDanhGiaKhongMucTieu.dbml</DependentUpon>
     </Compile>
     <Compile Include="Database\Khac\linqTrangThai.designer.cs">
       <AutoGen>True</AutoGen>
@@ -143,7 +155,9 @@
     <Compile Include="DonVi\daMoHinhDonVi.cs" />
     <Compile Include="DonVi\daMoHinhPhongBan.cs" />
     <Compile Include="DonVi\daPhongBan.cs" />
+    <Compile Include="KetQuaDanhGia\daBangDanhGia.cs" />
     <Compile Include="KetQuaDanhGia\daKetQuaDanhGia.cs" />
+    <Compile Include="KetQuaDanhGia\daKetQuaDanhGiaKhongMucTieu.cs" />
     <Compile Include="Khac\daTrangThai.cs" />
     <Compile Include="NhanVien\daNhanVien.cs" />
     <Compile Include="NhanVien\daThongTinNhanVien.cs" />
@@ -254,6 +268,14 @@
     <None Include="Database\DonVi\linqMoHinhPhongBan.dbml.layout">
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
     </None>
+    <None Include="Database\KetQuaDanhGia\linqBangDanhGia.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqBangDanhGia.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KetQuaDanhGia\linqBangDanhGia.dbml.layout">
+      <DependentUpon>linqBangDanhGia.dbml</DependentUpon>
+    </None>
     <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>linqKetQuaDanhGia.designer.cs</LastGenOutput>
@@ -261,6 +283,14 @@
     </None>
     <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGia.dbml.layout">
       <DependentUpon>linqKetQuaDanhGia.dbml</DependentUpon>
+    </None>
+    <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGiaKhongMucTieu.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKetQuaDanhGiaKhongMucTieu.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KetQuaDanhGia\linqKetQuaDanhGiaKhongMucTieu.dbml.layout">
+      <DependentUpon>linqKetQuaDanhGiaKhongMucTieu.dbml</DependentUpon>
     </None>
     <None Include="Database\Khac\linqTrangThai.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

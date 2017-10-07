@@ -30,7 +30,12 @@ namespace DaoBSCKPI.KetQuaDanhGia
 
         public void ThemSua()
         {
-            lKQ.sp_tblBKKetQuaDanhGia_ThemSua(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.TrongSo, KQ.DienGiai, KQ.NguoiTao);
+            lKQ.sp_tblBKKetQuaDanhGia_ThemSua(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.TrongSo, KQ.Diem, KQ.DienGiai, KQ.NguoiTao);
+        }
+
+        public void CapNhat()
+        {
+            lKQ.sp_tblBKKetQuaDanhGia_CapNhat(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.TrongSo, KQ.Diem, KQ.DienGiai, KQ.NguoiTao);
         }
 
         public void Xoa()
@@ -38,9 +43,9 @@ namespace DaoBSCKPI.KetQuaDanhGia
             lKQ.sp_tblBKKetQuaDanhGia_Xoa(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI);
         }
 
-        public void KhoiTao(int rIDDonVi, int rIDPhongBan)
+        public void KhoiTao(daThamSo dTS)
         {
-            lKQ.sp_tblBKKetQuaDanhGia_KhoiTao(KQ.Thang, KQ.Nam, rIDDonVi, rIDPhongBan, KQ.NguoiTao);
+            lKQ.sp_tblBKKetQuaDanhGia_KhoiTao(dTS.Thang, dTS.Nam, dTS.IDDonVi, dTS.IDPhongBan, dTS.IDNguoiDung);
         }
 
         public DataTable DanhSach()

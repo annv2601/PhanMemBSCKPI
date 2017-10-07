@@ -105,23 +105,39 @@
 
             return total;
         };
+
+        var beforeCellEditHandler = function (e) {
+            if (e.field == "Diem" && e.record.data.NhapDiem == false) {
+                //alert("Co chay");
+                CellEditing1.cancelEdit(); 
+            }
+        }
+
+        var edit = function (editor, e) {
+            if (e.value !== e.originalValue) {
+                BangKQDGX.Edit(e.record.data.STT, e.field, e.originalValue, e.value, e.record.data);
+            }
+        }
     </script>
 </head>
 <body>
     <ext:ResourceManager runat="server" Locale="vi-VN"/>
     <form id="form1" runat="server">
+        <ext:Hidden runat="server" ID="txtIDNhanVien" />
         <ext:GridPanel
             ID="grdBangCN"
             runat="server"
             Frame="true"
             Title=""
+            TitleAlign="Center"
             Icon="TableKey" MinHeight="500">
             <Store>
-                <ext:Store ID="stoBCN" runat="server" GroupField="TenNhom">
+                <ext:Store ID="stoBCN" runat="server" GroupField="TenNhom" GroupDir="Default">
                     <Model>
                         <ext:Model runat="server" IDProperty="STT">
                             <Fields>
                                 <ext:ModelField Name="STT" />
+                                <ext:ModelField Name="ID" />
                                 <ext:ModelField Name="TenNhom" />
                                 <ext:ModelField Name="ThuTu" />
                                 <ext:ModelField Name="Ten" />
@@ -131,8 +147,10 @@
                                 <ext:ModelField Name="DonViTinh" />
                                 <ext:ModelField Name="TrongSo" Type="Float" />
                                 <ext:ModelField Name="KetQua" Type="Float" />
+                                <ext:ModelField Name="Diem" />
                                 <ext:ModelField Name="DienGiai" />
                                 <ext:ModelField Name="LoaiChiTieu" />
+                                <ext:ModelField Name="NhapDiem" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -140,15 +158,14 @@
             </Store>            
             <ColumnModel runat="server">
                 <Columns>
+                    <ext:Column runat="server" Text="STT" DataIndex="ThuTu" Width="50" Align="Center"/>
                     <ext:SummaryColumn
                         runat="server"
-                        TdCls="task"
                         Text="Chỉ tiêu"
-                        Sortable="true"
                         DataIndex="Ten"
                         Hideable="false"
                         SummaryType="Count"
-                        Flex="1">
+                        Width="350">
                         <SummaryRenderer Handler="return ((value === 0 || value > 1) ? '(' + value +')' : '(1)');" />
                     </ext:SummaryColumn>
 
@@ -162,18 +179,23 @@
                         </Columns>
                     </ext:Column>                   
 
-                    <ext:NumberColumn runat="server" Text="Trọng số" DataIndex="TrongSo">
-                    <Renderer Format="Percent" />
+                    <ext:NumberColumn runat="server" Text="Trọng số" DataIndex="TrongSo" Format="000%" Align="Right">
+                    <%--<Renderer Format="Percent" />--%>
                         <Editor>
-                            <ext:NumberField runat="server" AllowDecimals="false" EmptyNumber="0" />
+                            <ext:NumberField runat="server" AllowDecimals="false" EmptyNumber="0"  MinValue="0"/>
                         </Editor>
                     </ext:NumberColumn>
-                    <ext:NumberColumn runat="server" Text="Kết quả" DataIndex="KetQua">
+                    <ext:NumberColumn runat="server" Text="Kết quả" DataIndex="KetQua" Align="Right">
                         <Editor>
-                            <ext:NumberField runat="server" AllowDecimals="true" DecimalPrecision="2" EmptyNumber="0" />
+                            <ext:NumberField runat="server" AllowDecimals="true" DecimalPrecision="2" EmptyNumber="0"  MinValue="0"/>
                         </Editor>
                     </ext:NumberColumn>
-                    <ext:Column runat="server" Text="Diễn giải" DataIndex="DienGiai">
+                    <ext:SummaryColumn runat="server" Text="Điểm" DataIndex="Diem" Align="Right" SummaryType="Sum">
+                        <Editor>
+                            <ext:NumberField runat="server" AllowDecimals="false" EmptyNumber="0" MinValue="0"/>
+                        </Editor>
+                    </ext:SummaryColumn>
+                    <ext:Column runat="server" Text="Diễn giải" DataIndex="DienGiai" Width="300">
                         <Editor>
                             <ext:TextField runat="server" />
                         </Editor>
@@ -186,15 +208,44 @@
                         <Refresh Handler="updateTotal(this.panel, #{Container1});" Delay="100" />
                     </Listeners>
                 </ext:GridView>
-            </View>            
+            </View>
+            <Plugins>
+                <ext:CellEditing runat="server" ClicksToEdit="1" ID="CellEditing1">
+                    <Listeners>
+                        <BeforeEdit Handler="return beforeCellEditHandler(e);"></BeforeEdit>
+                        <Edit Fn="edit" />
+                    </Listeners>
+                </ext:CellEditing>
+            </Plugins>            
             <Features>
                 <ext:GroupingSummary
                     ID="Group1"
-                    runat="server"
-                    GroupHeaderTplString="{TenNhom}"
+                    runat="server"                    
+                    GroupHeaderTplString="{name}"
                     HideGroupedHeader="true"
                     EnableGroupingMenu="false" />
-            </Features>            
+            </Features>
+            <%--<DockedItems>
+                <ext:Container
+                    ID="Container1"
+                    runat="server"
+                    Layout="HBoxLayout"
+                    Dock="Bottom"
+                    StyleSpec="margin-top:2px;">
+                    <Defaults>
+                        <ext:Parameter Name="height" Value="24" />
+                    </Defaults>
+                    <Items>
+                        <ext:DisplayField ID="ColumnField1" runat="server" Name="Ten" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="ColumnField2" runat="server" Name="MucTieu" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="ColumnField3" runat="server" Name="TanSuatDo" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="ColumnField4" runat="server" Name="DonViTinh" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="ColumnField5" runat="server" Name="TrongSo" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="DisplayField1" runat="server" Name="KetQua" Cls="total-field" Text="-" />
+                        <ext:DisplayField ID="DisplayField2" runat="server" Name="Diem" Cls="total-field" Text="-" />
+                    </Items>
+                </ext:Container>
+            </DockedItems>--%>
         </ext:GridPanel>
     </form>
 </body>

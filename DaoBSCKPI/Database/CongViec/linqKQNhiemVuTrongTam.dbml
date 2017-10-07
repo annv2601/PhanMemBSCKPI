@@ -1,22 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqKQNhiemVuTrongTamDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.sp_tblcvKetQuaNhiemVuTrongTam_ThongTin" Method="sp_tblcvKetQuaNhiemVuTrongTam_ThongTin">
-    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
-    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IDNhiemVu" Parameter="iDNhiemVu" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_tblcvKetQuaNhiemVuTrongTam_ThongTinResult">
-      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDNhiemVu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="KetQua" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
-      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="DienGiai" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_tblcvKetQuaNhiemVuTrongTam_BoSung" Method="sp_tblcvKetQuaNhiemVuTrongTam_BoSung">
     <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
@@ -31,6 +14,7 @@
     <Parameter Name="IDNhiemVu" Parameter="iDNhiemVu" Type="System.Int32" DbType="Int" />
     <Parameter Name="KetQua" Parameter="ketQua" Type="System.Decimal" DbType="Decimal(22,3)" />
     <Parameter Name="TrongSo" Parameter="trongSo" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Diem" Parameter="diem" Type="System.Int32" DbType="Int" />
     <Parameter Name="DienGiai" Parameter="dienGiai" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="NguoiTao" Parameter="nguoiTao" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
@@ -49,8 +33,27 @@
     <Parameter Name="IDNhiemVu" Parameter="iDNhiemVu" Type="System.Int32" DbType="Int" />
     <Parameter Name="KetQua" Parameter="ketQua" Type="System.Decimal" DbType="Decimal(22,3)" />
     <Parameter Name="TrongSo" Parameter="trongSo" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Diem" Parameter="diem" Type="System.Int32" DbType="Int" />
     <Parameter Name="DienGiai" Parameter="dienGiai" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="NguoiTao" Parameter="nguoiTao" Type="System.String" DbType="NVarChar(30)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvKetQuaNhiemVuTrongTam_ThongTin" Method="sp_tblcvKetQuaNhiemVuTrongTam_ThongTin">
+    <Parameter Name="Thang" Parameter="thang" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDNhiemVu" Parameter="iDNhiemVu" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblcvKetQuaNhiemVuTrongTam_ThongTinResult">
+      <Column Name="Thang" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDNhiemVu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KetQua" Type="System.Decimal" DbType="Decimal(22,3)" CanBeNull="true" />
+      <Column Name="TrongSo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Diem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DienGiai" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

@@ -60,5 +60,12 @@ namespace DaoBSCKPI.NhanVien
             lst = lTT.sp_tblThongTinNhanVien_DanhSach_DonVi(TTNV.Thang, TTNV.Nam, TTNV.IDDonVi, TTNV.IDPhongBan).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
+
+        public List<sp_tblThongTinNhanVien_DanhSach_DonViResult> lstDanhSach()
+        {
+            List<sp_tblThongTinNhanVien_DanhSach_DonViResult> lst;
+            lst = lTT.sp_tblThongTinNhanVien_DanhSach_DonVi(TTNV.Thang, TTNV.Nam, TTNV.IDDonVi, TTNV.IDPhongBan).ToList();
+            return lst;
+        }
     }
 }

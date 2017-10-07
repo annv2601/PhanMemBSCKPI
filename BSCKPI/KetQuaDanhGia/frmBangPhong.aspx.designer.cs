@@ -10,7 +10,7 @@
 namespace BSCKPI.KetQuaDanhGia {
     
     
-    public partial class frmBangCaNhan {
+    public partial class frmBangPhong {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,57 @@ namespace BSCKPI.KetQuaDanhGia {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtIDNhanVien control.
+        /// slbThang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Hidden txtIDNhanVien;
+        protected global::Ext.Net.SelectBox slbThang;
         
         /// <summary>
-        /// grdBangCN control.
+        /// stoThang control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel grdBangCN;
+        protected global::Ext.Net.Store stoThang;
         
         /// <summary>
-        /// stoBCN control.
+        /// slbNam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store stoBCN;
+        protected global::Ext.Net.SelectBox slbNam;
         
         /// <summary>
-        /// CellEditing1 control.
+        /// stoNam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.CellEditing CellEditing1;
+        protected global::Ext.Net.Store stoNam;
         
         /// <summary>
-        /// Group1 control.
+        /// btnBoSung control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GroupingSummary Group1;
+        protected global::Ext.Net.Button btnBoSung;
+        
+        /// <summary>
+        /// tabBangDanhGia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TabPanel tabBangDanhGia;
     }
 }
