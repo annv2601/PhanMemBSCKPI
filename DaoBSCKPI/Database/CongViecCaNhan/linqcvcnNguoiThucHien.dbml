@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqcvcnNguoiThucHienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_DanhGia" Method="sp_tblcvCongViecCaNhanNguoiThucHien_DanhGia">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDNguoiThucHien" Parameter="iDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="IDKetQua" Parameter="iDKetQua" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ChatLuong" Parameter="chatLuong" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="KhoiLuong" Parameter="khoiLuong" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TienDo" Parameter="tienDo" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="DoPhucTap" Parameter="doPhucTap" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="TrachNhiem" Parameter="trachNhiem" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_ThongTin" Method="sp_tblcvCongViecCaNhanNguoiThucHien_ThongTin">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDNguoiThucHien" Parameter="iDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="sp_tblcvCongViecCaNhanNguoiThucHien_ThongTinResult">
+      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="YKienChiDao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayGiao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayNhap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDKetQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChatLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KhoiLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TienDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DoPhucTap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TrachNhiem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_DanhSach" Method="sp_tblcvCongViecCaNhanNguoiThucHien_DanhSach">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachResult">
+      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NguoiThucHien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="YKienChiDao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDKetQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKetQua" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChatLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KhoiLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TienDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DoPhucTap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TrachNhiem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_ThemSua" Method="sp_tblcvCongViecCaNhanNguoiThucHien_ThemSua">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDNguoiThucHien" Parameter="iDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="YKienChiDao" Parameter="yKienChiDao" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NgayGiao" Parameter="ngayGiao" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_Xoa" Method="sp_tblcvCongViecCaNhanNguoiThucHien_Xoa">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDNguoiThucHien" Parameter="iDNguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

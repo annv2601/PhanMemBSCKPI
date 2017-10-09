@@ -20,6 +20,7 @@ namespace BSCKPI.BSC
                 Node TN = new Node();
                 TN = CayDanhSachBSC(0);
                 tpBSC.Root.Add(TN);
+                tpBSC.ExpandAll();
 
                 ucBK1.KhoiTao();
             }
@@ -157,6 +158,7 @@ namespace BSCKPI.BSC
             Node TN = new Node();
             TN = CayDanhSachBSC(0);
             tpBSC.Root.Add(TN);
+            tpBSC.ExpandAll();
             tpBSC.Render();
 
             ucBK1.KhoiTaoDanhMuc();

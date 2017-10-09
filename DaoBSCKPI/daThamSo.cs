@@ -21,6 +21,10 @@ namespace DaoBSCKPI
 
         private Guid _IDNhanVien;
 
+        private DateTime _TuNgay;
+
+        private DateTime _DenNgay;
+
         public byte Thang { get => _Thang; set => _Thang = value; }
 
         public int Nam { get => _Nam; set => _Nam = value; }
@@ -31,6 +35,8 @@ namespace DaoBSCKPI
 
         public string IDNguoiDung { get => _IDNguoiDung; set => _IDNguoiDung = value; }
         public Guid IDNhanVien { get => _IDNhanVien; set => _IDNhanVien = value; }
+        public DateTime TuNgay { get => _TuNgay; set => _TuNgay = value; }
+        public DateTime DenNgay { get => _DenNgay; set => _DenNgay = value; }
 
         public DataTable DanhSachThang()
         {
