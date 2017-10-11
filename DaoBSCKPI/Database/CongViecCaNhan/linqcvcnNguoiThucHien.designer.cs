@@ -96,6 +96,13 @@ namespace DaoBSCKPI.Database.CongViecCaNhan
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCongViecCaNhan, iDNguoiThucHien);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGan")]
+		public ISingleResult<sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGanResult> sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGan([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCongViecCaNhan", DbType="Decimal(20,0)")] System.Nullable<decimal> maCongViecCaNhan)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, maCongViecCaNhan);
+			return ((ISingleResult<sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGanResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_tblcvCongViecCaNhanNguoiThucHien_ThongTinResult
@@ -577,6 +584,122 @@ namespace DaoBSCKPI.Database.CongViecCaNhan
 				if ((this._TrachNhiem != value))
 				{
 					this._TrachNhiem = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGanResult
+	{
+		
+		private System.Nullable<decimal> _MaCongViecCaNhan;
+		
+		private System.Nullable<System.Guid> _IDNhanVien;
+		
+		private string _TenNhanVien;
+		
+		private string _YKienChiDao;
+		
+		private System.Nullable<bool> _DaChon;
+		
+		private int _STT;
+		
+		public sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGanResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCongViecCaNhan", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> MaCongViecCaNhan
+		{
+			get
+			{
+				return this._MaCongViecCaNhan;
+			}
+			set
+			{
+				if ((this._MaCongViecCaNhan != value))
+				{
+					this._MaCongViecCaNhan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDNhanVien", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDNhanVien
+		{
+			get
+			{
+				return this._IDNhanVien;
+			}
+			set
+			{
+				if ((this._IDNhanVien != value))
+				{
+					this._IDNhanVien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhanVien", DbType="NVarChar(50)")]
+		public string TenNhanVien
+		{
+			get
+			{
+				return this._TenNhanVien;
+			}
+			set
+			{
+				if ((this._TenNhanVien != value))
+				{
+					this._TenNhanVien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YKienChiDao", DbType="NVarChar(500)")]
+		public string YKienChiDao
+		{
+			get
+			{
+				return this._YKienChiDao;
+			}
+			set
+			{
+				if ((this._YKienChiDao != value))
+				{
+					this._YKienChiDao = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DaChon", DbType="Bit")]
+		public System.Nullable<bool> DaChon
+		{
+			get
+			{
+				return this._DaChon;
+			}
+			set
+			{
+				if ((this._DaChon != value))
+				{
+					this._DaChon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STT", DbType="Int NOT NULL")]
+		public int STT
+		{
+			get
+			{
+				return this._STT;
+			}
+			set
+			{
+				if ((this._STT != value))
+				{
+					this._STT = value;
 				}
 			}
 		}

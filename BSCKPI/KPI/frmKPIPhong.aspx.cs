@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DaoBSCKPI.ChiTieuKPI;
+using DaoBSCKPI.DonVi;
 using DaoBSCKPI;
 using Ext.Net;
 using BSCKPI.UIHelper;
@@ -19,10 +20,20 @@ namespace BSCKPI.KPI
             if(!X.IsAjaxRequest)
             {
                 DanhSachNam();
+                DanhSachDonVi();
             }
         }
 
         #region Rieng
+        private void DanhSachDonVi()
+        {
+            daMoHinhDonVi dMHDV = new daMoHinhDonVi();
+            dMHDV.MHDV.IDDonViQuanLy = daPhien.NguoiDung.IDDonVi.Value;
+            dMHDV.MHDV.TuNgay = DateTime.Now;
+            stoDonVi.DataSource = dMHDV.DanhSach();
+            stoDonVi.DataBind();
+        }
+
         private void DanhSachNam()
         {
             daThamSo dTS = new daThamSo();
@@ -32,10 +43,14 @@ namespace BSCKPI.KPI
 
         private void DanhSachKPIPhong()
         {
+            if(slbNam.SelectedItem.Value==null||slbDonVi.SelectedItem.Value==null)
+            {
+                return;
+            }
             daChiTieuKPIPhong dKPIP = new daChiTieuKPIPhong();
             dKPIP.KPIP.Nam = int.Parse(slbNam.SelectedItem.Value);
-            dKPIP.KPIP.IDDonVi = daPhien.NguoiDung.IDDonVi;
-            dKPIP.KPIP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dKPIP.KPIP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi;
+            dKPIP.KPIP.IDPhongBan = 0;//daPhien.NguoiDung.IDPhongBan;
             dKPIP.KhoiTao();
             stoKPIPhong.DataSource = dKPIP.DanhSach();
             stoKPIPhong.DataBind();
@@ -53,8 +68,8 @@ namespace BSCKPI.KPI
         {
             daChiTieuKPIPhong dKPIP = new daChiTieuKPIPhong();
             dKPIP.KPIP.Nam = int.Parse(slbNam.SelectedItem.Value);
-            dKPIP.KPIP.IDDonVi = daPhien.NguoiDung.IDDonVi;
-            dKPIP.KPIP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dKPIP.KPIP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);// daPhien.NguoiDung.IDDonVi;
+            dKPIP.KPIP.IDPhongBan = 0;//daPhien.NguoiDung.IDPhongBan;
             dKPIP.KPIP.IDKPI = id;
             Newtonsoft.Json.Linq.JObject node = JSON.Deserialize<Newtonsoft.Json.Linq.JObject>(BangKPIP.ToString());
 

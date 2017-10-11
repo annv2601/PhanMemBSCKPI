@@ -14,6 +14,7 @@ namespace DaoBSCKPI.DanhMucHeThong
         {
             BSC=1,
             KPI=2,
+            Công_Việc_Cá_Nhân=3,
             Báo_cáo=9
         }
 

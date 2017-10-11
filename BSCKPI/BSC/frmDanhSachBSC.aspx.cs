@@ -37,6 +37,11 @@ namespace BSCKPI.BSC
             _lst.Add(_ci);
 
             _ci = new ConfigItem();
+            _ci.Name = "ID";
+            _ci.Value = pt.ID.ToString();
+            _lst.Add(_ci);
+
+            _ci = new ConfigItem();
             _ci.Name = "Ten";
             _ci.Value = pt.TenHienThi;
             _lst.Add(_ci);
@@ -151,6 +156,21 @@ namespace BSCKPI.BSC
             dBSC.BSC.STTsx = ucBK1.STTsx;
             dBSC.BSC.InDam = ucBK1.InDam;
             dBSC.BSC.InNghieng = ucBK1.InNghieng;
+
+            //Kiem tra
+            if(dBSC.BSC.TrongSo+dBSC.LayTongTrongSo()>100)
+            {
+                X.Msg.Show(new MessageBoxConfig
+                {
+                    Title = "Lỗi",
+                    Message = "Tổng trọng số BSC trong cùng nhóm không được lớn hơn 100!",
+                    Buttons = MessageBox.Button.OK,
+                    Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR")
+                });
+                return;
+            }
+            //================
+
             dBSC.ThemSua();
             ucBK1.KhoiTao();
 
@@ -195,6 +215,33 @@ namespace BSCKPI.BSC
             ucBK1.InNghieng = dBSC.BSC.InNghieng.Value;
 
            
+        }
+
+        [DirectMethod(Namespace = "BangBSCX")]
+        public void Edit(int id, string field, string oldvalue, string newvalue, object BangBSC)
+        {
+            daChiTieuBSC dP = new daChiTieuBSC();
+            dP.BSC.ID = id;
+            Newtonsoft.Json.Linq.JObject node = JSON.Deserialize<Newtonsoft.Json.Linq.JObject>(BangBSC.ToString());
+
+            dP.BSC.TrongSo = decimal.Parse(node.Property("TrongSo").Value.ToString());
+
+            if (dP.CapNhatTrongSo())
+            {
+                tpBSC.GetNodeById(id).Commit();
+            }
+            else
+            {
+                X.Msg.Show(new MessageBoxConfig
+                {
+                    Title = "Lỗi",
+                    Message = "Tổng trọng số BSC trong cùng nhóm không được lớn hơn 100!",
+                    Buttons = MessageBox.Button.OK,
+                    Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR")
+                });                
+
+                tpBSC.GetNodeById(id).Reject();
+            }
         }
         #endregion
     }

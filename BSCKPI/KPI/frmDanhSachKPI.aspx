@@ -64,7 +64,7 @@
                                 <ext:ModelField Name="STTsx" />
                                 <ext:ModelField Name="InDam" />
                                 <ext:ModelField Name="InNghieng" />
-                                <ext:ModelField Name="ChiTieuChung" />
+                                <ext:ModelField Name="ChiTieuChung" Type="Boolean" />
                                 <ext:ModelField Name="TrangThai" />
                                 <ext:ModelField Name="TenTrangThai" />
                                 <ext:ModelField Name="GhiChuTrangThai" />
@@ -104,21 +104,22 @@
             <ColumnModel runat="server">
                         <Columns>
                             <%--<ext:Column runat="server" Text="STT" DataIndex="STT" Width="50"/>--%>
-                            <ext:RowNumbererColumn runat="server" Text="STT" Width="70" Align="Center"/>
-                            <ext:Column runat="server" Text="Mã" DataIndex="Ma" Width="100"/>
-                            <ext:Column runat="server" Text="Tên" DataIndex="Ten" Width="150"/>
+                            <ext:RowNumbererColumn runat="server" Text="STT" Width="60" Align="Center"/>
+                            <ext:Column runat="server" Text="Mã" DataIndex="Ma" Width="80"/>
+                            <ext:Column runat="server" Text="Tên" DataIndex="Ten" Width="250"/>
                             
-                            <ext:NumberColumn runat="server" Text="Trọng số" DataIndex="TrongSo" Format="000,000.00%"/>
-                            <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000.00"/>
+                            <%--<ext:NumberColumn runat="server" Text="Trọng số" DataIndex="TrongSo" Format="000,000.00%"/>
+                            <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000.00"/>--%>
                             <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
                             <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo" />
                             <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau" />
-                            <ext:Column runat="server" Text="Tên BSC" DataIndex="TenBSC" Width="160"/>
-                            <ext:Column runat="server" Text="Đơn vị" DataIndex="DonVi" />
-                            <ext:Column runat="server" Text="Phòng ban" DataIndex="PhongBan" />
-                            <ext:Column runat="server" Text="Chỉ tiêu chung" DataIndex="ChiTieuchung" />
+                            <ext:Column runat="server" Text="Tên BSC" DataIndex="TenBSC" Width="200"/>
+                            <ext:Column runat="server" Text="Đơn vị" DataIndex="DonVi" Width="200"/>
+                            <ext:Column runat="server" Text="Phòng ban" DataIndex="PhongBan" Width="150"/>
+                            
+                            <ext:CheckColumn runat="server" Text="Chỉ tiêu chung" DataIndex="ChiTieuChung" />
                             <ext:Column runat="server" Text="Trạng thái" DataIndex="TenTrangThai" />
-                            <ext:Column runat="server" Text="Nội dung" DataIndex="GhiChuTrangThai" />
+                            <ext:Column runat="server" Text="Nội dung" DataIndex="GhiChuTrangThai" Width="400"/>
                         </Columns>
                     </ColumnModel>
             <SelectionModel>
@@ -156,7 +157,28 @@
                             <Click OnEvent="btnThemMoiBSC_Click" />
                         </DirectEvents>
                     </ext:Button>--%>
-                    <ext:Button ID="btnCapNhatBSC" runat="server" Text="Cập nhật" Icon="Accept" Width="150" Height="50" MarginSpec="50 0 0 0">
+                    <ext:SelectBox runat="server" ID="slbDonVi" DisplayField="Ten" ValueField="IDDonVi" EmptyText="Chọn đơn vị" MarginSpec="10 0 0 0" Width="200">
+                            <Store>
+                                <ext:Store runat="server" ID="stoDonVi">
+                                    <Fields>
+                                        <ext:ModelField Name="IDDonVi" />
+                                        <ext:ModelField Name="Ten" />
+                                    </Fields>
+                                </ext:Store>
+                            </Store>
+                        <Triggers>
+                            <ext:FieldTrigger Icon="Clear" Hidden="true" Weight="-1" />
+                        </Triggers>
+                        <Listeners>
+                            <Select Handler="this.getTrigger(0).show();" />
+                            <BeforeQuery Handler="this.getTrigger(0)[this.getRawValue().toString().length == 0 ? 'hide' : 'show']();" />
+                            <TriggerClick Handler="if (index == 0) {
+                                                       this.clearValue();
+                                                       this.getTrigger(0).hide();
+                                                   }" />
+                        </Listeners>
+                    </ext:SelectBox>
+                    <ext:Button ID="btnCapNhatBSC" runat="server" Text="Cập nhật" Icon="Accept" Width="150" Height="50" MarginSpec="10 0 0 0">
                         <DirectEvents>
                             <Click OnEvent="btnCapNhatBSC_Click" />
                         </DirectEvents>

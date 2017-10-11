@@ -5,9 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../resource/css/main.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var edit = function (editor, e)
+        {
+            if (e.value !== e.originalValue)
+            {
+                BangGiaoBSCX.Edit(e.record.data.ID, e.field, e.originalValue, e.value, e.record.data);
+            }
+        }        
+    </script>
 </head>
 <body>
-    <ext:ResourceManager runat="server" />
+    <ext:ResourceManager runat="server" Locale="vi-VN"/>
     <form id="form1" runat="server">
         <ext:FieldContainer runat="server" Layout="HBoxLayout" ID="FieldContainer1" >
          <Items>
@@ -66,6 +76,21 @@
                                 </ext:Store>
                             </Store>
                         </ext:SelectBox>
+                        <ext:SelectBox runat="server" ID="slbDonVi" DisplayField="Ten" ValueField="IDDonVi" EmptyText="Chọn đơn vị" MarginSpec="0 0 0 10" Width="250">
+                            <Store>
+                                <ext:Store runat="server" ID="stoDonVi">
+                                    <Fields>
+                                        <ext:ModelField Name="IDDonVi" />
+                                        <ext:ModelField Name="Ten" />
+                                    </Fields>
+                                </ext:Store>
+                            </Store>
+                            <DirectEvents>
+                                <Change OnEvent="slbThang_Change">
+                                    <EventMask ShowMask="true" Msg="Thực thi ......" />
+                                </Change>
+                            </DirectEvents>
+                        </ext:SelectBox>
                         <ext:Button ID="btnHienThi" runat="server" Icon="PageRefresh" ToolTip="Hiển thị lại dữ liệu" MarginSpec="0 0 0 10">
                             <DirectEvents>
                                 <Click OnEvent="btnHienThi_Click" />
@@ -75,6 +100,7 @@
                 </ext:Toolbar>
             </TopBar>
             <Fields>                
+                <ext:ModelField Name="ID" />
                 <ext:ModelField Name="Ma" />
                 <ext:ModelField Name="Ten" />
                 <ext:ModelField Name="TrongSo" Type="Float" />
@@ -92,23 +118,36 @@
                         Flex="2"
                         Sortable="true"
                         DataIndex="Ten" />                    
-                    <ext:Column
+                    <ext:NumberColumn runat="server" Text="Trọng số chung" DataIndex="TrongSoChung" Format="000,000.0%" Width="100" Align="Center"/>
+                    <ext:NumberColumn
                         runat="server"
                         Text="Trọng số"
-                        Flex="1"
-                        Sortable="true"
-                        DataIndex="TrongSo" FormatterFn="Percent" Width="100" />
-                    <ext:NumberColumn runat="server" Text="Trọng số chung" DataIndex="TrongSoChung" Format="000,000,000,000.00%" Width="100"/>
-                    <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000,000.000" Width="200"/>
+                        DataIndex="TrongSo" Format="000,000%" Width="100" Align="Center">
+                        <Editor>
+                            <ext:NumberField runat="server" MinValue="0" AllowDecimals="false"/>
+                        </Editor>
+                    </ext:NumberColumn>
+                    <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000,000.000" Width="200" Align="Right">
+                        <Editor>
+                            <ext:NumberField runat="server" MinValue="0" AllowDecimals="true" DecimalPrecision="3" />
+                        </Editor>
+                    </ext:NumberColumn>
                    <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
                     <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo" />
                     <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau" />
                 </Columns>
-
             </ColumnModel>
-        <DirectEvents>
-            <ItemClick OnEvent="tpBSC_Click" />
-        </DirectEvents>
+             
+            <DirectEvents>
+                <ItemClick OnEvent="tpBSC_Click" />
+            </DirectEvents>
+            <Plugins>
+                <ext:CellEditing runat="server" ClicksToEdit="1">
+                    <Listeners>
+                        <Edit Fn="edit" />
+                    </Listeners>
+                </ext:CellEditing>
+            </Plugins>
         </ext:TreePanel>
 
 

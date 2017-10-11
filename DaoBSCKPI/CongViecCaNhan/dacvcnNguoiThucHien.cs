@@ -8,7 +8,7 @@ using DaoBSCKPI.Database.CongViecCaNhan;
 
 namespace DaoBSCKPI.CongViecCaNhan
 {
-    public class dacvcnNguoiThucHien
+    public class dacvcnNguoiThucHien:daThamSo
     {
         private linqcvcnNguoiThucHienDataContext lNTH = new linqcvcnNguoiThucHienDataContext();
         private sp_tblcvCongViecCaNhanNguoiThucHien_ThongTinResult _NTH = new sp_tblcvCongViecCaNhanNguoiThucHien_ThongTinResult();
@@ -48,6 +48,13 @@ namespace DaoBSCKPI.CongViecCaNhan
         {
             List<sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachResult> lst;
             lst = lNTH.sp_tblcvCongViecCaNhanNguoiThucHien_DanhSach(NTH.MaCongViecCaNhan).ToList();
+            return daDatatableVaList.ToDataTable(lst);
+        }
+
+        public DataTable DanhSachGan()
+        {
+            List<sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGanResult> lst;
+            lst = lNTH.sp_tblcvCongViecCaNhanNguoiThucHien_DanhSachGan(Thang,Nam,IDDonVi,IDPhongBan,NTH.MaCongViecCaNhan).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
     }

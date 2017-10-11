@@ -11,6 +11,7 @@ using DaoBSCKPI.NhanVien;
 using DaoBSCKPI;
 using Ext.Net;
 using BSCKPI.UIHelper;
+using DaoBSCKPI.DonVi;
 
 namespace BSCKPI.BSC
 {
@@ -22,7 +23,7 @@ namespace BSCKPI.BSC
             {
                 
                 DanhSachThangNam();
-                
+                DanhSachDonVi();
                 ucBK1.KhoiTao();
 
                 LaChon = true;
@@ -58,6 +59,16 @@ namespace BSCKPI.BSC
             stoNam.DataSource = BDL;
             stoNam.DataBind();
         }
+
+        private void DanhSachDonVi()
+        {
+            daMoHinhDonVi dMHDV = new daMoHinhDonVi();
+            dMHDV.MHDV.IDDonViQuanLy = daPhien.NguoiDung.IDDonVi.Value;
+            dMHDV.MHDV.TuNgay = DateTime.Now;
+            stoDonVi.DataSource = dMHDV.DanhSach();
+            stoDonVi.DataBind();
+        }
+
         private List<ConfigItem> PhanTu(sp_tblBKChiTieuBSCPhong_ThongTinHienThiResult pt)
         {
             List<ConfigItem> _lst = new List<ConfigItem>();
@@ -65,6 +76,11 @@ namespace BSCKPI.BSC
 
             _ci.Name = "Ma";
             _ci.Value = pt.Ma;
+            _lst.Add(_ci);
+
+            _ci = new ConfigItem();
+            _ci.Name = "ID";
+            _ci.Value = pt.IDBSC.Value.ToString();
             _lst.Add(_ci);
 
             _ci = new ConfigItem();
@@ -167,8 +183,8 @@ namespace BSCKPI.BSC
             daThamSo dTS = new daThamSo();
             dTS.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dTS.Nam = int.Parse(slbNam.SelectedItem.Value);
-            dTS.IDDonVi = daPhien.NguoiDung.IDDonVi.Value;
-            dTS.IDPhongBan = daPhien.NguoiDung.IDPhongBan.Value;
+            dTS.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi.Value;
+            dTS.IDPhongBan = 0;// daPhien.NguoiDung.IDPhongBan.Value;
             dTS.IDNguoiDung = daPhien.NguoiDung.IDNhanVien.ToString();
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
             dBSCP.BSCP.Thang = dTS.Thang;
@@ -179,6 +195,7 @@ namespace BSCKPI.BSC
             dBSCP.KhoiTao();
 
             DanhSachThangNam();
+            DanhSachDonVi();
 
             tpBSC.Root.Clear();
             Node TN = new Node();
@@ -217,8 +234,8 @@ namespace BSCKPI.BSC
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
             dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
-            dBSCP.BSCP.IDDonVi = daPhien.NguoiDung.IDDonVi;
-            dBSCP.BSCP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dBSCP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = 0; // daPhien.NguoiDung.IDPhongBan;
             dBSCP.BSCP.IDBSC = ucBK1.idBSC;
 
             dBSCP.BSCP.TrongSoChiTieu = ucBK1.TrongSo;
@@ -250,8 +267,8 @@ namespace BSCKPI.BSC
             dBSCP.BSCP.IDBSC = int.Parse(tpBSC.SelectedNodes[0].NodeID);
             dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
-            dBSCP.BSCP.IDDonVi = daPhien.NguoiDung.IDDonVi;
-            dBSCP.BSCP.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            dBSCP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi;
+            dBSCP.BSCP.IDPhongBan = 0;// daPhien.NguoiDung.IDPhongBan;
             dBSCP.ThongTinHienThi();
             ucBK1.idBSC = dBSCP.HtBSCP.IDBSC.Value;
             ucBK1.Ma = dBSCP.HtBSCP.Ma;
@@ -270,21 +287,45 @@ namespace BSCKPI.BSC
 
         protected void slbThang_Change(object sender, DirectEventArgs e)
         {            
-            if (slbThang.SelectedItem.Value==null || slbNam.SelectedItem.Value==null)
+            if (slbThang.SelectedItem.Value==null || slbNam.SelectedItem.Value==null||slbDonVi.SelectedItem.Value==null)
             {
                 return;
             }
+            //HienThiBieu();
             if (LaChon)
             {
-                HienThiBieu();               
+                HienThiBieu();
             }
-
+            
         }
 
         protected void btnHienThi_Click(object sender, DirectEventArgs e)
         {
             HienThiBieu();
             LaChon = true;
+        }
+
+        [DirectMethod(Namespace = "BangGiaoBSCX")]
+        public void Edit(int id, string field, string oldvalue, string newvalue, object BangGiaoBSC)
+        {
+            daChiTieuBSCPhong dP = new daChiTieuBSCPhong();
+            dP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
+            dP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
+            dP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);
+            dP.BSCP.IDPhongBan = 0;
+            dP.BSCP.IDBSC = id;
+            Newtonsoft.Json.Linq.JObject node = JSON.Deserialize<Newtonsoft.Json.Linq.JObject>(BangGiaoBSC.ToString());
+
+            dP.BSCP.TrongSoChiTieu = decimal.Parse(node.Property("TrongSo").Value.ToString());
+            dP.BSCP.MucTieu = decimal.Parse(node.Property("MucTieu").Value.ToString());
+            
+            dP.BSCP.TrongSoChung = (dP.LayTrongSoChung() * dP.BSCP.TrongSoChiTieu / 100) * 100;
+
+            dP.CapNhat();
+
+            tpBSC.GetNodeById(id).Set("TrongSoChung", dP.BSCP.TrongSoChung.ToString());
+
+            tpBSC.GetNodeById(id).Commit();
         }
         #endregion
     }

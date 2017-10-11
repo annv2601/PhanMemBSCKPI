@@ -62,13 +62,6 @@ namespace DaoBSCKPI.Database.DonVi
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblMoHinhDonVi_DanhSach")]
-		public ISingleResult<sp_tblMoHinhDonVi_DanhSachResult> sp_tblMoHinhDonVi_DanhSach([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonViQuanLy", DbType="Int")] System.Nullable<int> iDDonViQuanLy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay", DbType="Date")] System.Nullable<System.DateTime> ngay)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDDonViQuanLy, ngay);
-			return ((ISingleResult<sp_tblMoHinhDonVi_DanhSachResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblMoHinhDonVi_SuaDenNgay")]
 		public int sp_tblMoHinhDonVi_SuaDenNgay([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DenNgay", DbType="Date")] System.Nullable<System.DateTime> denNgay)
 		{
@@ -89,9 +82,16 @@ namespace DaoBSCKPI.Database.DonVi
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDDonVi, ngay);
 			return ((ISingleResult<sp_tblMoHinhDonVi_ThongTinResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblMoHinhDonVi_DanhSach")]
+		public ISingleResult<sp_tblMoHinhDonVi_DanhSachResult> sp_tblMoHinhDonVi_DanhSach([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonViQuanLy", DbType="Int")] System.Nullable<int> iDDonViQuanLy, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay", DbType="Date")] System.Nullable<System.DateTime> ngay)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDDonViQuanLy, ngay);
+			return ((ISingleResult<sp_tblMoHinhDonVi_DanhSachResult>)(result.ReturnValue));
+		}
 	}
 	
-	public partial class sp_tblMoHinhDonVi_DanhSachResult
+	public partial class sp_tblMoHinhDonVi_ThongTinResult
 	{
 		
 		private int _IDDonVi;
@@ -110,7 +110,7 @@ namespace DaoBSCKPI.Database.DonVi
 		
 		private string _NguoiTao;
 		
-		public sp_tblMoHinhDonVi_DanhSachResult()
+		public sp_tblMoHinhDonVi_ThongTinResult()
 		{
 		}
 		
@@ -243,10 +243,12 @@ namespace DaoBSCKPI.Database.DonVi
 		}
 	}
 	
-	public partial class sp_tblMoHinhDonVi_ThongTinResult
+	public partial class sp_tblMoHinhDonVi_DanhSachResult
 	{
 		
 		private int _IDDonVi;
+		
+		private string _Ten;
 		
 		private int _IDDonViQuanLy;
 		
@@ -262,7 +264,7 @@ namespace DaoBSCKPI.Database.DonVi
 		
 		private string _NguoiTao;
 		
-		public sp_tblMoHinhDonVi_ThongTinResult()
+		public sp_tblMoHinhDonVi_DanhSachResult()
 		{
 		}
 		
@@ -278,6 +280,22 @@ namespace DaoBSCKPI.Database.DonVi
 				if ((this._IDDonVi != value))
 				{
 					this._IDDonVi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(50)")]
+		public string Ten
+		{
+			get
+			{
+				return this._Ten;
+			}
+			set
+			{
+				if ((this._Ten != value))
+				{
+					this._Ten = value;
 				}
 			}
 		}

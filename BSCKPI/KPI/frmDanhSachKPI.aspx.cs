@@ -9,6 +9,7 @@ using DaoBSCKPI.Khac;
 using DaoBSCKPI.ChiTieuBSC;
 using DaoBSCKPI.Database.ChiTieuBSC;
 using DaoBSCKPI;
+using DaoBSCKPI.DonVi;
 
 using Ext.Net;
 using BSCKPI.UIHelper;
@@ -22,6 +23,7 @@ namespace BSCKPI.KPI
             if (!X.IsAjaxRequest)
             {
                 DanhSachKPI();
+                DanhSachDonVi();
                 ucBK1.KhoiTao();
 
                 Node TN = new Node();
@@ -31,10 +33,26 @@ namespace BSCKPI.KPI
         }
 
         #region Rieng
+        private void DanhSachDonVi()
+        {
+            daMoHinhDonVi dMHDV = new daMoHinhDonVi();
+            dMHDV.MHDV.IDDonViQuanLy = daPhien.NguoiDung.IDDonVi.Value;
+            dMHDV.MHDV.TuNgay = DateTime.Now;
+            stoDonVi.DataSource = dMHDV.DanhSach();
+            stoDonVi.DataBind();
+        }
+
         private void DanhSachKPI()
         {
             daChiTieuKPI dKPI = new daChiTieuKPI();
-            dKPI.KPI.IDDonVi = 0;
+            try
+            {
+                dKPI.KPI.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);
+            }
+            catch
+            {
+                dKPI.KPI.IDDonVi = 0;
+            }
             stoKPI.DataSource = dKPI.DanhSach();
             stoKPI.DataBind();
         }
@@ -158,8 +176,18 @@ namespace BSCKPI.KPI
             dKPI.KPI.InDam = ucBK1.InDam;
             dKPI.KPI.InNghieng = ucBK1.InNghieng;
 
-            dKPI.KPI.IDDonVi = daPhien.NguoiDung.IDDonVi;
-            dKPI.KPI.IDPhongBan = daPhien.NguoiDung.IDPhongBan;
+            //dKPI.KPI.IDDonVi = daPhien.NguoiDung.IDDonVi;
+            if(slbDonVi.SelectedItem.Value!=null)
+            {
+                dKPI.KPI.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);
+                dKPI.KPI.ChiTieuChung = false;
+            }
+            else
+            {
+                dKPI.KPI.IDDonVi = 0;
+                dKPI.KPI.ChiTieuChung = true;
+            }
+            dKPI.KPI.IDPhongBan = 0;//daPhien.NguoiDung.IDPhongBan;
             dKPI.KPI.NguoiTao = daPhien.NguoiDung.IDNhanVien.ToString();
 
             dKPI.ThemSua();
@@ -255,6 +283,7 @@ namespace BSCKPI.KPI
             }
             Dictionary<string, string>[] companies = JSON.Deserialize<Dictionary<string, string>[]>(json);
             int _IDBSC = 0;
+            int _TrangThai = 0;
             foreach (Dictionary<string, string> row in companies)
             {
                 try
@@ -262,6 +291,7 @@ namespace BSCKPI.KPI
                     txtIDKPILienKet.Text = row["ID"].ToString();
                     lblTenKPI.Text = row["Ten"].ToString();
                     _IDBSC = int.Parse(row["IDBSC"] == null ? "0" : row["IDBSC"]);
+                    _TrangThai = int.Parse(row["TrangThai"] == null ? "0" : row["TrangThai"]);
                 }
                 catch
                 {
@@ -280,15 +310,22 @@ namespace BSCKPI.KPI
             }
             else
             {
-                if (_IDBSC != 0)
+                if (_TrangThai == (int)daTrangThai.eTrangThai.Đã_Duyệt) //(_IDBSC != 0)
                 {
                     X.Msg.Show(new MessageBoxConfig
+                    {
+                        Title = "Thông báo",
+                        Message = "KPI này đã được Đã được phê duyệt!",
+                        Buttons = MessageBox.Button.OK,
+                        Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR")
+                    });
+                    /*X.Msg.Show(new MessageBoxConfig
                     {
                         Title = "Thông báo",
                         Message = "KPI này đã được Liên kết!",
                         Buttons = MessageBox.Button.OK,
                         Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR")
-                    });
+                    });*/
                 }
                 else
                 {

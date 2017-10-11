@@ -61,6 +61,13 @@ namespace DaoBSCKPI.NhanVien
             return daDatatableVaList.ToDataTable(lst);
         }
 
+        public DataTable DanhSachLanhDao()
+        {
+            List<sp_tblThongTinNhanVien_DanhSach_LanhDaoDonViResult> lst;
+            lst = lTT.sp_tblThongTinNhanVien_DanhSach_LanhDaoDonVi(TTNV.Thang, TTNV.Nam, TTNV.IDDonVi, TTNV.IDPhongBan).ToList();
+            return daDatatableVaList.ToDataTable(lst);
+        }
+
         public List<sp_tblThongTinNhanVien_DanhSach_DonViResult> lstDanhSach()
         {
             List<sp_tblThongTinNhanVien_DanhSach_DonViResult> lst;

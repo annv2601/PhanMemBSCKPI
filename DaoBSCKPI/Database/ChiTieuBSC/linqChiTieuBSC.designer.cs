@@ -82,6 +82,20 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<sp_tblBKChiTieuBSC_ThongTinResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuBSC_CapNhatTrongSo")]
+		public ISingleResult<sp_tblBKChiTieuBSC_CapNhatTrongSoResult> sp_tblBKChiTieuBSC_CapNhatTrongSo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrongSo", DbType="Decimal(10,3)")] System.Nullable<decimal> trongSo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, trongSo);
+			return ((ISingleResult<sp_tblBKChiTieuBSC_CapNhatTrongSoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuBSC_LayTongTrongSo")]
+		public ISingleResult<sp_tblBKChiTieuBSC_LayTongTrongSoResult> sp_tblBKChiTieuBSC_LayTongTrongSo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDChiTieuTren", DbType="Int")] System.Nullable<int> iDChiTieuTren)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDChiTieuTren);
+			return ((ISingleResult<sp_tblBKChiTieuBSC_LayTongTrongSoResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_tblBKChiTieuBSC_DanhSachResult
@@ -761,6 +775,58 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 				if ((this._NgayHeThong != value))
 				{
 					this._NgayHeThong = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblBKChiTieuBSC_CapNhatTrongSoResult
+	{
+		
+		private System.Nullable<bool> _KetQuaSuaTS;
+		
+		public sp_tblBKChiTieuBSC_CapNhatTrongSoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KetQuaSuaTS", DbType="Bit")]
+		public System.Nullable<bool> KetQuaSuaTS
+		{
+			get
+			{
+				return this._KetQuaSuaTS;
+			}
+			set
+			{
+				if ((this._KetQuaSuaTS != value))
+				{
+					this._KetQuaSuaTS = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblBKChiTieuBSC_LayTongTrongSoResult
+	{
+		
+		private decimal _TongTrongSo;
+		
+		public sp_tblBKChiTieuBSC_LayTongTrongSoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTrongSo", DbType="Decimal(12,3) NOT NULL")]
+		public decimal TongTrongSo
+		{
+			get
+			{
+				return this._TongTrongSo;
+			}
+			set
+			{
+				if ((this._TongTrongSo != value))
+				{
+					this._TongTrongSo = value;
 				}
 			}
 		}

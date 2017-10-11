@@ -36,27 +36,6 @@
       <Column Name="KetQuaHoanThanh" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_tblcvCongViecCaNhan_DanhSach" Method="sp_tblcvCongViecCaNhan_DanhSach">
-    <Parameter Name="TuNgay" Parameter="tuNgay" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="DenNgay" Parameter="denNgay" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
-    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
-    <ElementType Name="sp_tblcvCongViecCaNhan_DanhSachResult">
-      <Column Name="STTsx" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="Ma" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="NguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="TenNguoiGiaoViec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NguoiLamChinh" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="TenNguoiLamChinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NgayGiaoViec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NgayDenHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="IDMucDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MucDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_tblcvCongViecCaNhan_ThemSua" Method="sp_tblcvCongViecCaNhan_ThemSua">
     <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(MAX)" />
@@ -73,6 +52,32 @@
     <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
     <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
     <Parameter Name="IDTrangThai" Parameter="iDTrangThai" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
+    <ElementType Name="sp_tblcvCongViecCaNhan_ThemSuaResult">
+      <Column Name="MaCongViec" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhan_DanhSach" Method="sp_tblcvCongViecCaNhan_DanhSach">
+    <Parameter Name="TuNgay" Parameter="tuNgay" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DenNgay" Parameter="denNgay" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblcvCongViecCaNhan_DanhSachResult">
+      <Column Name="STT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Ma" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenNguoiGiaoViec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NguoiLamChinh" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenNguoiLamChinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayGiaoViec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayDenHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioDenHan" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IDMucDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MucDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QuaHan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThoiGianQuaHan" Type="System.String" DbType="NVarChar(55)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

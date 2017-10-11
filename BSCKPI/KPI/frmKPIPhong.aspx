@@ -53,7 +53,7 @@
                 <ext:Toolbar runat="server">
                     <Items>
                         <ext:SelectBox runat="server" ID="slbNam" DisplayField="Ten" ValueField="ID"
-                            EmptyText="Chọn năm ..." FieldLabel="Năm">
+                            EmptyText="Chọn năm ...">
                             <Listeners>
                                 <Select Handler="#{stoKPIPhong}.reload();" />
                             </Listeners>
@@ -66,6 +66,19 @@
                                 </ext:Store>
                             </Store>
                         </ext:SelectBox>
+                        <ext:SelectBox runat="server" ID="slbDonVi" DisplayField="Ten" ValueField="IDDonVi" EmptyText="Chọn đơn vị" MarginSpec="0 0 0 10" Width="200">
+                            <Listeners>
+                                <Select Handler="#{stoKPIPhong}.reload();" />
+                            </Listeners>
+                            <Store>
+                                <ext:Store runat="server" ID="stoDonVi">
+                                    <Fields>
+                                        <ext:ModelField Name="IDDonVi" />
+                                        <ext:ModelField Name="Ten" />
+                                    </Fields>
+                                </ext:Store>
+                            </Store>
+                    </ext:SelectBox>
                     </Items>
                 </ext:Toolbar>
             </TopBar>

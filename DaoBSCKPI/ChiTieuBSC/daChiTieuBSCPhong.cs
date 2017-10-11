@@ -62,6 +62,12 @@ namespace DaoBSCKPI.ChiTieuBSC
                 BSCP.IDXuHuongYeuCau, BSCP.TrongSoChung, BSCP.TrongSoChiTieu,BSCP.MucTieu, BSCP.NguoiTao);
         }
 
+        public void CapNhat()
+        {
+            lBSCP.sp_tblBKChiTieuBSCPhong_CapNhat(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC, 
+               BSCP.TrongSoChiTieu,BSCP.TrongSoChung, BSCP.MucTieu);
+        }
+
         public DataTable DanhSach()
         {
             List<sp_tblBKChiTieuBSCPhong_DanhSachResult> lst;

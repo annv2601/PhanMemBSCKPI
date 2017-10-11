@@ -81,6 +81,28 @@ namespace BSCKPI
                 pnlChucNang.Add(mp);
             }
 
+            //Cong viec ca nhan
+            dCN.CN.Nhom = (int)daChucNang.eNhomCN.Công_Việc_Cá_Nhân;
+            dCN.lstDanhSach();
+            if (dCN.LstChucNang.Count > 0)
+            {
+                mp = new MenuPanel();
+                mp.Title = "Công việc thường xuyên";
+                mp.SelectedTextCls = "bold-highlight";
+                mn.ID = "mnuCVTX";
+                foreach (sp_tblChucNang_DanhSachResult pt in dCN.LstChucNang)
+                {
+                    mni = new Ext.Net.MenuItem();
+                    mni.ID = "mnuiCVTX" + pt.ID.ToString();
+                    mni.Text = pt.Ten;
+                    mni.Icon = Icon.ArrowRight;
+                    mni.Cls = "my-item";
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCNKPI" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
+                    mp.Menu.Add(mni);
+                }
+                pnlChucNang.Add(mp);
+            }
+
             //Bao cao
             dCN.CN.Nhom = (int)daChucNang.eNhomCN.Báo_cáo;
             dCN.lstDanhSach();

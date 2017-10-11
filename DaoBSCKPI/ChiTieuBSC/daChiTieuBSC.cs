@@ -36,6 +36,16 @@ namespace DaoBSCKPI.ChiTieuBSC
                 BSC.IDXuHuongYeuCau, BSC.STTsx, BSC.InDam, BSC.InNghieng);
         }
 
+        public bool CapNhatTrongSo()
+        {
+            return lBSC.sp_tblBKChiTieuBSC_CapNhatTrongSo(BSC.ID, BSC.TrongSo).Single().KetQuaSuaTS.Value;
+        }
+
+        public decimal LayTongTrongSo()
+        {
+            return lBSC.sp_tblBKChiTieuBSC_LayTongTrongSo(BSC.IDChiTieuTren).Single().TongTrongSo;
+        }
+
         public DataTable DanhSach()
         {
             List<sp_tblBKChiTieuBSC_DanhSachResult> lst;

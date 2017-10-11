@@ -34,8 +34,8 @@
                     tab = tabPanel.add({
                         id       : id,
                         title    : TieuDe,
-                        closable : true,
-                        
+                        closable: true,
+                                              
                         loader   : {
                             url      : url,
                             renderer : "frame",
@@ -106,7 +106,7 @@
                 Region="Center"
                 MarginSpec="0"
                 Cls="tabs"
-                MinTabWidth="115">
+                MinTabWidth="115" Layout="FitLayout">
                 <Items>
                     <ext:Panel
                         ID="tabHome"

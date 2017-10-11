@@ -110,6 +110,13 @@ namespace DaoBSCKPI.Database.ChiTieuBSC
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<sp_tblBKChiTieuBSC_LayTrongSoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuBSCPhong_CapNhat")]
+		public int sp_tblBKChiTieuBSCPhong_CapNhat([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDBSC", DbType="Int")] System.Nullable<int> iDBSC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrongSoChiTieu", DbType="Decimal(22,3)")] System.Nullable<decimal> trongSoChiTieu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrongSoChung", DbType="Decimal(22,3)")] System.Nullable<decimal> trongSoChung, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MucTieu", DbType="Decimal(22,3)")] System.Nullable<decimal> mucTieu)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, iDBSC, trongSoChiTieu, trongSoChung, mucTieu);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_tblBKChiTieuBSCPhong_DanhSachResult

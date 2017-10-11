@@ -93,6 +93,9 @@
     <Content Include="BieuDo\frmBieuDoPie.aspx" />
     <Content Include="BSC\frmDanhSachBSC.aspx" />
     <Content Include="BSC\frmGiaoBSC.aspx" />
+    <Content Include="CongViecCaNhan\frmCongViecCaNhan.aspx" />
+    <Content Include="CongViecCaNhan\ucCongViecCaNhan.ascx" />
+    <Content Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="KetQuaDanhGia\frmBangCaNhan.aspx" />
     <Content Include="KetQuaDanhGia\frmBangPhong.aspx" />
@@ -138,6 +141,27 @@
     </Compile>
     <Compile Include="BSC\frmGiaoBSC.aspx.designer.cs">
       <DependentUpon>frmGiaoBSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CongViecCaNhan\frmCongViecCaNhan.aspx.cs">
+      <DependentUpon>frmCongViecCaNhan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\frmCongViecCaNhan.aspx.designer.cs">
+      <DependentUpon>frmCongViecCaNhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CongViecCaNhan\ucCongViecCaNhan.ascx.cs">
+      <DependentUpon>ucCongViecCaNhan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\ucCongViecCaNhan.ascx.designer.cs">
+      <DependentUpon>ucCongViecCaNhan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx.cs">
+      <DependentUpon>uccvcnNguoiThucHien.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx.designer.cs">
+      <DependentUpon>uccvcnNguoiThucHien.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -211,6 +235,7 @@
       <DependentUpon>ucNhiemVuTrongTam.ascx</DependentUpon>
     </Compile>
     <Compile Include="UIHelper\daPhien.cs" />
+    <Compile Include="UIHelper\daTienIch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BaoCao\" />

@@ -28,11 +28,11 @@ namespace DaoBSCKPI.CongViecCaNhan
             }
         }
 
-        public void ThemSua()
+        public decimal ThemSua()
         {
-            lCVCN.sp_tblcvCongViecCaNhan_ThemSua(CVCN.Ma, CVCN.NoiDung, CVCN.NguoiGiaoViec, CVCN.NguoiTheoDoi, CVCN.NgayGiaoViec,
+            return lCVCN.sp_tblcvCongViecCaNhan_ThemSua(CVCN.Ma, CVCN.NoiDung, CVCN.NguoiGiaoViec, CVCN.NguoiTheoDoi, CVCN.NgayGiaoViec,
                 CVCN.NgayDenHan, CVCN.GioDenHan, CVCN.IDMucDo, CVCN.NguoiLamChinh, CVCN.ChiDaoChung, CVCN.MaCongViecDonVi, CVCN.IDKPI,
-                CVCN.IDDonVi, CVCN.IDPhongBan, CVCN.IDTrangThai);
+                CVCN.IDDonVi, CVCN.IDPhongBan, CVCN.IDTrangThai).Single().MaCongViec.Value;
         }
 
         public void DanhGiaketQua()

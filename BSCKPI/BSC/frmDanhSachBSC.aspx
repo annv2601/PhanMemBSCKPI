@@ -6,14 +6,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <ext:XScript runat="server">
-        <script>
-            var TaiBieuDo = function ()
-            {
-
+    <link href="../resource/css/main.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var edit = function (editor, e) {
+            if (e.value !== e.originalValue) {
+                BangBSCX.Edit(e.record.data.ID, e.field, e.originalValue, e.value, e.record.data);
             }
-        </script>
-    </ext:XScript>
+        }
+    </script>
 </head>
 <body>
     <ext:ResourceManager runat="server" />
@@ -34,6 +34,7 @@
             FolderSort="true">
         
             <Fields>                
+                <ext:ModelField Name="ID" />
                 <ext:ModelField Name="Ma" />
                 <ext:ModelField Name="Ten" />
                 <ext:ModelField Name="TrongSo" Type="Float" />
@@ -50,21 +51,31 @@
                         Flex="2"
                         Sortable="true"
                         DataIndex="Ten" />                    
-                    <ext:Column
+                    <ext:NumberColumn
                         runat="server"
                         Text="Trọng số"
                         Flex="1"
-                        Sortable="true"
-                        DataIndex="TrongSo" FormatterFn="Percent"/>
+                        DataIndex="TrongSo" Format="000,000%" Width="100" Align="Center">
+                        <Editor>
+                            <ext:NumberField runat="server" MinValue="0" AllowDecimals="false"/>
+                        </Editor>
+                    </ext:NumberColumn>
                    <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
                     <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo" />
                     <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau" />
                 </Columns>
 
             </ColumnModel>
-        <DirectEvents>
-            <ItemClick OnEvent="tpBSC_Click" />
-        </DirectEvents>
+            <DirectEvents>
+                <ItemClick OnEvent="tpBSC_Click" />
+            </DirectEvents>
+             <Plugins>
+                <ext:CellEditing runat="server" ClicksToEdit="1">
+                    <Listeners>
+                        <Edit Fn="edit" />
+                    </Listeners>
+                </ext:CellEditing>
+            </Plugins>
         </ext:TreePanel>
 
 

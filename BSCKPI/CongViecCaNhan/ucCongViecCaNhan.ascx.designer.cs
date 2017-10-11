@@ -7,118 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BSCKPI.BSC {
+namespace BSCKPI.CongViecCaNhan {
     
     
-    public partial class frmGiaoBSC {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// FieldContainer1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer FieldContainer1;
-        
-        /// <summary>
-        /// tpBSC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TreePanel tpBSC;
-        
-        /// <summary>
-        /// slbThang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.SelectBox slbThang;
-        
-        /// <summary>
-        /// stoThang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store stoThang;
-        
-        /// <summary>
-        /// slbNam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.SelectBox slbNam;
-        
-        /// <summary>
-        /// stoNam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store stoNam;
-        
-        /// <summary>
-        /// slbDonVi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.SelectBox slbDonVi;
-        
-        /// <summary>
-        /// stoDonVi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store stoDonVi;
-        
-        /// <summary>
-        /// btnHienThi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Button btnHienThi;
-        
-        /// <summary>
-        /// tabBieuDo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Panel tabBieuDo;
-        
-        /// <summary>
-        /// fdcNhapLieu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.FieldContainer fdcNhapLieu;
+    public partial class ucCongViecCaNhan {
         
         /// <summary>
         /// Panel1 control.
@@ -130,21 +22,129 @@ namespace BSCKPI.BSC {
         protected global::Ext.Net.Panel Panel1;
         
         /// <summary>
-        /// ucBK1 control.
+        /// txtMaCongViecCaNhan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BSCKPI.UC.ucBSCKPI ucBK1;
+        protected global::Ext.Net.Hidden txtMaCongViecCaNhan;
         
         /// <summary>
-        /// btnCapNhatBSC control.
+        /// slbLanhDaoGiaoViec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button btnCapNhatBSC;
+        protected global::Ext.Net.SelectBox slbLanhDaoGiaoViec;
+        
+        /// <summary>
+        /// stoLanhDaoGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoLanhDaoGV;
+        
+        /// <summary>
+        /// slbNguoiTheoDoi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbNguoiTheoDoi;
+        
+        /// <summary>
+        /// stoLanhDaoTD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoLanhDaoTD;
+        
+        /// <summary>
+        /// txtNoiDung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TextArea txtNoiDung;
+        
+        /// <summary>
+        /// txtNgayGiao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.DateField txtNgayGiao;
+        
+        /// <summary>
+        /// slbMucDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbMucDo;
+        
+        /// <summary>
+        /// stoMucDo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoMucDo;
+        
+        /// <summary>
+        /// txtNgayDenHan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.DateField txtNgayDenHan;
+        
+        /// <summary>
+        /// txtGioDenHan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TimeField txtGioDenHan;
+        
+        /// <summary>
+        /// slbNguoiLamChinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbNguoiLamChinh;
+        
+        /// <summary>
+        /// stoNguoiLamChinh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoNguoiLamChinh;
+        
+        /// <summary>
+        /// txtChiDaoChung control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TextArea txtChiDaoChung;
     }
 }
