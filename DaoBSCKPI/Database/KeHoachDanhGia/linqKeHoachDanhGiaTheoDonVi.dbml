@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqKeHoachDanhGiaTheoDonViDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSach" Method="sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSach">
+    <Parameter Name="IDKeHoach" Parameter="iDKeHoach" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSachResult">
+      <Column Name="IDKeHoach" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDDonVi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DonVi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhongBan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TuNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DenNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayHeThong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKKeHoachDanhGiaTheoDonVi_ThemSua" Method="sp_tblBKKeHoachDanhGiaTheoDonVi_ThemSua">
+    <Parameter Name="IDKeHoach" Parameter="iDKeHoach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDPhongBan" Parameter="iDPhongBan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TuNgay" Parameter="tuNgay" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DenNgay" Parameter="denNgay" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSachChon" Method="sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSachChon">
+    <Parameter Name="IDKeHoach" Parameter="iDKeHoach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDCapTren" Parameter="iDCapTren" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_tblBKKeHoachDanhGiaTheoDonVi_DanhSachChonResult">
+      <Column Name="IDDonVi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DaChonDV" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKKeHoachDanhGiaTheoDonVi_Xoa" Method="sp_tblBKKeHoachDanhGiaTheoDonVi_Xoa">
+    <Parameter Name="IDKeHoach" Parameter="iDKeHoach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDDonVi" Parameter="iDDonVi" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

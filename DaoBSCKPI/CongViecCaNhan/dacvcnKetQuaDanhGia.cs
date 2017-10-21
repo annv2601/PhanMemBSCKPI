@@ -33,7 +33,7 @@ namespace DaoBSCKPI.CongViecCaNhan
             lKQDG.sp_tblcvCongViecCaNhanKetQuaDanhGia_ThemSua(KQDG.MaCongViecCaNhan, KQDG.IDNguoiDanhGia, KQDG.IDNguoiDuocDanhGia, KQDG.ChatLuong,
                 KQDG.KhoiLuong, KQDG.TienDo, KQDG.DoPhucTap, KQDG.TrachNhiem, KQDG.IDKetQua);
         }
-
+        
         public DataTable DanhSach()
         {
             List<sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSachResult> lst;

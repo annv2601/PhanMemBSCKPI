@@ -94,6 +94,7 @@ namespace BSCKPI.BSC
                 _treenode.CustomAttributes.Add(_lci[4]);
                 _treenode.CustomAttributes.Add(_lci[5]);
                 _treenode.CustomAttributes.Add(_lci[6]);
+                _treenode.CustomAttributes.Add(_lci[7]);
                 _treenode.Leaf = true;
 
                 /*_treenode.NodeID = IDBSCTren.ToString();
@@ -114,6 +115,7 @@ namespace BSCKPI.BSC
                     _treenode.CustomAttributes.Add(_lci[4]);
                     _treenode.CustomAttributes.Add(_lci[5]);
                     _treenode.CustomAttributes.Add(_lci[6]);
+                    _treenode.CustomAttributes.Add(_lci[7]);
                     _treenode.Leaf = false;
                 }
                 foreach (sp_tblBKChiTieuBSC_DanhSachResult pt in dBSC.lstBSC)

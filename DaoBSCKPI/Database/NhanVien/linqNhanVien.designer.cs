@@ -62,10 +62,17 @@ namespace DaoBSCKPI.Database.NhanVien
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNhanVien_ThemSua")]
-		public ISingleResult<sp_tblNhanVien_ThemSuaResult> sp_tblNhanVien_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNhanVien", DbType="NVarChar(20)")] string maNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNhanVien", DbType="NVarChar(50)")] string tenNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoDem", DbType="NVarChar(30)")] string hoDem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ten", DbType="NVarChar(20)")] string ten, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="Date")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="Bit")] System.Nullable<bool> gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienThoaiDiDong", DbType="NVarChar(20)")] string dienThoaiDiDong, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(80)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNhanVien_SuaHoatDong")]
+		public int sp_tblNhanVien_SuaHoatDong([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, maNhanVien, tenNhanVien, hoDem, ten, ngaySinh, gioiTinh, dienThoaiDiDong, email, hoatDong, nguoiTao);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, hoatDong);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNhanVien_ThemSua")]
+		public ISingleResult<sp_tblNhanVien_ThemSuaResult> sp_tblNhanVien_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNhanVien", DbType="NVarChar(20)")] string maNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNhanVien", DbType="NVarChar(50)")] string tenNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoDem", DbType="NVarChar(30)")] string hoDem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ten", DbType="NVarChar(20)")] string ten, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="Date")] System.Nullable<System.DateTime> ngaySinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="Bit")] System.Nullable<bool> gioiTinh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienThoaiDiDong", DbType="NVarChar(20)")] string dienThoaiDiDong, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(80)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(250)")] string urlAnh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, maNhanVien, tenNhanVien, hoDem, ten, ngaySinh, gioiTinh, dienThoaiDiDong, email, hoatDong, urlAnh, nguoiTao);
 			return ((ISingleResult<sp_tblNhanVien_ThemSuaResult>)(result.ReturnValue));
 		}
 		
@@ -74,13 +81,6 @@ namespace DaoBSCKPI.Database.NhanVien
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien);
 			return ((ISingleResult<sp_tblNhanVien_ThongTinResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblNhanVien_SuaHoatDong")]
-		public int sp_tblNhanVien_SuaHoatDong([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoatDong", DbType="Bit")] System.Nullable<bool> hoatDong)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDNhanVien, hoatDong);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -140,6 +140,8 @@ namespace DaoBSCKPI.Database.NhanVien
 		private System.Nullable<System.DateTime> _NgayTao;
 		
 		private System.Nullable<System.DateTime> _NgaySua;
+		
+		private string _urlAnh;
 		
 		public sp_tblNhanVien_ThongTinResult()
 		{
@@ -365,6 +367,22 @@ namespace DaoBSCKPI.Database.NhanVien
 				if ((this._NgaySua != value))
 				{
 					this._NgaySua = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlAnh", DbType="NVarChar(250)")]
+		public string urlAnh
+		{
+			get
+			{
+				return this._urlAnh;
+			}
+			set
+			{
+				if ((this._urlAnh != value))
+				{
+					this._urlAnh = value;
 				}
 			}
 		}

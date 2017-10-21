@@ -138,6 +138,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Database\KeHoachDanhGia\linqKeHoachDanhGia.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKeHoachDanhGia.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoChucVu.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKeHoachDanhGiaTheoChucVu.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoDonVi.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqKeHoachDanhGiaTheoDonVi.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\KetQuaDanhGia\clsBangDanhGia.cs" />
     <Compile Include="Database\KetQuaDanhGia\linqBangDanhGia.designer.cs">
       <AutoGen>True</AutoGen>
@@ -179,6 +194,9 @@
     <Compile Include="DonVi\daMoHinhDonVi.cs" />
     <Compile Include="DonVi\daMoHinhPhongBan.cs" />
     <Compile Include="DonVi\daPhongBan.cs" />
+    <Compile Include="KeHoachDanhGia\daKeHoachDanhGia.cs" />
+    <Compile Include="KeHoachDanhGia\daKeHoachDanhGiaChucVu.cs" />
+    <Compile Include="KeHoachDanhGia\dKeHoachDanhGiaTheoDonVi.cs" />
     <Compile Include="KetQuaDanhGia\daBangDanhGia.cs" />
     <Compile Include="KetQuaDanhGia\daKetQuaDanhGia.cs" />
     <Compile Include="KetQuaDanhGia\daKetQuaDanhGiaKhongMucTieu.cs" />
@@ -323,6 +341,30 @@
     </None>
     <None Include="Database\DonVi\linqMoHinhPhongBan.dbml.layout">
       <DependentUpon>linqMoHinhPhongBan.dbml</DependentUpon>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGia.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKeHoachDanhGia.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGia.dbml.layout">
+      <DependentUpon>linqKeHoachDanhGia.dbml</DependentUpon>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoChucVu.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKeHoachDanhGiaTheoChucVu.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoChucVu.dbml.layout">
+      <DependentUpon>linqKeHoachDanhGiaTheoChucVu.dbml</DependentUpon>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoDonVi.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqKeHoachDanhGiaTheoDonVi.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\KeHoachDanhGia\linqKeHoachDanhGiaTheoDonVi.dbml.layout">
+      <DependentUpon>linqKeHoachDanhGiaTheoDonVi.dbml</DependentUpon>
     </None>
     <None Include="Database\KetQuaDanhGia\linqBangDanhGia.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

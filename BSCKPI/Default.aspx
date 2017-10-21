@@ -12,9 +12,8 @@
 
     <link rel="stylesheet" href="resource/css/main.css" />
     <link rel="shortcut icon" href="favicon.ico" />
-
-    <script src="resource/js/perfect-scrollbar.min.js?0.6.8"></script>
-    <script src="resource/js/main.js"></script>
+    
+    
     <style type="text/css">
         .bold-highlight {
             font-weight: bold;
@@ -24,7 +23,7 @@
             font-size:14px;
         }
     </style>
-
+    
     <ext:XScript runat="server">
         <script>
             var addTabCN = function (tabPanel, id, url, TieuDe) {

@@ -48,6 +48,11 @@ namespace DaoBSCKPI.KetQuaDanhGia
             lKQ.sp_tblBKKetQuaDanhGia_KhoiTao(dTS.Thang, dTS.Nam, dTS.IDDonVi, dTS.IDPhongBan, dTS.IDNguoiDung);
         }
 
+        public void KhoiTaoNhanVien()
+        {
+            lKQ.sp_tblBKKetQuaDanhGia_KhoiTao_NhanVien(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.NguoiTao);
+        }
+
         public DataTable DanhSach()
         {
             List<sp_tblBKKetQuaDanhGia_DanhSachResult> lst;

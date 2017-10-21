@@ -44,5 +44,26 @@ namespace DaoBSCKPI.DonVi
             lst = lmhpb.sp_tblMoHinhPhongBan_DanhSach(MHPB.IDDonVi, MHPB.TuNgay).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
+
+        public DataTable DanhSachDDL()
+        {
+            List<sp_tblMoHinhPhongBan_DanhSachResult> lst;
+            lst = lmhpb.sp_tblMoHinhPhongBan_DanhSach(MHPB.IDDonVi, MHPB.TuNgay).ToList();
+            DataTable dt= daDatatableVaList.ToDataTable(lst);
+            try
+            {
+                dt.Columns.Remove("IDDonVi");
+                dt.Columns.Remove("STTsx");
+                dt.Columns.Remove("TuNgay");
+                dt.Columns.Remove("DenNgay");
+                dt.Columns.Remove("NgayTao");
+                dt.Columns.Remove("NguoiTao");
+            }
+            catch { }
+
+
+            dt.Rows.Add(0, "--- Không Phòng ban ---");
+            return dt;
+        }
     }
 }

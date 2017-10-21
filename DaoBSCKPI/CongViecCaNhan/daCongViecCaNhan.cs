@@ -37,7 +37,7 @@ namespace DaoBSCKPI.CongViecCaNhan
 
         public void DanhGiaketQua()
         {
-            lCVCN.sp_tblcvCongViecCaNhan_DanhGiaKetQua(CVCN.Ma, CVCN.IDTrangThai, CVCN.DaHoanThanh, CVCN.NguoiDanhGia, CVCN.MucDoHoanThanh, CVCN.KetQuaHoanThanh);
+            lCVCN.sp_tblcvCongViecCaNhan_DanhGiaKetQua(CVCN.Ma, CVCN.IDTrangThai, CVCN.DaHoanThanh, CVCN.NguoiDanhGia, CVCN.MucDoHoanThanh, CVCN.KetQuaHoanThanh,CVCN.NgayHoanThanh);
         }
 
         public DataTable DanhSach()

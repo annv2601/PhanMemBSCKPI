@@ -62,13 +62,6 @@ namespace DaoBSCKPI.Database.NhanVien
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblThongTinNhanVien_DanhSach_DonVi")]
-		public ISingleResult<sp_tblThongTinNhanVien_DanhSach_DonViResult> sp_tblThongTinNhanVien_DanhSach_DonVi([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan);
-			return ((ISingleResult<sp_tblThongTinNhanVien_DanhSach_DonViResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblThongTinNhanVien_ThemSua")]
 		public int sp_tblThongTinNhanVien_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNhanVien", DbType="NVarChar(50)")] string tenNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDChucVu", DbType="Int")] System.Nullable<int> iDChucVu, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDChucDanh", DbType="Int")] System.Nullable<int> iDChucDanh, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MoTaCongViec", DbType="NVarChar(250)")] string moTaCongViec, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
 		{
@@ -103,211 +96,12 @@ namespace DaoBSCKPI.Database.NhanVien
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan);
 			return ((ISingleResult<sp_tblThongTinNhanVien_DanhSach_LanhDaoDonViResult>)(result.ReturnValue));
 		}
-	}
-	
-	public partial class sp_tblThongTinNhanVien_DanhSach_DonViResult
-	{
 		
-		private System.Nullable<short> _Thang;
-		
-		private System.Nullable<int> _Nam;
-		
-		private System.Nullable<System.Guid> _IDNhanVien;
-		
-		private string _TenNhanVien;
-		
-		private System.Nullable<int> _IDDonVi;
-		
-		private System.Nullable<int> _IDPhongBan;
-		
-		private System.Nullable<int> _IDChucVu;
-		
-		private string _ChucVu;
-		
-		private System.Nullable<int> _IDChucDanh;
-		
-		private string _ChucDanh;
-		
-		private string _MoTaCongViec;
-		
-		public sp_tblThongTinNhanVien_DanhSach_DonViResult()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblThongTinNhanVien_DanhSach_DonVi")]
+		public ISingleResult<sp_tblThongTinNhanVien_DanhSach_DonViResult> sp_tblThongTinNhanVien_DanhSach_DonVi([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan)
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thang", DbType="SmallInt")]
-		public System.Nullable<short> Thang
-		{
-			get
-			{
-				return this._Thang;
-			}
-			set
-			{
-				if ((this._Thang != value))
-				{
-					this._Thang = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nam", DbType="Int")]
-		public System.Nullable<int> Nam
-		{
-			get
-			{
-				return this._Nam;
-			}
-			set
-			{
-				if ((this._Nam != value))
-				{
-					this._Nam = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDNhanVien", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> IDNhanVien
-		{
-			get
-			{
-				return this._IDNhanVien;
-			}
-			set
-			{
-				if ((this._IDNhanVien != value))
-				{
-					this._IDNhanVien = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhanVien", DbType="NVarChar(50)")]
-		public string TenNhanVien
-		{
-			get
-			{
-				return this._TenNhanVien;
-			}
-			set
-			{
-				if ((this._TenNhanVien != value))
-				{
-					this._TenNhanVien = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDDonVi", DbType="Int")]
-		public System.Nullable<int> IDDonVi
-		{
-			get
-			{
-				return this._IDDonVi;
-			}
-			set
-			{
-				if ((this._IDDonVi != value))
-				{
-					this._IDDonVi = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPhongBan", DbType="Int")]
-		public System.Nullable<int> IDPhongBan
-		{
-			get
-			{
-				return this._IDPhongBan;
-			}
-			set
-			{
-				if ((this._IDPhongBan != value))
-				{
-					this._IDPhongBan = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDChucVu", DbType="Int")]
-		public System.Nullable<int> IDChucVu
-		{
-			get
-			{
-				return this._IDChucVu;
-			}
-			set
-			{
-				if ((this._IDChucVu != value))
-				{
-					this._IDChucVu = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
-		public string ChucVu
-		{
-			get
-			{
-				return this._ChucVu;
-			}
-			set
-			{
-				if ((this._ChucVu != value))
-				{
-					this._ChucVu = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDChucDanh", DbType="Int")]
-		public System.Nullable<int> IDChucDanh
-		{
-			get
-			{
-				return this._IDChucDanh;
-			}
-			set
-			{
-				if ((this._IDChucDanh != value))
-				{
-					this._IDChucDanh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucDanh", DbType="NVarChar(50)")]
-		public string ChucDanh
-		{
-			get
-			{
-				return this._ChucDanh;
-			}
-			set
-			{
-				if ((this._ChucDanh != value))
-				{
-					this._ChucDanh = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTaCongViec", DbType="NVarChar(250)")]
-		public string MoTaCongViec
-		{
-			get
-			{
-				return this._MoTaCongViec;
-			}
-			set
-			{
-				if ((this._MoTaCongViec != value))
-				{
-					this._MoTaCongViec = value;
-				}
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan);
+			return ((ISingleResult<sp_tblThongTinNhanVien_DanhSach_DonViResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -960,6 +754,392 @@ namespace DaoBSCKPI.Database.NhanVien
 				if ((this._MoTaCongViec != value))
 				{
 					this._MoTaCongViec = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_tblThongTinNhanVien_DanhSach_DonViResult
+	{
+		
+		private System.Nullable<long> _STT;
+		
+		private System.Nullable<short> _Thang;
+		
+		private System.Nullable<int> _Nam;
+		
+		private System.Nullable<System.Guid> _IDNhanVien;
+		
+		private string _TenNhanVien;
+		
+		private System.Nullable<System.DateTime> _NgaySinh;
+		
+		private System.Nullable<bool> _GioiTinh;
+		
+		private string _DienThoaiDiDong;
+		
+		private string _Email;
+		
+		private string _MaNhanVien;
+		
+		private string _HoDem;
+		
+		private string _Ten;
+		
+		private System.Nullable<bool> _HoatDong;
+		
+		private System.Nullable<int> _IDDonVi;
+		
+		private System.Nullable<int> _IDPhongBan;
+		
+		private System.Nullable<int> _IDChucVu;
+		
+		private string _ChucVu;
+		
+		private System.Nullable<int> _IDChucDanh;
+		
+		private string _ChucDanh;
+		
+		private string _MoTaCongViec;
+		
+		private string _urlAnh;
+		
+		public sp_tblThongTinNhanVien_DanhSach_DonViResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STT", DbType="BigInt")]
+		public System.Nullable<long> STT
+		{
+			get
+			{
+				return this._STT;
+			}
+			set
+			{
+				if ((this._STT != value))
+				{
+					this._STT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Thang", DbType="SmallInt")]
+		public System.Nullable<short> Thang
+		{
+			get
+			{
+				return this._Thang;
+			}
+			set
+			{
+				if ((this._Thang != value))
+				{
+					this._Thang = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nam", DbType="Int")]
+		public System.Nullable<int> Nam
+		{
+			get
+			{
+				return this._Nam;
+			}
+			set
+			{
+				if ((this._Nam != value))
+				{
+					this._Nam = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDNhanVien", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDNhanVien
+		{
+			get
+			{
+				return this._IDNhanVien;
+			}
+			set
+			{
+				if ((this._IDNhanVien != value))
+				{
+					this._IDNhanVien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNhanVien", DbType="NVarChar(50)")]
+		public string TenNhanVien
+		{
+			get
+			{
+				return this._TenNhanVien;
+			}
+			set
+			{
+				if ((this._TenNhanVien != value))
+				{
+					this._TenNhanVien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="Date")]
+		public System.Nullable<System.DateTime> NgaySinh
+		{
+			get
+			{
+				return this._NgaySinh;
+			}
+			set
+			{
+				if ((this._NgaySinh != value))
+				{
+					this._NgaySinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiTinh", DbType="Bit")]
+		public System.Nullable<bool> GioiTinh
+		{
+			get
+			{
+				return this._GioiTinh;
+			}
+			set
+			{
+				if ((this._GioiTinh != value))
+				{
+					this._GioiTinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoaiDiDong", DbType="NVarChar(20)")]
+		public string DienThoaiDiDong
+		{
+			get
+			{
+				return this._DienThoaiDiDong;
+			}
+			set
+			{
+				if ((this._DienThoaiDiDong != value))
+				{
+					this._DienThoaiDiDong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(80)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNhanVien", DbType="NVarChar(20)")]
+		public string MaNhanVien
+		{
+			get
+			{
+				return this._MaNhanVien;
+			}
+			set
+			{
+				if ((this._MaNhanVien != value))
+				{
+					this._MaNhanVien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoDem", DbType="NVarChar(30)")]
+		public string HoDem
+		{
+			get
+			{
+				return this._HoDem;
+			}
+			set
+			{
+				if ((this._HoDem != value))
+				{
+					this._HoDem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(20)")]
+		public string Ten
+		{
+			get
+			{
+				return this._Ten;
+			}
+			set
+			{
+				if ((this._Ten != value))
+				{
+					this._Ten = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoatDong", DbType="Bit")]
+		public System.Nullable<bool> HoatDong
+		{
+			get
+			{
+				return this._HoatDong;
+			}
+			set
+			{
+				if ((this._HoatDong != value))
+				{
+					this._HoatDong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDDonVi", DbType="Int")]
+		public System.Nullable<int> IDDonVi
+		{
+			get
+			{
+				return this._IDDonVi;
+			}
+			set
+			{
+				if ((this._IDDonVi != value))
+				{
+					this._IDDonVi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPhongBan", DbType="Int")]
+		public System.Nullable<int> IDPhongBan
+		{
+			get
+			{
+				return this._IDPhongBan;
+			}
+			set
+			{
+				if ((this._IDPhongBan != value))
+				{
+					this._IDPhongBan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDChucVu", DbType="Int")]
+		public System.Nullable<int> IDChucVu
+		{
+			get
+			{
+				return this._IDChucVu;
+			}
+			set
+			{
+				if ((this._IDChucVu != value))
+				{
+					this._IDChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucVu", DbType="NVarChar(50)")]
+		public string ChucVu
+		{
+			get
+			{
+				return this._ChucVu;
+			}
+			set
+			{
+				if ((this._ChucVu != value))
+				{
+					this._ChucVu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDChucDanh", DbType="Int")]
+		public System.Nullable<int> IDChucDanh
+		{
+			get
+			{
+				return this._IDChucDanh;
+			}
+			set
+			{
+				if ((this._IDChucDanh != value))
+				{
+					this._IDChucDanh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChucDanh", DbType="NVarChar(50)")]
+		public string ChucDanh
+		{
+			get
+			{
+				return this._ChucDanh;
+			}
+			set
+			{
+				if ((this._ChucDanh != value))
+				{
+					this._ChucDanh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoTaCongViec", DbType="NVarChar(250)")]
+		public string MoTaCongViec
+		{
+			get
+			{
+				return this._MoTaCongViec;
+			}
+			set
+			{
+				if ((this._MoTaCongViec != value))
+				{
+					this._MoTaCongViec = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlAnh", DbType="NVarChar(250)")]
+		public string urlAnh
+		{
+			get
+			{
+				return this._urlAnh;
+			}
+			set
+			{
+				if ((this._urlAnh != value))
+				{
+					this._urlAnh = value;
 				}
 			}
 		}

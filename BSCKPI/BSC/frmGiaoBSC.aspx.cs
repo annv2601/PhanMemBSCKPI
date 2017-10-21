@@ -40,23 +40,8 @@ namespace BSCKPI.BSC
 
         private void DanhSachThangNam()
         {
-            DataTable BDL = new DataTable();
-            BDL.Columns.Add("ID", typeof(int));
-            BDL.Columns.Add("Ten", typeof(string));
-            int i;
-            for(i=1;i<=12;i++)
-            {
-                BDL.Rows.Add(i, "Tháng " + i.ToString());
-            }
-            stoThang.DataSource = BDL;
-            stoThang.DataBind();
-
-            BDL.Rows.Clear();
-            i = DateTime.Now.Year - 1;
-            BDL.Rows.Add(i, "Năm " + i.ToString());
-            i = i + 1;
-            BDL.Rows.Add(i, "Năm " + i.ToString());
-            stoNam.DataSource = BDL;
+            daThamSo dTS = new daThamSo();
+            stoNam.DataSource = dTS.DanhSachNam();
             stoNam.DataBind();
         }
 
@@ -126,8 +111,7 @@ namespace BSCKPI.BSC
             Node _treenode = new Node();
             List<ConfigItem> _lci = new List<ConfigItem>();
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
-
-            dBSCP.BSCP.Thang = TS.Thang;
+            
             dBSCP.BSCP.Nam = TS.Nam;
             dBSCP.BSCP.IDDonVi = TS.IDDonVi;
             dBSCP.BSCP.IDPhongBan = TS.IDPhongBan;
@@ -146,6 +130,8 @@ namespace BSCKPI.BSC
                 _treenode.CustomAttributes.Add(_lci[4]);
                 _treenode.CustomAttributes.Add(_lci[5]);
                 _treenode.CustomAttributes.Add(_lci[6]);
+                _treenode.CustomAttributes.Add(_lci[7]);
+                _treenode.CustomAttributes.Add(_lci[8]);
                 _treenode.Leaf = true;
 
                 /*_treenode.NodeID = IDBSCTren.ToString();
@@ -166,6 +152,8 @@ namespace BSCKPI.BSC
                     _treenode.CustomAttributes.Add(_lci[4]);
                     _treenode.CustomAttributes.Add(_lci[5]);
                     _treenode.CustomAttributes.Add(_lci[6]);
+                    _treenode.CustomAttributes.Add(_lci[7]);
+                    _treenode.CustomAttributes.Add(_lci[8]);
                     _treenode.Leaf = false;
                 }
                 foreach (sp_tblBKChiTieuBSCPhong_DanhSach_NhomIDResult pt in dBSCP.lstBSCPhong)
@@ -181,13 +169,11 @@ namespace BSCKPI.BSC
         {
             LaChon = false;
             daThamSo dTS = new daThamSo();
-            dTS.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dTS.Nam = int.Parse(slbNam.SelectedItem.Value);
             dTS.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi.Value;
             dTS.IDPhongBan = 0;// daPhien.NguoiDung.IDPhongBan.Value;
             dTS.IDNguoiDung = daPhien.NguoiDung.IDNhanVien.ToString();
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
-            dBSCP.BSCP.Thang = dTS.Thang;
             dBSCP.BSCP.Nam = dTS.Nam;
             dBSCP.BSCP.IDDonVi = dTS.IDDonVi;
             dBSCP.BSCP.IDPhongBan = dTS.IDPhongBan;
@@ -201,7 +187,7 @@ namespace BSCKPI.BSC
             Node TN = new Node();
             TN = CayDanhSachBSC(dTS, 0);
             tpBSC.Root.Add(TN);
-            tpBSC.Title = "Danh sách BSC Đơn vị tháng " + dTS.Thang.ToString() + " năm " + dTS.Nam.ToString();
+            tpBSC.Title = "Danh sách BSC của "+ slbDonVi.SelectedItem.Text + " Năm " + dTS.Nam.ToString();
             tpBSC.ExpandAll();
             tpBSC.Render();
 
@@ -227,12 +213,11 @@ namespace BSCKPI.BSC
 
         protected void btnCapNhatBSC_Click(object sender, DirectEventArgs e)
         {
-            if (slbThang.SelectedItem.Value == null || slbNam.SelectedItem.Value == null)
+            if (slbDonVi.SelectedItem.Value == null || slbNam.SelectedItem.Value == null)
             {
                 return;
             }
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
-            dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
             dBSCP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi;
             dBSCP.BSCP.IDPhongBan = 0; // daPhien.NguoiDung.IDPhongBan;
@@ -265,7 +250,6 @@ namespace BSCKPI.BSC
 
             daChiTieuBSCPhong dBSCP = new daChiTieuBSCPhong();
             dBSCP.BSCP.IDBSC = int.Parse(tpBSC.SelectedNodes[0].NodeID);
-            dBSCP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dBSCP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
             dBSCP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);//daPhien.NguoiDung.IDDonVi;
             dBSCP.BSCP.IDPhongBan = 0;// daPhien.NguoiDung.IDPhongBan;
@@ -287,7 +271,7 @@ namespace BSCKPI.BSC
 
         protected void slbThang_Change(object sender, DirectEventArgs e)
         {            
-            if (slbThang.SelectedItem.Value==null || slbNam.SelectedItem.Value==null||slbDonVi.SelectedItem.Value==null)
+            if (slbNam.SelectedItem.Value==null||slbDonVi.SelectedItem.Value==null)
             {
                 return;
             }
@@ -309,7 +293,6 @@ namespace BSCKPI.BSC
         public void Edit(int id, string field, string oldvalue, string newvalue, object BangGiaoBSC)
         {
             daChiTieuBSCPhong dP = new daChiTieuBSCPhong();
-            dP.BSCP.Thang = byte.Parse(slbThang.SelectedItem.Value);
             dP.BSCP.Nam = int.Parse(slbNam.SelectedItem.Value);
             dP.BSCP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);
             dP.BSCP.IDPhongBan = 0;

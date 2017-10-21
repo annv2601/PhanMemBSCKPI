@@ -22,7 +22,7 @@ namespace BSCKPI
                 daThongTinNhanVien dTTNV = new daThongTinNhanVien();
                 dTTNV.TTNV.IDDonVi = 2;
                 dTTNV.TTNV.IDPhongBan = 2;
-                dTTNV.TTNV.IDNhanVien = Guid.Empty;
+                dTTNV.TTNV.IDNhanVien = Guid.Parse("F2A8A332-84F8-4EB3-B223-03A785D3A337");
                 daPhien.NguoiDung = dTTNV.TTNV;
 
 
@@ -38,10 +38,35 @@ namespace BSCKPI
             Ext.Net.Menu mn = new Ext.Net.Menu();
             Ext.Net.MenuItem mni = new Ext.Net.MenuItem();
             daChucNang dCN = new daChucNang();
+
+            //Mo hinh
+            dCN.CN.Nhom = (int)daChucNang.eNhomCN.Mô_Hình;
+            dCN.lstDanhSach();
+            if (dCN.LstChucNang.Count > 0)
+            {
+                mp.Title = "Mô hình Tổ chức";
+                mp.SelectedTextCls = "bold-highlight";
+                mp.Cls = "my-item";
+                mn.ID = "mnuMHTC";
+                foreach (sp_tblChucNang_DanhSachResult pt in dCN.LstChucNang)
+                {
+                    mni = new Ext.Net.MenuItem();
+                    mni.ID = "mnuiMHTC" + pt.ID.ToString();
+                    mni.Text = pt.Ten;
+                    mni.Cls = "my-item";
+                    mni.Icon = Icon.ArrowRight;
+                    mni.Listeners.Click.Handler = "addTabCN(#{TabPanelChinh},'idTabCN" + pt.ID.ToString() + "','" + daPhien.LayDiaChiURL(pt.dcUrl) + "','" + pt.TieuDe + "');";
+                    mp.Menu.Add(mni);
+                }
+                pnlChucNang.Add(mp);
+            }
+
+            //BSC
             dCN.CN.Nhom = (int)daChucNang.eNhomCN.BSC;
             dCN.lstDanhSach();
             if (dCN.LstChucNang.Count>0)
             {
+                mp = new MenuPanel();
                 mp.Title = "BSC";
                 mp.SelectedTextCls = "bold-highlight";
                 mp.Cls = "my-item";

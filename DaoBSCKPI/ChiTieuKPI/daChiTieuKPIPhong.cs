@@ -35,6 +35,11 @@ namespace DaoBSCKPI.ChiTieuKPI
                 KPIP.MucTieuThang10, KPIP.MucTieuThang11, KPIP.MucTieuThang12, KPIP.NguoiTao);
         }
 
+        public void CapNhatMucTieuNam()
+        {
+            lKPIP.sp_tblBKChiTieuKPIPhong_CapNhatMucTieuNam(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan);
+        }
+
         public void Xoa()
         {
             lKPIP.sp_tblBKChiTieuKPIPhong_Xoa(KPIP.Nam, KPIP.IDDonVi, KPIP.IDPhongBan, KPIP.IDKPI);

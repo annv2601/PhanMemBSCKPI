@@ -1,23 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqcvcnKetQuaDanhGiaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSach" Method="sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSach">
-    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSachResult">
-      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IDNguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NguoiDanhGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IDNguoiDuocDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NguoiDuocDanhGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ChatLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="KhoiLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TienDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DoPhucTap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TrachNhiem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="IDKetQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TenKetQua" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_tblcvCongViecCaNhanKetQuaDanhGia_ThongTin" Method="sp_tblcvCongViecCaNhanKetQuaDanhGia_ThongTin">
     <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IDNguoiDuocDanhGia" Parameter="iDNguoiDuocDanhGia" Type="System.Guid" DbType="UniqueIdentifier" />
@@ -45,5 +27,24 @@
     <Parameter Name="TrachNhiem" Parameter="trachNhiem" Type="System.String" DbType="NVarChar(100)" />
     <Parameter Name="IDKetQua" Parameter="iDKetQua" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSach" Method="sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSach">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="sp_tblcvCongViecCaNhanKetQuaDanhGia_DanhSachResult">
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IDNguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NguoiDanhGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDNguoiDuocDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NguoiDuocDanhGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChatLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KhoiLuong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TienDo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DoPhucTap" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TrachNhiem" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IDKetQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenKetQua" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

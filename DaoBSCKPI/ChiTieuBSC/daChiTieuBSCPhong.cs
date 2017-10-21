@@ -24,7 +24,7 @@ namespace DaoBSCKPI.ChiTieuBSC
         {
             try
             {
-                BSCP = lBSCP.sp_tblBKChiTieuBSCPhong_ThongTin(BSCP.Thang,BSCP.Nam,BSCP.IDDonVi,BSCP.IDPhongBan,BSCP.IDBSC).Single();
+                BSCP = lBSCP.sp_tblBKChiTieuBSCPhong_ThongTin(BSCP.Nam,BSCP.IDDonVi,BSCP.IDPhongBan,BSCP.IDBSC).Single();
                 return BSCP;
             }
             catch
@@ -37,7 +37,7 @@ namespace DaoBSCKPI.ChiTieuBSC
         {
             try
             {
-                HtBSCP = lBSCP.sp_tblBKChiTieuBSCPhong_ThongTinHienThi(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC).Single();
+                HtBSCP = lBSCP.sp_tblBKChiTieuBSCPhong_ThongTinHienThi(BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC).Single();
                 return HtBSCP;
             }
             catch
@@ -48,9 +48,9 @@ namespace DaoBSCKPI.ChiTieuBSC
 
         public void KhoiTao()
         {
-            lBSCP.sp_tblBKChiTieuBSCPhong_KhoiTao(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.NguoiTao);
+            lBSCP.sp_tblBKChiTieuBSCPhong_KhoiTao(BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.NguoiTao);
         }
-        
+                
         public decimal LayTrongSoChung()
         {
             return lBSCP.sp_tblBKChiTieuBSC_LayTrongSo(BSCP.IDBSC).Single().TrongSoChung.Value;
@@ -58,26 +58,26 @@ namespace DaoBSCKPI.ChiTieuBSC
 
         public void ThemSua()
         {
-            lBSCP.sp_tblBKChiTieuBSCPhong_ThemSua(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC, BSCP.IDDonViTinh,BSCP.IDTanSuatDo,
+            lBSCP.sp_tblBKChiTieuBSCPhong_ThemSua(BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC, BSCP.IDDonViTinh,BSCP.IDTanSuatDo,
                 BSCP.IDXuHuongYeuCau, BSCP.TrongSoChung, BSCP.TrongSoChiTieu,BSCP.MucTieu, BSCP.NguoiTao);
         }
 
         public void CapNhat()
         {
-            lBSCP.sp_tblBKChiTieuBSCPhong_CapNhat(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC, 
+            lBSCP.sp_tblBKChiTieuBSCPhong_CapNhat(BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan, BSCP.IDBSC, 
                BSCP.TrongSoChiTieu,BSCP.TrongSoChung, BSCP.MucTieu);
         }
 
         public DataTable DanhSach()
         {
             List<sp_tblBKChiTieuBSCPhong_DanhSachResult> lst;
-            lst = lBSCP.sp_tblBKChiTieuBSCPhong_DanhSach(BSCP.Thang, BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan).ToList();
+            lst = lBSCP.sp_tblBKChiTieuBSCPhong_DanhSach(BSCP.Nam, BSCP.IDDonVi, BSCP.IDPhongBan).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
 
         public List<sp_tblBKChiTieuBSCPhong_DanhSach_NhomIDResult> DanhSachNhom(int IDNhom)
         {
-            lstBSCPhong = lBSCP.sp_tblBKChiTieuBSCPhong_DanhSach_NhomID(BSCP.Thang,BSCP.Nam,BSCP.IDDonVi,BSCP.IDPhongBan,IDNhom).ToList();
+            lstBSCPhong = lBSCP.sp_tblBKChiTieuBSCPhong_DanhSach_NhomID(BSCP.Nam,BSCP.IDDonVi,BSCP.IDPhongBan,IDNhom).ToList();
             return lstBSCPhong;
         }
     }

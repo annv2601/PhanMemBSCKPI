@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCongViecCaNhan.aspx.cs" Inherits="BSCKPI.CongViecCaNhan.frmCongViecCaNhan" %>
 <%@ Register src="~/CongViecCaNhan/ucCongViecCaNhan.ascx" tagname="CVCN" tagprefix="uc1" %>
-<<%@ Register Src="~/CongViecCaNhan/uccvcnNguoiThucHien.ascx" TagName="NTH" TagPrefix="uc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -53,6 +53,18 @@
                 }
             }
         }
+
+        var editNTH = function (editor, e) {
+            if (e.value !== e.originalValue) {
+                BangNTHX.EditNTH(e.record.data.STT, e.field, e.originalValue, e.value, e.record.data);
+            }
+        }
+
+        var editDG = function (editor, e) {
+            if (e.value !== e.originalValue) {
+                BangDGX.EditDG(e.record.data.STT, e.field, e.originalValue, e.value, e.record.data);
+            }
+        }
     </script>
 </head>
 <body>
@@ -83,7 +95,33 @@
             </Model>
         </ext:Store>
 
-        <ext:GridPanel runat="server" ID="grdCVCN" MinHeight="600" StoreID="stoCVCN">
+        <ext:Menu runat="server" ID="mnuCongViecCaNhan" Width="300">
+            <Items>
+                <ext:MenuItem runat="server" ID="mnuitmThongTinCVCN" Text="Thông tin Công việc" Icon="Information">
+
+                </ext:MenuItem>
+                <ext:MenuItem runat="server" ID="mnuitmThemNguoiThucHien" Text="Thêm người phối hợp" Icon="UserAdd">
+                    <DirectEvents>
+                        <Click OnEvent="mnuitmThemNguoiThucHien_Click">
+                            <ExtraParams>
+                                <ext:Parameter Name="Values" Value="Ext.encode(#{grdCVCN}.getRowsValues({selectedOnly:true}))" Mode="Raw" />
+                            </ExtraParams>
+                        </Click>
+                    </DirectEvents>
+                </ext:MenuItem>
+                <ext:MenuItem runat="server" ID="mnuitemDanhGia" Text="Đánh giá kết quả công việc" Icon="ControlEnd">
+                    <DirectEvents>
+                        <Click OnEvent="mnuitemDanhGia_Click">
+                            <ExtraParams>
+                                <ext:Parameter Name="Values" Value="Ext.encode(#{grdCVCN}.getRowsValues({selectedOnly:true}))" Mode="Raw" />
+                            </ExtraParams>
+                        </Click>
+                    </DirectEvents>
+                </ext:MenuItem>
+            </Items>
+        </ext:Menu>
+
+        <ext:GridPanel runat="server" ID="grdCVCN" MinHeight="600" StoreID="stoCVCN" ContextMenuID="mnuCongViecCaNhan">
             <TopBar>
                 <ext:Toolbar runat="server">
                     <Items>
@@ -155,12 +193,12 @@
             <Items>
                 <ext:TabPanel runat="server" ID="tabCVCN" ButtonAlign="Center" MinWidth="150">                    
                     <Items>
-                        <ext:Panel ID="Panel2" runat="server" Header="false" Title="Giao việc" Border="false" Layout="FormLayout" Closable="false">
+                        <ext:Panel ID="Panel2" runat="server" Header="false"  Border="false" Layout="FormLayout" Closable="false">
                              <Content>
                                    <uc1:CVCN ID="CVCN1" runat="server" Title="" />
                              </Content>
                         </ext:Panel>
-                        <ext:Panel ID="Panel3" runat="server" Header="false" Title="Nhân viên thực hiện" Border="false" Layout="FitLayout" Closable="false">
+                        <%--<ext:Panel ID="Panel3" runat="server" Header="false" Title="Nhân viên thực hiện" Border="false" Layout="FitLayout" Closable="false">
                              <Content>
                                    <uc1:NTH ID="NTH1" runat="server" Title="" />
                              </Content>
@@ -173,7 +211,7 @@
                         </ext:Panel>
                         <ext:Panel ID="Panel5" runat="server" Header="false" Title="Đánh giá công việc" Border="false" Layout="FitLayout" Closable="false">
                              
-                        </ext:Panel>
+                        </ext:Panel>--%>
                     </Items>
                     <Buttons>
                         <ext:Button runat="server" ID="btnCapNhat" Text="Cập nhật" Icon="Accept">
@@ -188,6 +226,197 @@
                         </ext:Button>
                     </Buttons>
                 </ext:TabPanel>
+            </Items>
+        </ext:Window>
+
+        <ext:Hidden runat="server" ID="txtMaCongViecCaNhan" />
+        <ext:Hidden runat="server" ID="txtNgayGiao" />
+
+        <ext:Window runat="server" ID="wNguoiThucHien" Width="800" Height="500" Icon="Eyes" Title="Người phối hợp" TitleAlign="Center" Hidden="true" ButtonAlign="Center">
+            <Items>
+                
+                <ext:GridPanel runat="server" ID="grdNguoiThucHien" MinWidth="300" TitleAlign="Center">
+                    <Store>
+                        <ext:Store runat="server" ID="stoNTH">
+                            <Model>
+                                <ext:Model runat="server" IDProperty="STT">
+                                    <Fields>
+                                        <ext:ModelField Name="MaCongViecCaNhan" />
+                                        <ext:ModelField Name="IDNhanVien" />
+                                        <ext:ModelField Name="TenNhanVien" />
+                                        <ext:ModelField Name="YKienChiDao" />
+                                        <ext:ModelField Name="DaChon" />
+                                        <ext:ModelField Name="STT" />
+                                    </Fields>
+                                </ext:Model>
+                            </Model>
+                        </ext:Store>        
+                    </Store>
+                    <ColumnModel runat="server">
+                        <Columns>
+                            <ext:Column runat="server" DataIndex="STT" Width="60" Align="Center" Text="STT"/>
+                            <ext:CheckColumn runat="server" DataIndex="DaChon" Text="Chọn" Align="Center" Editable="true" Width="80">               
+                            </ext:CheckColumn>
+                            <ext:Column runat="server" DataIndex="TenNhanVien" Width="200" Align="Left" Text="Nhân viên" />
+                            <ext:Column runat="server" DataIndex="YKienChiDao" Width="440" Text="Ý kiến chỉ đạo">
+                                <Editor>
+                                    <ext:TextField runat="server" ID="txtYKCD" />
+                                </Editor>
+                            </ext:Column>
+                        </Columns>
+                    </ColumnModel>
+                    <SelectionModel>
+                                <ext:CellSelectionModel runat="server" >
+                    
+                                </ext:CellSelectionModel>
+                            </SelectionModel>
+                            <Plugins>                
+                                <ext:CellEditing runat="server" ClicksToEdit="1">
+                                    <Listeners>
+                                        <Edit Fn="editNTH" />
+                                    </Listeners>
+                                </ext:CellEditing>
+                            </Plugins>
+                </ext:GridPanel>
+            </Items>
+            <Buttons>
+                <ext:Button runat="server" ID="btnDongNTH" Text="Đóng" Icon="Cross">
+                    <Listeners>
+                        <Click Handler="#{wNguoiThucHien}.hide()" />
+                    </Listeners>
+                </ext:Button>
+            </Buttons>
+        </ext:Window>
+
+        <ext:Window runat="server" ID="wDanhGiaCVCN" Width="1000" Height="600" Icon="ControlEnd" Title="Đánh giá hoàn thành công việc" TitleAlign="Center" Hidden="true" ButtonAlign="Center" AutoScroll="true">
+            <Items>
+                <ext:GridPanel runat="server" ID="grdCaNhanDanhGia" Title="Nhân viên tự đánh giá" Height="300">
+                    <Store>
+                        <ext:Store runat="server" ID="stoCaNhanDG">
+                            <Fields>
+                                <ext:ModelField Name="NguoiThucHien" />
+                                <ext:ModelField Name="ChatLuong" />
+                                <ext:ModelField Name="KhoiLuong" />
+                                <ext:ModelField Name="TienDo" />
+                                <ext:ModelField Name="DoPhucTap" />
+                                <ext:ModelField Name="TrachNhiem" />
+                            </Fields>
+                        </ext:Store>
+                    </Store>
+                    <ColumnModel>
+                        <Columns>
+                            <ext:RowNumbererColumn runat="server" Text="STT" Align="Center" Width="60" />
+                            <ext:Column runat="server" DataIndex="NguoiThucHien" Text="Họ tên" Width="200" />
+                            <ext:Column runat="server" DataIndex="ChatLuong" Text="Chất lượng" Width="150" />
+                            <ext:Column runat="server" DataIndex="KhoiLuong" Text="Khối lượng" Width="150" />
+                            <ext:Column runat="server" DataIndex="TienDo" Text="Tiến độ" Width="150" />
+                            <ext:Column runat="server" DataIndex="DoPhucTap" Text="Độ phức tạp" Width="150" />
+                            <ext:Column runat="server" DataIndex="TrachNhiem" Text="Trách nhiệm" Width="150" />
+                        </Columns>
+                    </ColumnModel>
+                </ext:GridPanel>
+
+                <ext:GridPanel runat="server" ID="grdLanhDaoDanhGia" Title="Lãnh đạo Đánh giá" Height="300" MarginSpec="10 0 0 0">
+                    <Store>
+                        <ext:Store runat="server" ID="stoLanhDaoDG">
+                            <Model>
+                                <ext:Model runat="server" IDProperty="STT">
+                                    <Fields>
+                                        <ext:ModelField Name="STT" />
+                                        <ext:ModelField Name="NguoiDanhGia" />
+                                        <ext:ModelField Name="IDNguoiDuocDanhGia" />
+                                        <ext:ModelField Name="NguoiDuocDanhGia" />
+                                        <ext:ModelField Name="ChatLuong" />
+                                        <ext:ModelField Name="KhoiLuong" />
+                                        <ext:ModelField Name="TienDo" />
+                                        <ext:ModelField Name="DoPhucTap" />
+                                        <ext:ModelField Name="TrachNhiem" />
+                                    </Fields>
+                                </ext:Model>
+                            </Model>                            
+                        </ext:Store>
+                    </Store>
+                    <ColumnModel>
+                        <Columns>
+                            <ext:RowNumbererColumn runat="server" Text="STT" Align="Center" Width="60" />
+                            <ext:Column runat="server" DataIndex="NguoiDanhGia" Text="Lãnh đạo đánh giá" Width="200"/>
+                            <ext:Column runat="server" DataIndex="NguoiDuocDanhGia" Text="Họ tên" Width="200"/>
+                            <ext:Column runat="server" DataIndex="ChatLuong" Text="Chất lượng" Width="150" >
+                                <Editor>
+                                    <ext:TextField runat="server" />
+                                </Editor>
+                            </ext:Column>
+                            <ext:Column runat="server" DataIndex="KhoiLuong" Text="Khối lượng" Width="150" >
+                                <Editor>
+                                    <ext:TextField runat="server" />
+                                </Editor>
+                            </ext:Column>
+                            <ext:Column runat="server" DataIndex="TienDo" Text="Tiến độ" Width="150" >
+                                <Editor>
+                                    <ext:TextField runat="server" />
+                                </Editor>
+                            </ext:Column>
+                            <ext:Column runat="server" DataIndex="DoPhucTap" Text="Độ phức tạp" Width="150" >
+                                <Editor>
+                                    <ext:TextField runat="server" />
+                                </Editor>
+                            </ext:Column>
+                            <ext:Column runat="server" DataIndex="TrachNhiem" Text="Trách nhiệm" Width="150" >
+                                <Editor>
+                                    <ext:TextField runat="server" />
+                                </Editor>
+                            </ext:Column>
+                        </Columns>
+                    </ColumnModel>
+                    <SelectionModel>
+                                <ext:CellSelectionModel runat="server" >
+                    
+                                </ext:CellSelectionModel>
+                            </SelectionModel>
+                            <Plugins>                
+                                <ext:CellEditing runat="server" ClicksToEdit="1">
+                                    <Listeners>
+                                        <Edit Fn="editDG" />
+                                    </Listeners>
+                                </ext:CellEditing>
+                            </Plugins>
+                </ext:GridPanel>
+
+                <ext:FormPanel runat="server" ID="frmDGChung" Title="Đánh giá kết quả công việc" ButtonAlign="Center" Width="1000">
+                    <Items>
+                        <ext:Hidden runat="server" ID="chkDaHoanThanh" />
+                        <ext:FieldContainer runat="server" Layout="HBoxLayout" MarginSpec="10 0 0 0">
+                            <Items>
+                                <ext:SelectBox runat="server" ID="slbTrangThaiHoanThanh" DisplayField="Ten" ValueField="ID"
+                                    FieldLabel="Kết quả" Width="300" >
+                                    <Store>
+                                        <ext:Store runat="server" ID="stoTrangThaiHoanThanh">
+                                            <Fields>
+                                                <ext:ModelField Name="ID" />
+                                                <ext:ModelField Name="Ten" />
+                                            </Fields>
+                                        </ext:Store>
+                                    </Store>
+                                </ext:SelectBox>
+                                <ext:DateField runat="server" ID="txtNgayHoanThanh" FieldLabel="Ngày hoàn thành" LabelWidth="130" Width="250" MarginSpec="0 0 0 30" />
+                            </Items>
+                        </ext:FieldContainer>
+                        <ext:TextArea runat="server" ID="txtMucDoHoanThanh" FieldLabel="Mức độ" Width="960" MarginSpec="10 0 0 0" />
+                        <ext:TextArea runat="server" ID="txtKetQuaHoanThanh" FieldLabel="Nội dung kết quả" Width="960" MarginSpec="10 0 0 0" />
+                    </Items>
+                    <Buttons>
+                        <ext:Button runat="server" ID="btnCapNhatDanhGia" Text="Cập nhật" Icon="Accept" Width="150">
+                            <DirectEvents>
+                                <Click OnEvent="btnCapNhatDanhGia_Click" />
+                            </DirectEvents>
+                        </ext:Button>
+                        <ext:Button runat="server" ID="btnDongDG" Text="Đóng" Icon="Cross" Width="150">
+                            <Listeners>
+                                <Click Handler="#{wDanhGiaCVCN}.hide();#{stoCVCN}.reload();" />
+                            </Listeners>
+                        </ext:Button>
+                    </Buttons>
+                </ext:FormPanel>
             </Items>
         </ext:Window>
     </form>

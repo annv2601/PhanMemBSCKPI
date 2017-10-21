@@ -35,7 +35,7 @@ namespace DaoBSCKPI.NhanVien
 
         public void ThemSua()
         {
-            lNV.sp_tblNhanVien_ThemSua(NV.IDNhanVien, NV.MaNhanVien, NV.TenNhanVien, NV.HoDem, NV.Ten, NV.NgaySinh, NV.GioiTinh, NV.DienThoaiDiDong, NV.Email, true, NV.NguoiTao);
+            lNV.sp_tblNhanVien_ThemSua(NV.IDNhanVien, NV.MaNhanVien, NV.TenNhanVien, NV.HoDem, NV.Ten, NV.NgaySinh, NV.GioiTinh, NV.DienThoaiDiDong, NV.Email, true,NV.urlAnh, NV.NguoiTao);
         }
     }
 }

@@ -1,0 +1,120 @@
+﻿
+.img-chooser-dlg .details {
+    text-align: center;
+}
+
+.img-chooser-dlg .details-info {
+    border-top: 1px solid #cccccc;
+    font: 11px Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+    .img-chooser-dlg .details-info b {
+        color: #555555;
+        display: block;
+        margin-bottom: 4px;
+        margin-left: 5px;
+    }
+
+    .img-chooser-dlg .details-info span {
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+.img-chooser-view {
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+
+    .img-chooser-view div.phone {
+        float: left;
+        padding: 8px 17px;
+        margin: 5px;
+        /*    margin: 10px 0 0 25px;*/
+        text-align: center;
+        line-height: 14px;
+        color: #333;
+        font-size: 10px;
+        font-family: "Helvetica Neue",sans-serif;
+        height: 130px;
+        width: 140px;
+        overflow: hidden;
+        border-top: 1px solid transparent;
+        cursor: pointer;
+    }
+
+
+    .img-chooser-view .thumb-wrap strong {
+        color: #000;
+        display: block;
+        text-align:center;
+        margin-top: 5px;
+    }
+
+    .img-chooser-view .thumb {
+        padding: 3px;
+    }
+
+        .img-chooser-view .thumb img {
+            height: 120px;
+            width: 100px;
+        }
+
+    .img-chooser-view .thumb-wrap {
+        float: left;
+        margin: 4px;
+        margin-right: 0;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+        .img-chooser-view .thumb-wrap span {
+            display: block;
+            overflow: hidden;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+    .img-chooser-view .x-view-over {
+        border: 1px solid #dddddd;
+        background-color: #efefef;
+        padding: 4px;
+    }
+
+    .img-chooser-view .x-item-selected {
+        background: #DFEDFF;
+        border: 1px solid #6593cf;
+        padding: 4px;        
+    }
+
+        .img-chooser-view .x-item-selected .thumb img {
+            height: 240px;
+            width: 200px;
+        }
+        .img-chooser-view .x-item-selected .thumb {
+            background: transparent;
+        }
+
+        .img-chooser-view .x-item-selected span {
+            color: #1A4D8F;
+            font-size: larger;
+        }
+
+        .img-chooser-view .x-item-selected strong {
+            color: darkorange;
+            font-size: larger;
+        }
+
+    .img-chooser-view .loading-indicator {
+        font-size: 11px;
+        background-image: url(/extnet/resources/images/loading-gif/ext.axd);
+        background-repeat: no-repeat;
+        background-position: left;
+        padding-left: 20px;
+        margin: 10px;
+    }
+

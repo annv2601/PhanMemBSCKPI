@@ -30,10 +30,10 @@
     <ColumnModel runat="server">
         <Columns>
             <ext:Column runat="server" DataIndex="STT" Width="60" Align="Center" Text="STT"/>
-            <ext:CheckColumn runat="server" DataIndex="DaChon" Text="Chọn" Align="Center" Editable="true">               
+            <ext:CheckColumn runat="server" DataIndex="DaChon" Text="Chọn" Align="Center" Editable="true" Width="80">               
             </ext:CheckColumn>
-            <ext:Column runat="server" DataIndex="TenNhanVien" Width="250" Align="Left" Text="Nhân viên" />
-            <ext:Column runat="server" DataIndex="YKienChiDao" Width="400" Text="Ý kiến chỉ đạo">
+            <ext:Column runat="server" DataIndex="TenNhanVien" Width="200" Align="Left" Text="Nhân viên" />
+            <ext:Column runat="server" DataIndex="YKienChiDao" Width="440" Text="Ý kiến chỉ đạo">
                 <Editor>
                     <ext:TextField runat="server" ID="txtYKCD" />
                 </Editor>
@@ -48,7 +48,7 @@
             <Plugins>                
                 <ext:CellEditing runat="server" ClicksToEdit="1">
                     <Listeners>
-                        <Edit Fn="edit" />
+                        <Edit Fn="editNTH" />
                     </Listeners>
                 </ext:CellEditing>
             </Plugins>

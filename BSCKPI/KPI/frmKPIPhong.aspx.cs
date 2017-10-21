@@ -63,6 +63,16 @@ namespace BSCKPI.KPI
             DanhSachKPIPhong();
         }
 
+        protected void btnCapNhatMTNam_Click(object sender, DirectEventArgs e)
+        {
+            daChiTieuKPIPhong dKPIP = new daChiTieuKPIPhong();
+            dKPIP.KPIP.Nam = int.Parse(slbNam.SelectedItem.Value);
+            dKPIP.KPIP.IDDonVi = int.Parse(slbDonVi.SelectedItem.Value);
+            dKPIP.KPIP.IDPhongBan = 0;
+            dKPIP.CapNhatMucTieuNam();
+            DanhSachKPIPhong();
+        }
+
         [DirectMethod(Namespace = "BangKPIPX")]
         public void Edit(int id, string field, string oldvalue, string newvalue, object BangKPIP)
         {

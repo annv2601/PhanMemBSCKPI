@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Ext.Net">
       <HintPath>..\Dll_HoTro\WebForm\Ext.Net.dll</HintPath>
     </Reference>
@@ -54,6 +66,10 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\PhongTCLD\source\repos\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.140.802.134\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dll_HoTro\WebForm\Newtonsoft.Json.dll</HintPath>
@@ -89,26 +105,37 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnhThe\Boys.png" />
+    <Content Include="AnhThe\Girls.png" />
     <Content Include="BieuDo\frmBieuDoBar.aspx" />
     <Content Include="BieuDo\frmBieuDoPie.aspx" />
     <Content Include="BSC\frmDanhSachBSC.aspx" />
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="CongViecCaNhan\frmCongViecCaNhan.aspx" />
+    <Content Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx" />
     <Content Include="CongViecCaNhan\ucCongViecCaNhan.ascx" />
     <Content Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx" />
     <Content Include="Default.aspx" />
+    <Content Include="KeHoachDanhGia\frmKeHoachDanhGia.aspx" />
     <Content Include="KetQuaDanhGia\frmBangCaNhan.aspx" />
+    <Content Include="KetQuaDanhGia\frmBangKeHoach.aspx" />
     <Content Include="KetQuaDanhGia\frmBangPhong.aspx" />
     <Content Include="KPI\frmDanhSachKPI.aspx" />
+    <Content Include="KPI\frmHienThiBaoCaoKPI.aspx" />
     <Content Include="KPI\frmKetQuaDanhGiaCaNhan.aspx" />
     <Content Include="KPI\frmKPIPhong.aspx" />
     <Content Include="KPI\frmNhiemVuChinh.aspx" />
+    <Content Include="KPI\frmPhanBoMucTieuCaNhanTheoKeHoach.aspx" />
     <Content Include="KPI\frmPhanBoMucTieuCaNhan.aspx" />
+    <Content Include="MoHinhToChuc\frmNhanVien.aspx" />
+    <Content Include="MoHinhToChuc\UC\ucNhanVien.ascx" />
+    <Content Include="resource\css\DataView.css" />
     <Content Include="resource\css\examples.css" />
     <Content Include="resource\css\main.css" />
     <Content Include="resource\js\examples.js" />
     <Content Include="resource\js\main.js" />
     <Content Include="resource\js\perfect-scrollbar.min.js" />
+    <Content Include="Test.aspx" />
     <Content Include="UC\ucBSCKPI.ascx" />
     <Content Include="UC\ucNhiemVuTrongTam.ascx" />
     <Content Include="Web.config" />
@@ -149,6 +176,13 @@
     <Compile Include="CongViecCaNhan\frmCongViecCaNhan.aspx.designer.cs">
       <DependentUpon>frmCongViecCaNhan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx.cs">
+      <DependentUpon>frmcvcnNguoiThucHien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx.designer.cs">
+      <DependentUpon>frmcvcnNguoiThucHien.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CongViecCaNhan\ucCongViecCaNhan.ascx.cs">
       <DependentUpon>ucCongViecCaNhan.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +197,12 @@
     <Compile Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx.designer.cs">
       <DependentUpon>uccvcnNguoiThucHien.ascx</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,12 +210,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KeHoachDanhGia\frmKeHoachDanhGia.aspx.cs">
+      <DependentUpon>frmKeHoachDanhGia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KeHoachDanhGia\frmKeHoachDanhGia.aspx.designer.cs">
+      <DependentUpon>frmKeHoachDanhGia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KetQuaDanhGia\frmBangCaNhan.aspx.cs">
       <DependentUpon>frmBangCaNhan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="KetQuaDanhGia\frmBangCaNhan.aspx.designer.cs">
       <DependentUpon>frmBangCaNhan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KetQuaDanhGia\frmBangKeHoach.aspx.cs">
+      <DependentUpon>frmBangKeHoach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KetQuaDanhGia\frmBangKeHoach.aspx.designer.cs">
+      <DependentUpon>frmBangKeHoach.aspx</DependentUpon>
     </Compile>
     <Compile Include="KetQuaDanhGia\frmBangPhong.aspx.cs">
       <DependentUpon>frmBangPhong.aspx</DependentUpon>
@@ -190,6 +244,13 @@
     </Compile>
     <Compile Include="KPI\frmDanhSachKPI.aspx.designer.cs">
       <DependentUpon>frmDanhSachKPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KPI\frmHienThiBaoCaoKPI.aspx.cs">
+      <DependentUpon>frmHienThiBaoCaoKPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmHienThiBaoCaoKPI.aspx.designer.cs">
+      <DependentUpon>frmHienThiBaoCaoKPI.aspx</DependentUpon>
     </Compile>
     <Compile Include="KPI\frmKetQuaDanhGiaCaNhan.aspx.cs">
       <DependentUpon>frmKetQuaDanhGiaCaNhan.aspx</DependentUpon>
@@ -212,6 +273,13 @@
     <Compile Include="KPI\frmNhiemVuChinh.aspx.designer.cs">
       <DependentUpon>frmNhiemVuChinh.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KPI\frmPhanBoMucTieuCaNhanTheoKeHoach.aspx.cs">
+      <DependentUpon>frmPhanBoMucTieuCaNhanTheoKeHoach.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KPI\frmPhanBoMucTieuCaNhanTheoKeHoach.aspx.designer.cs">
+      <DependentUpon>frmPhanBoMucTieuCaNhanTheoKeHoach.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KPI\frmPhanBoMucTieuCaNhan.aspx.cs">
       <DependentUpon>frmPhanBoMucTieuCaNhan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,7 +287,28 @@
     <Compile Include="KPI\frmPhanBoMucTieuCaNhan.aspx.designer.cs">
       <DependentUpon>frmPhanBoMucTieuCaNhan.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MoHinhToChuc\frmNhanVien.aspx.cs">
+      <DependentUpon>frmNhanVien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoHinhToChuc\frmNhanVien.aspx.designer.cs">
+      <DependentUpon>frmNhanVien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MoHinhToChuc\UC\ucNhanVien.ascx.cs">
+      <DependentUpon>ucNhanVien.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoHinhToChuc\UC\ucNhanVien.ascx.designer.cs">
+      <DependentUpon>ucNhanVien.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UC\ucBSCKPI.ascx.cs">
       <DependentUpon>ucBSCKPI.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -242,14 +331,46 @@
     <Folder Include="resource\images\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaoBieuIn\BaoBieuIn.csproj">
+      <Project>{3870a404-9cba-42bd-95f0-b7ae81e68d9a}</Project>
+      <Name>BaoBieuIn</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DaoBSCKPI\DaoBSCKPI.csproj">
       <Project>{12e40ddc-137a-4814-8934-4ba870a56e35}</Project>
       <Name>DaoBSCKPI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

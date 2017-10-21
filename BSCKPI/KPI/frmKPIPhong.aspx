@@ -78,7 +78,14 @@
                                     </Fields>
                                 </ext:Store>
                             </Store>
-                    </ext:SelectBox>
+                        </ext:SelectBox>
+                        <ext:Button ID="btnCapNhatMTNam" runat="server" Icon="ApplicationEdit" Text="Lấy mục tiêu BSC" MarginSpec="0 0 0 10">
+                            <DirectEvents>
+                                <Click OnEvent="btnCapNhatMTNam_Click">
+                                    <EventMask ShowMask="true" Msg="Thực thi ....." />
+                                </Click>
+                            </DirectEvents>
+                        </ext:Button>
                     </Items>
                 </ext:Toolbar>
             </TopBar>
@@ -90,16 +97,16 @@
             <ColumnModel runat="server">
                         <Columns>
                             <ext:RowNumbererColumn runat="server" Text="STT" Width="70" Align="Center" StyleSpec="font-weight:bold;"/>
-                            <ext:Column runat="server" Text="Mã" DataIndex="Ma" Width="100" StyleSpec="font-weight:bold;"/>
-                            <ext:Column runat="server" Text="Tên" DataIndex="TenKPI" Width="150" StyleSpec="font-weight:bold;"/>
-                            <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh"  StyleSpec="font-weight:bold;"/>
-                            <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo"  StyleSpec="font-weight:bold;"/>
-                            <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau"  StyleSpec="font-weight:bold;"/>
+                            <ext:Column runat="server" Text="Mã" DataIndex="Ma" Width="80" StyleSpec="font-weight:bold;"/>
+                            <ext:Column runat="server" Text="Tên" DataIndex="TenKPI" Width="200" StyleSpec="font-weight:bold;"/>
+                            <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh"  StyleSpec="font-weight:bold;" Align="Center"/>
+                            <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo"  StyleSpec="font-weight:bold;" Align="Center"/>
+                            <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau"  StyleSpec="font-weight:bold;" Align="Center"/>
 
                             <ext:NumberColumn runat="server" Text="Năm" DataIndex="MucTieuNam" Format="000,000,000.00" Align="Right" StyleSpec="font-weight:bold;">
-                                <Editor>
+                                <%--<Editor>
                                     <ext:NumberField runat="server" ID="txtMTNam" AllowDecimals="true" DecimalPrecision="2" />
-                                </Editor>
+                                </Editor>--%>
                             </ext:NumberColumn>
                             <ext:NumberColumn runat="server" Text="Tháng 1" DataIndex="MucTieuThang1" Format="000,000,000.00" Align="Right" StyleSpec="font-weight:bold;">
                                 <Editor>

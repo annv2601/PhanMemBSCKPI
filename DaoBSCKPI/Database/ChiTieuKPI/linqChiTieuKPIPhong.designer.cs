@@ -115,6 +115,13 @@ namespace DaoBSCKPI.Database.ChiTieuKPI
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan, iDKPI);
 			return ((ISingleResult<sp_tblBKChiTieuKPIPhong_ThongTinResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKChiTieuKPIPhong_CapNhatMucTieuNam")]
+		public int sp_tblBKChiTieuKPIPhong_CapNhatMucTieuNam([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, iDDonVi, iDPhongBan);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	public partial class sp_tblBKChiTieuKPIPhong_DanhSachResult

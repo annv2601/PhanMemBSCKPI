@@ -13,7 +13,7 @@
         }
         .GridPanelUsersRowWhite
         {
-            background: white;
+            background: white;            
         }
     </style>
     <script type="text/javascript">

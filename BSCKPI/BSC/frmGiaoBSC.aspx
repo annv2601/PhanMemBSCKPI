@@ -36,7 +36,7 @@
             <TopBar>
                 <ext:Toolbar runat="server">
                     <Items>
-                        <ext:SelectBox runat="server" ID="slbThang" 
+                        <%--<ext:SelectBox runat="server" ID="slbThang" 
                             EmptyText="Tháng ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10" RenderXType="True">
                             <DirectEvents>
                                 <Change OnEvent="slbThang_Change">
@@ -55,7 +55,7 @@
                                     </Model>
                                 </ext:Store>
                             </Store>
-                        </ext:SelectBox>
+                        </ext:SelectBox>--%>
                         <ext:SelectBox runat="server" ID="slbNam" QueryMode="Local" TypeAhead="true"
                             EmptyText="Năm ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10" RenderXType="true">
                             <DirectEvents>
@@ -76,7 +76,7 @@
                                 </ext:Store>
                             </Store>
                         </ext:SelectBox>
-                        <ext:SelectBox runat="server" ID="slbDonVi" DisplayField="Ten" ValueField="IDDonVi" EmptyText="Chọn đơn vị" MarginSpec="0 0 0 10" Width="250">
+                        <ext:SelectBox runat="server" ID="slbDonVi" DisplayField="Ten" ValueField="IDDonVi" EmptyText="Chọn đơn vị" MarginSpec="0 0 0 20" Width="250">
                             <Store>
                                 <ext:Store runat="server" ID="stoDonVi">
                                     <Fields>
@@ -95,7 +95,7 @@
                             <DirectEvents>
                                 <Click OnEvent="btnHienThi_Click" />
                             </DirectEvents>
-                        </ext:Button>
+                        </ext:Button>                       
                     </Items>
                 </ext:Toolbar>
             </TopBar>
@@ -129,7 +129,7 @@
                     </ext:NumberColumn>
                     <ext:NumberColumn runat="server" Text="Mục tiêu" DataIndex="MucTieu" Format="000,000,000,000.000" Width="200" Align="Right">
                         <Editor>
-                            <ext:NumberField runat="server" MinValue="0" AllowDecimals="true" DecimalPrecision="3" />
+                            <ext:NumberField runat="server" AllowDecimals="true" DecimalPrecision="3" />
                         </Editor>
                     </ext:NumberColumn>
                    <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
