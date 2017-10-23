@@ -54,6 +54,11 @@ namespace DaoBSCKPI.NhanVien
                 TTNV.IDChucDanh, TTNV.MoTaCongViec, TTNV.NguoiTao);
         }
 
+        public void KhoiTao()
+        {
+            lTT.sp_tblThongTinNhanVien_KhoiTao(TTNV.Thang, TTNV.Nam, TTNV.IDDonVi, TTNV.IDPhongBan, TTNV.NguoiTao);
+        }
+
         public DataTable DanhSach()
         {
             List<sp_tblThongTinNhanVien_DanhSach_DonViResult> lst;

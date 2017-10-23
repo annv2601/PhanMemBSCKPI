@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmNhanVien.aspx.cs" Inherits="BSCKPI.MoHinhToChuc.frmNhanVien" %>
-
+<<%@ Register Src="~/MoHinhToChuc/UC/ucNhanVien.ascx" TagName="NV" TagPrefix="UC" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -100,6 +100,19 @@
                         </Click>
                     </DirectEvents>
                 </ext:MenuItem>
+                <ext:MenuItem runat="server" ID="mnuitemNhanVienXoa" Text="Xóa Nhân viên nhập sai" Icon="Delete">
+                    <DirectEvents>
+                        <Click OnEvent="mnuitemNhanVienXoa_Click">
+                            <ExtraParams>
+                                <ext:Parameter
+                                    Name="Values"
+                                    Value="#{vNhanVien}.getRowsValues({ selectedOnly : true })"
+                                    Mode="Raw"
+                                    Encode="true" />
+                            </ExtraParams>
+                        </Click>
+                    </DirectEvents>
+                </ext:MenuItem>
             </Items>
         </ext:Menu>
 
@@ -150,6 +163,28 @@
                     </Tpl>
                 </ext:DataView>
         
+        <ext:Window runat="server" ID="wNhanVien" Width="780" Height="350" ButtonAlign="Center" Hidden="true"
+            Icon="User" TitleAlign="Center">
+            <Items>
+                <ext:Panel runat="server" Header="false" Layout="FitLayout" Closable="false">
+                    <Content>
+                        <uc:NV ID="ucNV1" runat="server" Title="" />
+                    </Content>
+                </ext:Panel>
+            </Items>
+            <Buttons>
+                <ext:Button runat="server" ID="btnCapNhatNhanVien" Text="Cập nhật" Icon="Accept">
+                    <DirectEvents>
+                        <Click OnEvent="btnCapNhatNhanVien_Click" />
+                    </DirectEvents>
+                </ext:Button>
+                <ext:Button runat="server" ID="btnDongCSNV" Icon="Cross" Text="Đóng">
+                    <Listeners>
+                        <Click Handler="#{wNhanVien}.hide();#{stoNhanVien}.reload();" />
+                    </Listeners>
+                </ext:Button>
+            </Buttons>
+        </ext:Window>
     </form>
 </body>
 </html>

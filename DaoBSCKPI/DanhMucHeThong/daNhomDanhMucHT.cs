@@ -10,6 +10,14 @@ namespace DaoBSCKPI.DanhMucHeThong
 {
     public class daNhomDanhMucHT
     {
+        public enum eNhom
+        {
+            Cấp_đơn_vị=1,
+            Loại_đơn_vị=2,
+            Nhóm_chức_vụ=3,
+            Nhóm_chức_danh=4
+        }
+
         private linqDanhMucHeThongDataContext lDM = new linqDanhMucHeThongDataContext();
         private sp_tblNhomDanhMuc_ThongTinResult _NhomDM = new sp_tblNhomDanhMuc_ThongTinResult();
 

@@ -121,6 +121,15 @@ namespace BSCKPI.MoHinhToChuc {
         protected global::Ext.Net.MenuItem mnuitemThongTin;
         
         /// <summary>
+        /// mnuitemNhanVienXoa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem mnuitemNhanVienXoa;
+        
+        /// <summary>
         /// vNhanVien control.
         /// </summary>
         /// <remarks>
@@ -137,5 +146,41 @@ namespace BSCKPI.MoHinhToChuc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Store stoNhanVien;
+        
+        /// <summary>
+        /// wNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Window wNhanVien;
+        
+        /// <summary>
+        /// ucNV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BSCKPI.MoHinhToChuc.UC.ucNhanVien ucNV1;
+        
+        /// <summary>
+        /// btnCapNhatNhanVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button btnCapNhatNhanVien;
+        
+        /// <summary>
+        /// btnDongCSNV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button btnDongCSNV;
     }
 }
