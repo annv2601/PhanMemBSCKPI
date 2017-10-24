@@ -114,6 +114,7 @@
                                                 <ext:ModelField Name="TanSuatDo" />
                                                 <ext:ModelField Name="MucTieu" />
                                                 <ext:ModelField Name="TrongSo" />
+                                                <ext:ModelField Name="TrongSoNhom" />
                                             </Fields>
                                         </ext:Model>
                                     </Model>
@@ -150,12 +151,13 @@
             </TopBar>
                             <ColumnModel runat="server">
                                 <Columns>
-                                    <ext:RowNumbererColumn runat="server" ID="RowNumbererColumn1" Text="STT" Width="70" Align="Center"/>
-                                    <ext:Column runat="server" ID="Column1" Text="Mã" DataIndex="MaKPI" Width="80"/>
+                                    <ext:RowNumbererColumn runat="server" ID="RowNumbererColumn1" Text="STT" Width="60" Align="Center"/>
+                                    <ext:Column runat="server" ID="Column1" Text="Mã" DataIndex="MaKPI" Width="70"/>
                                     <ext:Column runat="server" ID="Column2" Text="Tên KPI" DataIndex="TenKPI" Width="200"/>
-                                    <ext:Column runat="server" ID="Column3" Text="Đơn vị tính" DataIndex="DonViTinh" />
-                                    <ext:Column runat="server" ID="Column4" Text="Tần suất đo" DataIndex="TanSuatDo" />
-                                    <ext:Column runat="server" ID="Column5" Text="Xu hướng yêu cầu" DataIndex="XuHuongYeuCau" Width="150"/>
+                                    <ext:Column runat="server" ID="Column3" Text="Đơn vị tính" DataIndex="DonViTinh"  Align="Center"/>
+                                    <ext:Column runat="server" ID="Column4" Text="Tần suất đo" DataIndex="TanSuatDo"  Align="Center"/>
+                                    <ext:Column runat="server" ID="Column5" Text="Xu hướng yêu cầu" DataIndex="XuHuongYeuCau" Width="130" Align="Center"/>
+                                    <ext:NumberColumn runat="server" ID="cTrongSoNhom" Text="Trọng số nhóm" DataIndex="TrongSoNhom" Format="000%"  Align="Center" Width="120"/>
                                     <ext:NumberColumn runat="server" ID="NumberColumn1" Text="Trọng số" DataIndex ="TrongSo" Width="150" Align="Right">
                                     <Renderer Handler="return Ext.util.Format.number(value,'0,000.0')+'%';"></Renderer>
                                     <SummaryRenderer  Handler="return Ext.util.Format.number(value,'0,000.0')+'%';"></SummaryRenderer >

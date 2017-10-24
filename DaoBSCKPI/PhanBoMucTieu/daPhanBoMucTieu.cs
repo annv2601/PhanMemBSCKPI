@@ -48,11 +48,16 @@ namespace DaoBSCKPI.PhanBoMucTieu
             lPB.sp_tblBKPhanBoMucTieu_KhoiTao_TheoNhanVien(MT.Thang, MT.Nam, MT.IDNhanVien, MT.NguoiTao);
         }
 
+        public void BoSungTheoNhanVien()
+        {
+            lPB.sp_tblBKPhanBoMucTieu_BoSung_TheoNhanVien(MT.Thang, MT.Nam, MT.IDNhanVien, MT.NguoiTao);
+        }
+
         public int KiemTraCoSoLieu()
         {
             return lPB.sp_tblBKPhanBoMucTieu_KiemTraCoSoLieu(Thang, Nam, IDDonVi, IDPhongBan).Single().SoLuongCo.Value;
         }
-
+        
         public DataTable DanhSach()
         {
             List<sp_tblBKPhanBoMucTieu_DanhSachResult> lst;

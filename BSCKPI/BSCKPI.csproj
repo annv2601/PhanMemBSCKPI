@@ -115,6 +115,7 @@
     <Content Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx" />
     <Content Include="CongViecCaNhan\ucCongViecCaNhan.ascx" />
     <Content Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx" />
+    <Content Include="DanhMuc\frmDanhMucTrongSoNhom.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="KeHoachDanhGia\frmKeHoachDanhGia.aspx" />
     <Content Include="KetQuaDanhGia\frmBangCaNhan.aspx" />
@@ -202,6 +203,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\frmDanhMucTrongSoNhom.aspx.cs">
+      <DependentUpon>frmDanhMucTrongSoNhom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\frmDanhMucTrongSoNhom.aspx.designer.cs">
+      <DependentUpon>frmDanhMucTrongSoNhom.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

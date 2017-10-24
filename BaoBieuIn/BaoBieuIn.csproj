@@ -45,6 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhGia\crBangDanhGia.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBangDanhGia.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DanhGia\dsBangDanhGia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBangDanhGia.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PhanBo\dsBangPhanBo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,6 +70,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DanhGia\dsBangDanhGia.xsc">
+      <DependentUpon>dsBangDanhGia.xsd</DependentUpon>
+    </None>
+    <None Include="DanhGia\dsBangDanhGia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBangDanhGia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DanhGia\dsBangDanhGia.xss">
+      <DependentUpon>dsBangDanhGia.xsd</DependentUpon>
+    </None>
     <None Include="PhanBo\dsBangPhanBo.xsc">
       <DependentUpon>dsBangPhanBo.xsd</DependentUpon>
     </None>
@@ -72,6 +94,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DanhGia\crBangDanhGia.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBangDanhGia.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PhanBo\rptBangPhanBo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptBangPhanBo.cs</LastGenOutput>

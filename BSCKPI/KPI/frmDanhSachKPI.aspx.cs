@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ using DaoBSCKPI.ChiTieuBSC;
 using DaoBSCKPI.Database.ChiTieuBSC;
 using DaoBSCKPI;
 using DaoBSCKPI.DonVi;
+using DaoBSCKPI.DanhMucBSCKPI;
 
 using Ext.Net;
 using BSCKPI.UIHelper;
@@ -22,6 +24,7 @@ namespace BSCKPI.KPI
         {
             if (!X.IsAjaxRequest)
             {
+                DanhSachChonNhomKPI();
                 DanhSachKPI();
                 DanhSachDonVi();
                 ucBK1.KhoiTao();
@@ -55,6 +58,15 @@ namespace BSCKPI.KPI
             }
             stoKPI.DataSource = dKPI.DanhSach();
             stoKPI.DataBind();
+        }
+
+        private void DanhSachChonNhomKPI()
+        {
+            daTrongSoNhomKPI dTSo = new daTrongSoNhomKPI();
+            DataTable dt = dTSo.DanhSach_DDL(DateTime.Now);
+            dt.Rows.Add(0,"                    .........    ");
+            stoNhomKPI.DataSource = dt;
+            stoNhomKPI.DataBind();
         }
 
         private List<ConfigItem> PhanTu(sp_tblBKChiTieuBSC_ThongTinResult pt)
@@ -117,6 +129,10 @@ namespace BSCKPI.KPI
         #endregion
 
         #region Su kien
+        protected void DanhSachKPITD(object sender, StoreReadDataEventArgs e)
+        {
+            DanhSachKPI();
+        }
         protected void btnThemMoiBSC_Click(object sender, DirectEventArgs e)
         {
 
@@ -148,10 +164,10 @@ namespace BSCKPI.KPI
                 ucBK1.idBSC = dKPI.KPI.ID;
                 ucBK1.Ma = dKPI.KPI.Ma;
                 ucBK1.Ten = dKPI.KPI.Ten;
-                ucBK1.MucTieu = dKPI.KPI.MucTieu.Value;
+                ucBK1.MucTieu = 0;//dKPI.KPI.MucTieu.Value;
                 ucBK1.DonViTinh = dKPI.KPI.IDDonViTinh.Value;
-                ucBK1.TrongSo = dKPI.KPI.TrongSo.Value;
-                ucBK1.Muc = dKPI.KPI.Muc.Value;
+                ucBK1.TrongSo = 0;//dKPI.KPI.TrongSo.Value;
+                ucBK1.Muc = 0;// dKPI.KPI.Muc.Value;
                 ucBK1.TanSuatDo = dKPI.KPI.IDTanSuatDo.Value;
                 ucBK1.XuHuongYeuCau = dKPI.KPI.IDXuHuongYeuCau.Value;
                 ucBK1.STTsx = dKPI.KPI.STTsx.Value;
@@ -197,8 +213,28 @@ namespace BSCKPI.KPI
 
         [DirectMethod(Namespace = "BangKPIX")]
         public void Edit(int id, string field, string oldvalue, string newvalue, object BangKPI)
-        {
+        {            
+            daDanhMucBK dDM = new daDanhMucBK();
 
+            dDM.DMTim.Ten = newvalue.Split(':')[0].Trim();
+            if (dDM.DMTim.Ten== ".........")
+            {
+                wQuanLyTSoN.Show();
+                grdKPI.GetStore().GetById(id).Reject();
+                return;
+            }
+            if(dDM.Tim()!=null)
+            {
+                daChiTieuKPI dKPI = new daChiTieuKPI();
+                dKPI.KPI.ID = id;
+                dKPI.KPI.IDNhomKPI = dDM.DMTim.ID;
+                dKPI.CapNhatNhom();
+                grdKPI.GetStore().GetById(id).Commit();
+            }
+            else
+            {
+                grdKPI.GetStore().GetById(id).Reject();
+            }
         }
 
         protected void mnuitemKPIPheDuyet_Click(object sender, DirectEventArgs e)

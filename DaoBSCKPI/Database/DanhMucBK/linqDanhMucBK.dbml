@@ -26,4 +26,21 @@
       <Column Name="DangSuDung" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_tblBKDanhMuc_Tim" Method="sp_tblBKDanhMuc_Tim">
+    <Parameter Name="Ten" Parameter="ten" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_tblBKDanhMuc_TimResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenTat" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="STTsx" Type="System.Decimal" DbType="Decimal(8,1)" CanBeNull="true" />
+      <Column Name="Nhom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DangSuDung" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

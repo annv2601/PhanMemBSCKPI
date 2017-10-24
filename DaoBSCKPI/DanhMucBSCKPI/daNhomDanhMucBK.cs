@@ -17,7 +17,8 @@ namespace DaoBSCKPI.DanhMucBSCKPI
             Xu_Hướng=3,
             Mức_Độ=4,
             Hướng_Xử_Lý_Công_Việc=5,
-            Trạng_Thái_Công_Việc=6
+            Trạng_Thái_Công_Việc=6,
+            Trọng_Số_Nhóm_KPI=10
         }
 
         private linqDanhMucBKDataContext lDM = new linqDanhMucBKDataContext();

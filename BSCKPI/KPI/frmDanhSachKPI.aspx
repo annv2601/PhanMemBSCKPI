@@ -33,12 +33,13 @@
 
             }
         }
+        
     </script>
 </head>
 <body>
     <ext:ResourceManager runat="server" />
     <form id="form1" runat="server">
-        <ext:Store ID="stoKPI" runat="server">
+        <ext:Store ID="stoKPI" runat="server" OnReadData="DanhSachKPITD">
                     <Model>
                         <ext:Model runat="server" IDProperty="ID">
                             <Fields>
@@ -68,6 +69,8 @@
                                 <ext:ModelField Name="TrangThai" />
                                 <ext:ModelField Name="TenTrangThai" />
                                 <ext:ModelField Name="GhiChuTrangThai" />
+                                <ext:ModelField Name="IDNhomKPI" />
+                                <ext:ModelField Name="TenNhomKPI" />
                             </Fields>
                         </ext:Model>
                     </Model>
@@ -95,7 +98,7 @@
             </Items>
         </ext:Menu>
         <ext:GridPanel runat="server" Title="Danh sách KPI" ID="grdKPI" StoreID="stoKPI" 
-            MinHeight="300" ContextMenuID="mnuKPI">
+            MinHeight="300" ContextMenuID="mnuKPI" MaxHeight="550" AutoScroll="true">
             <View>
                 <ext:GridView ID="GridView1" runat="server">
                     <GetRowClass Fn="getRowClass" />
@@ -113,6 +116,20 @@
                             <ext:Column runat="server" Text="Đơn vị tính" DataIndex="DonViTinh" />
                             <ext:Column runat="server" Text="Tần suất đo" DataIndex="TanSuatDo" />
                             <ext:Column runat="server" Text="Xu hướng" DataIndex="XuHuongYeuCau" />
+                            <ext:Column runat="server" Text="Nhóm KPI" DataIndex="TenNhomKPI" Width="200" >
+                                <Editor>
+                                    <ext:SelectBox runat="server" ID="slbNhomKPI" DisplayField="Ten" ValueField="Ten">
+                                        <Store>
+                                            <ext:Store runat="server" ID="stoNhomKPI">
+                                                <Fields>
+                                                    <ext:ModelField Name="ID"/>
+                                                    <ext:ModelField Name="Ten" />
+                                                </Fields>
+                                            </ext:Store>
+                                        </Store>
+                                    </ext:SelectBox>
+                                </Editor>
+                            </ext:Column>
                             <ext:Column runat="server" Text="Tên BSC" DataIndex="TenBSC" Width="200"/>
                             <ext:Column runat="server" Text="Đơn vị" DataIndex="DonVi" Width="200"/>
                             <ext:Column runat="server" Text="Phòng ban" DataIndex="PhongBan" Width="150"/>
@@ -255,6 +272,23 @@
                 <ext:Button runat="server" ID="Button2" Icon="Cross" Text="Không">
                     <Listeners>
                         <Click Handler="#{wLienKetBSC}.hide();" />
+                    </Listeners>
+                </ext:Button>
+            </Buttons>
+        </ext:Window>
+
+        <ext:Window runat="server" ID="wQuanLyTSoN" Width="800" Height="400" Title="Khai báo trọng số nhóm" TitleAlign="Center" Hidden="true" ButtonAlign="Center">
+            <Items>
+                <ext:Panel runat="server" Header="false" Layout="FitLayout" Height="400">
+                    <Loader ID="lTSN" runat="server" Url="../DanhMuc/frmDanhMucTrongSoNhom.aspx" Mode="Frame">
+                        <LoadMask ShowMask="true" Msg="......." />
+                    </Loader>
+                </ext:Panel>
+            </Items>
+            <Buttons>
+                <ext:Button runat="server" ID="btnDongQLTSN" Text="Đóng" Icon="Cross">
+                    <Listeners>
+                        <Click Handler="#{stoKPI}.reload();#{wQuanLyTSoN}.hide();" />
                     </Listeners>
                 </ext:Button>
             </Buttons>

@@ -69,17 +69,17 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_KhoiTao")]
-		public int sp_tblBKKetQuaDanhGia_KhoiTao([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_Xoa")]
+		public int sp_tblBKKetQuaDanhGia_Xoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, nguoiTao);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI);
 			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_CapNhat")]
-		public int sp_tblBKKetQuaDanhGia_CapNhat([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KetQua", DbType="Decimal(22,3)")] System.Nullable<decimal> ketQua, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrongSo", DbType="Decimal(18,0)")] System.Nullable<decimal> trongSo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Diem", DbType="Int")] System.Nullable<int> diem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienGiai", DbType="NVarChar(500)")] string dienGiai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		public int sp_tblBKKetQuaDanhGia_CapNhat([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KetQua", DbType="Decimal(22,3)")] System.Nullable<decimal> ketQua, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienGiai", DbType="NVarChar(500)")] string dienGiai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI, ketQua, trongSo, diem, dienGiai, nguoiTao);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI, ketQua, dienGiai, nguoiTao);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -90,24 +90,10 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			return ((ISingleResult<sp_tblBKKetQuaDanhGia_DanhSachResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_ThemSua")]
-		public int sp_tblBKKetQuaDanhGia_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KetQua", DbType="Decimal(22,3)")] System.Nullable<decimal> ketQua, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrongSo", DbType="Decimal(18,0)")] System.Nullable<decimal> trongSo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Diem", DbType="Int")] System.Nullable<int> diem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienGiai", DbType="NVarChar(500)")] string dienGiai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_KhoiTao")]
+		public int sp_tblBKKetQuaDanhGia_KhoiTao([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDDonVi", DbType="Int")] System.Nullable<int> iDDonVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDPhongBan", DbType="Int")] System.Nullable<int> iDPhongBan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI, ketQua, trongSo, diem, dienGiai, nguoiTao);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_ThongTin")]
-		public ISingleResult<sp_tblBKKetQuaDanhGia_ThongTinResult> sp_tblBKKetQuaDanhGia_ThongTin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI);
-			return ((ISingleResult<sp_tblBKKetQuaDanhGia_ThongTinResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_Xoa")]
-		public int sp_tblBKKetQuaDanhGia_Xoa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDDonVi, iDPhongBan, nguoiTao);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -116,6 +102,20 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, nguoiTao);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_ThemSua")]
+		public int sp_tblBKKetQuaDanhGia_ThemSua([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="KetQua", DbType="Decimal(22,3)")] System.Nullable<decimal> ketQua, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Diem", DbType="Int")] System.Nullable<int> diem, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DienGiai", DbType="NVarChar(500)")] string dienGiai, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiTao", DbType="NVarChar(30)")] string nguoiTao)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI, ketQua, diem, dienGiai, nguoiTao);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKKetQuaDanhGia_ThongTin")]
+		public ISingleResult<sp_tblBKKetQuaDanhGia_ThongTinResult> sp_tblBKKetQuaDanhGia_ThongTin([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDKPI", DbType="Int")] System.Nullable<int> iDKPI)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien, iDKPI);
+			return ((ISingleResult<sp_tblBKKetQuaDanhGia_ThongTinResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -136,13 +136,17 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 		
 		private System.Nullable<decimal> _KetQua;
 		
-		private System.Nullable<decimal> _TrongSo;
+		private System.Nullable<decimal> _TyLeHoanThanh;
 		
 		private System.Nullable<int> _Diem;
 		
 		private string _DienGiai;
 		
 		private System.Nullable<decimal> _MucTieu;
+		
+		private System.Nullable<decimal> _TrongSo;
+		
+		private System.Nullable<decimal> _TrongSoNhom;
 		
 		private string _XuHuongYeuCau;
 		
@@ -262,18 +266,18 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSo", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TrongSo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TyLeHoanThanh", DbType="Decimal(22,4)")]
+		public System.Nullable<decimal> TyLeHoanThanh
 		{
 			get
 			{
-				return this._TrongSo;
+				return this._TyLeHoanThanh;
 			}
 			set
 			{
-				if ((this._TrongSo != value))
+				if ((this._TyLeHoanThanh != value))
 				{
-					this._TrongSo = value;
+					this._TyLeHoanThanh = value;
 				}
 			}
 		}
@@ -326,6 +330,38 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSo", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TrongSo
+		{
+			get
+			{
+				return this._TrongSo;
+			}
+			set
+			{
+				if ((this._TrongSo != value))
+				{
+					this._TrongSo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSoNhom", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TrongSoNhom
+		{
+			get
+			{
+				return this._TrongSoNhom;
+			}
+			set
+			{
+				if ((this._TrongSoNhom != value))
+				{
+					this._TrongSoNhom = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XuHuongYeuCau", DbType="NVarChar(50)")]
 		public string XuHuongYeuCau
 		{
@@ -356,9 +392,9 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 		
 		private System.Nullable<decimal> _KetQua;
 		
-		private System.Nullable<decimal> _TrongSo;
-		
 		private System.Nullable<int> _Diem;
+		
+		private System.Nullable<decimal> _TyLeHoanThanh;
 		
 		private string _DienGiai;
 		
@@ -454,22 +490,6 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrongSo", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TrongSo
-		{
-			get
-			{
-				return this._TrongSo;
-			}
-			set
-			{
-				if ((this._TrongSo != value))
-				{
-					this._TrongSo = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int")]
 		public System.Nullable<int> Diem
 		{
@@ -482,6 +502,22 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 				if ((this._Diem != value))
 				{
 					this._Diem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TyLeHoanThanh", DbType="Decimal(22,4)")]
+		public System.Nullable<decimal> TyLeHoanThanh
+		{
+			get
+			{
+				return this._TyLeHoanThanh;
+			}
+			set
+			{
+				if ((this._TyLeHoanThanh != value))
+				{
+					this._TyLeHoanThanh = value;
 				}
 			}
 		}

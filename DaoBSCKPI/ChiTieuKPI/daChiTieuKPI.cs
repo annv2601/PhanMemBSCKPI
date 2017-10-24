@@ -46,12 +46,17 @@ namespace DaoBSCKPI.ChiTieuKPI
         public void ThemSua()
         {
             lKPI.sp_tblBKChiTieuKPI_ThemSua(KPI.ID, KPI.Ma, KPI.STT, KPI.Ten, KPI.TrongSo, KPI.MucTieu, KPI.IDDonViTinh, KPI.IDBSC, KPI.Muc, KPI.IDTanSuatDo, KPI.IDXuHuongYeuCau,
-                KPI.IDDonVi,KPI.IDPhongBan,KPI.ChiTieuChung,KPI.STTsx, KPI.InDam, KPI.InNghieng, KPI.NguoiTao, KPI.TrangThai, KPI.NguoiThaoTac);
+                KPI.IDDonVi,KPI.IDPhongBan,KPI.ChiTieuChung,KPI.STTsx,KPI.IDNhomKPI, KPI.InDam, KPI.InNghieng, KPI.NguoiTao, KPI.TrangThai, KPI.NguoiThaoTac);
         }
 
         public void GanVoiBSC()
         {
             lKPI.sp_tblBKChiTieuKPI_GanVoiBSC(KPI.ID, KPI.IDBSC);
+        }
+
+        public void CapNhatNhom()
+        {
+            lKPI.sp_tblBKChiTieuKPI_CapNhatNhom(KPI.ID, KPI.IDNhomKPI);
         }
 
         public void DoiTrangThai()

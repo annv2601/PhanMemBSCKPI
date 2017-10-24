@@ -69,7 +69,6 @@ namespace BSCKPI.KetQuaDanhGia
                     dKQ.KQ.IDNhanVien = IDNhanVien;
                     dKQ.KQ.IDKPI = int.Parse(node.Property("ID").Value.ToString());
                     dKQ.KQ.KetQua = decimal.Parse(node.Property("KetQua").Value.ToString());
-                    dKQ.KQ.TrongSo = decimal.Parse(node.Property("TrongSo").Value.ToString());
                     dKQ.KQ.Diem = int.Parse(node.Property("Diem").Value.ToString());
                     dKQ.KQ.DienGiai = node.Property("DienGiai").Value.ToString();
                     dKQ.KQ.NguoiTao = daPhien.NguoiDung.IDNhanVien.ToString();

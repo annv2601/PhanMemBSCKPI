@@ -76,6 +76,24 @@ namespace BSCKPI.KPI {
         protected global::Ext.Net.GridView GridView1;
         
         /// <summary>
+        /// slbNhomKPI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.SelectBox slbNhomKPI;
+        
+        /// <summary>
+        /// stoNhomKPI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store stoNhomKPI;
+        
+        /// <summary>
         /// fdcNhapLieu control.
         /// </summary>
         /// <remarks>
@@ -245,5 +263,23 @@ namespace BSCKPI.KPI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Button Button2;
+        
+        /// <summary>
+        /// wQuanLyTSoN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Window wQuanLyTSoN;
+        
+        /// <summary>
+        /// btnDongQLTSN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button btnDongQLTSN;
     }
 }

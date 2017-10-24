@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqTrongSoNhomKPIDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblBKTrongSoNhomKPI_DanhSach" Method="sp_tblBKTrongSoNhomKPI_DanhSach">
+    <ElementType Name="sp_tblBKTrongSoNhomKPI_DanhSachResult">
+      <Column Name="STT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IDNhomKPI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenChon" Type="System.String" DbType="NVarChar(85)" CanBeNull="true" />
+      <Column Name="Ma" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GiaTri" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TuNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DenNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKTrongSoNhomKPI_ThongTin" Method="sp_tblBKTrongSoNhomKPI_ThongTin">
+    <Parameter Name="IDNhomKPI" Parameter="iDNhomKPI" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="sp_tblBKTrongSoNhomKPI_ThongTinResult">
+      <Column Name="IDNhomKPI" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GiaTri" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TuNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DenNgay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiTao" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblBKTrongSoNhomKPI_ThemSua" Method="sp_tblBKTrongSoNhomKPI_ThemSua">
+    <Parameter Name="IDNhomKPI" Parameter="iDNhomKPI" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GiaTri" Parameter="giaTri" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="TuNgay" Parameter="tuNgay" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="DenNgay" Parameter="denNgay" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NguoiTao" Parameter="nguoiTao" Type="System.String" DbType="NVarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

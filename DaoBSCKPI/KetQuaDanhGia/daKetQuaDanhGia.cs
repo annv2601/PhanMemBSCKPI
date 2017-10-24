@@ -30,12 +30,12 @@ namespace DaoBSCKPI.KetQuaDanhGia
 
         public void ThemSua()
         {
-            lKQ.sp_tblBKKetQuaDanhGia_ThemSua(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.TrongSo, KQ.Diem, KQ.DienGiai, KQ.NguoiTao);
+            lKQ.sp_tblBKKetQuaDanhGia_ThemSua(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.Diem, KQ.DienGiai, KQ.NguoiTao);
         }
 
         public void CapNhat()
         {
-            lKQ.sp_tblBKKetQuaDanhGia_CapNhat(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.TrongSo, KQ.Diem, KQ.DienGiai, KQ.NguoiTao);
+            lKQ.sp_tblBKKetQuaDanhGia_CapNhat(KQ.Thang, KQ.Nam, KQ.IDNhanVien, KQ.IDKPI, KQ.KetQua, KQ.DienGiai, KQ.NguoiTao);
         }
 
         public void Xoa()

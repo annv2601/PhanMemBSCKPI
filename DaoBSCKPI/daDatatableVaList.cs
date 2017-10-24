@@ -29,5 +29,20 @@ namespace DaoBSCKPI
             }
             return dt;
         }
+
+        public static DateTime NgayDauThang(DateTime rNgay)
+        {
+            DateTime _Na;
+            _Na = DateTime.Parse(rNgay.Month.ToString() + "/01/" + rNgay.Year.ToString());
+            return _Na;
+        }
+
+        public static DateTime NgayCuoiThang(DateTime rNgay)
+        {
+            DateTime _Na;
+            _Na = NgayDauThang(rNgay);
+            _Na = _Na.AddMonths(1);
+            return _Na.AddDays(-1);
+        }
     }
 }

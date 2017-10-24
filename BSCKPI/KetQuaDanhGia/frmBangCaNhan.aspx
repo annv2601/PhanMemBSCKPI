@@ -180,10 +180,7 @@
                     </ext:Column>                   
 
                     <ext:NumberColumn runat="server" Text="Trọng số" DataIndex="TrongSo" Format="000%" Align="Right">
-                    <%--<Renderer Format="Percent" />--%>
-                        <Editor>
-                            <ext:NumberField runat="server" AllowDecimals="false" EmptyNumber="0"  MinValue="0"/>
-                        </Editor>
+                   
                     </ext:NumberColumn>
                     <ext:NumberColumn runat="server" Text="Kết quả" DataIndex="KetQua" Align="Right">
                         <Editor>
