@@ -10,10 +10,10 @@
 <body>
     <ext:ResourceManager runat="server" Locale="vi-VN"/>
     <form id="form1" runat="server">
-       <ext:FieldContainer runat="server" Layout="HBoxLayout">
+       <ext:FieldContainer runat="server" Layout="HBoxLayout" MarginSpec="10 0 0 0">
            <Items>
                <ext:SelectBox runat="server" ID="slbThang" DisplayField="Ten" ValueField="ID"
-                           EmptyText="Tháng" MarginSpec="0 0 0 20" LabelWidth="40">
+                           EmptyText="Tháng" MarginSpec="0 0 0 20" LabelWidth="40" Width="120">
                             <Store>                                
                                 <ext:Store runat="server" ID="stoThang">
                                     <Model>
@@ -32,7 +32,7 @@
                             </DirectEvents>--%>
                         </ext:SelectBox>
                         <ext:SelectBox runat="server" ID="slbNam" DisplayField="Ten" ValueField="ID"
-                            EmptyText="Năm" MarginSpec="0 0 0 20" LabelWidth="40">
+                            EmptyText="Năm" MarginSpec="0 0 0 20" LabelWidth="40" Width="120">
                             <Store>
                                 <ext:Store runat="server" ID="stoNam">
                                 <Model>
@@ -50,7 +50,7 @@
                             </DirectEvents>--%>
                         </ext:SelectBox>
                <ext:SelectBox runat="server" ID="slbKeHoachDG" EmptyText="Kế hoạch đánh giá ..."
-                    DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 20" Width="350" >
+                    DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 20" Width="350" MatchFieldWidth="true">
                     <Listeners>
                           <Select Handler="#{stoNhanVien}.reload();" />
                     </Listeners>
@@ -64,7 +64,7 @@
                     </Store>
                 </ext:SelectBox>
                <ext:SelectBox runat="server" ID="slbNhanVien" QueryMode="Local" EmptyText="Nhân viên"
-                                    DisplayField="TenNhanVien" ValueField="IDNhanVien" LabelStyle="font-weight:bold;" Width="350" MarginSpec="0 0 0 20">
+                                    DisplayField="TenNhanVien" ValueField="IDNhanVien" LabelStyle="font-weight:bold;" Width="250" MarginSpec="0 0 0 20">
                                     <DirectEvents>
                                         <Change OnEvent="ChonThangNam_Click" />
                                     </DirectEvents>
@@ -77,6 +77,25 @@
                                         </ext:Store>
                                     </Store>
                                 </ext:SelectBox>
+
+               <ext:SplitButton runat="server" Scale="Medium" UI="Warning" Text="Bản in" MarginSpec="0 0 0 20" Width="150">
+                            <Menu>
+                                <ext:Menu runat="server">
+                                    <Items>
+                                        <ext:MenuItem runat="server" Text="Bản in cá nhân" ID="btnInCaNhan" UI="Warning">
+                                            <DirectEvents>
+                                                <Click OnEvent="btnInCaNhan_Click" />
+                                            </DirectEvents>
+                                        </ext:MenuItem>
+                                        <ext:MenuItem runat="server" Text="Bản in theo kế hoạch" ID="btnInKeHoach" UI="Warning" >
+                                            <DirectEvents>
+                                                <Click OnEvent="btnInKeHoach_Click" />
+                                            </DirectEvents>
+                                        </ext:MenuItem>
+                                    </Items>
+                                </ext:Menu>
+                            </Menu>
+                        </ext:SplitButton>
            </Items>
        </ext:FieldContainer>
        <ext:TabPanel runat="server" ID="tabBangDanhGia" MarginSpec="10 0 0 0">

@@ -114,6 +114,28 @@ namespace BSCKPI.KetQuaDanhGia
                 stoNhanVien.DataBind();
             }
         }
+
+        private Ext.Net.Window CuaSoChucNang(string rTieuDe, string Url)
+        {
+            Ext.Net.Window _CSo = new Ext.Net.Window();
+            ComponentLoader _Loader = new ComponentLoader();
+            _Loader.Url = Url;
+            _Loader.Mode = LoadMode.Frame;
+            _Loader.LoadMask.ShowMask = true;
+            _Loader.LoadMask.Msg = "Đang xử lý .....";
+
+            _CSo.ID = "IDcsBaoCaoDG";
+            _CSo.Title = rTieuDe;
+            _CSo.TitleAlign = TitleAlign.Center;
+            _CSo.AutoRender = true;
+            _CSo.Maximizable = false;
+            _CSo.Icon = Icon.Printer;
+            _CSo.Width = 810;
+            _CSo.Height = 500;
+            _CSo.Loader = _Loader;
+
+            return _CSo;
+        }
         #endregion
 
         #region Su kien
@@ -160,6 +182,36 @@ namespace BSCKPI.KetQuaDanhGia
         protected void DanhSachNhanVien(object sender, StoreReadDataEventArgs e)
         {
             DanhSachNhanVienDanhGia();
+        }
+
+        protected void btnInCaNhan_Click(object sender, DirectEventArgs e)
+        {
+            if(slbThang.SelectedItem.Value==null || slbNam.SelectedItem.Value==null || slbNhanVien.SelectedItem.Value==null)
+            {
+                X.Msg.Alert("", "Thiếu dữ liệu chọn để in báo cáo").Show();
+                return;
+            }
+            Ext.Net.Window CSo = new Ext.Net.Window();
+            CSo = CuaSoChucNang("Bảng đánh giá kết quả", "frmHienThiBaoCaoDanhGia.aspx?ThangBaoCao=" + slbThang.SelectedItem.Value + "&&NamBaoCao=" + slbNam.SelectedItem.Value + "&&NhanVienBaoCao=" + slbNhanVien.SelectedItem.Value + "&&BieuBaoCao=1");
+
+            this.Form.Controls.Add(CSo);
+            CSo.Render();
+            CSo.Show();
+        }
+
+        protected void btnInKeHoach_Click(object sender, DirectEventArgs e)
+        {
+            if (slbThang.SelectedItem.Value == null || slbNam.SelectedItem.Value == null || slbNhanVien.SelectedItem.Value == null)
+            {
+                X.Msg.Alert("", "Thiếu dữ liệu chọn để in báo cáo").Show();
+                return;
+            }
+            Ext.Net.Window CSo = new Ext.Net.Window();
+            CSo = CuaSoChucNang("Bảng đánh giá kết quả", "frmHienThiBaoCaoDanhGia.aspx?ThangBaoCao=" + slbThang.SelectedItem.Value + "&&NamBaoCao=" + slbNam.SelectedItem.Value + "&&NhanVienBaoCao=" + slbNhanVien.SelectedItem.Value + "&&IDKeHoach=" + slbKeHoachDG.SelectedItem.Value + "&&BieuBaoCao=2");
+
+            this.Form.Controls.Add(CSo);
+            CSo.Render();
+            CSo.Show();
         }
         #endregion
     }

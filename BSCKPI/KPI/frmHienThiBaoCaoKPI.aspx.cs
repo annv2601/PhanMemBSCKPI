@@ -17,8 +17,8 @@ namespace BSCKPI.KPI
         private rptBangPhanBo crBangPB = new rptBangPhanBo();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BangPhanBo(9, 2017, Guid.Parse("2cdac79d-aa49-4998-9593-a66af89cbc98"));
-            /*
+            //BangPhanBo(9, 2017, Guid.Parse("2cdac79d-aa49-4998-9593-a66af89cbc98"));
+            
             if (Request.QueryString["ThangBaoCao"]!=null)
             {
                 byte _Thang;
@@ -35,7 +35,7 @@ namespace BSCKPI.KPI
                     case 2:
                         break;
                 }
-            }*/
+            }
         }
 
         #region Phan bo muc tieu

@@ -51,6 +51,12 @@
       <DependentUpon>crBangDanhGia.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DanhGia\crBangDanhGiaNhieu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBangDanhGiaNhieu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DanhGia\dsBangDanhGia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +103,10 @@
     <EmbeddedResource Include="DanhGia\crBangDanhGia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBangDanhGia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhGia\crBangDanhGiaNhieu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBangDanhGiaNhieu.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PhanBo\rptBangPhanBo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

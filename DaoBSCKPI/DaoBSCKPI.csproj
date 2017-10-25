@@ -129,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>linqDanhMucHeThong.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Database\DiemXepLoai\linqDiemXepLoai.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqDiemXepLoai.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Database\DonVi\linqDonVi.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +201,7 @@
       <DependentUpon>linqPhanBoMucTieu.dbml</DependentUpon>
     </Compile>
     <Compile Include="daThamSo.cs" />
+    <Compile Include="DiemXepLoai\daDiemXepLoai.cs" />
     <Compile Include="DonVi\daDonVi.cs" />
     <Compile Include="DonVi\daMoHinhDonVi.cs" />
     <Compile Include="DonVi\daMoHinhPhongBan.cs" />
@@ -331,6 +337,14 @@
     </None>
     <None Include="Database\DanhMucMoHinh\linqDanhMucHeThong.dbml.layout">
       <DependentUpon>linqDanhMucHeThong.dbml</DependentUpon>
+    </None>
+    <None Include="Database\DiemXepLoai\linqDiemXepLoai.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqDiemXepLoai.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\DiemXepLoai\linqDiemXepLoai.dbml.layout">
+      <DependentUpon>linqDiemXepLoai.dbml</DependentUpon>
     </None>
     <None Include="Database\DonVi\linqDonVi.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>

@@ -94,6 +94,24 @@ namespace BSCKPI.KetQuaDanhGia {
         protected global::Ext.Net.Store stoNhanVien;
         
         /// <summary>
+        /// btnInCaNhan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem btnInCaNhan;
+        
+        /// <summary>
+        /// btnInKeHoach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem btnInKeHoach;
+        
+        /// <summary>
         /// tabBangDanhGia control.
         /// </summary>
         /// <remarks>

@@ -75,6 +75,13 @@ namespace DaoBSCKPI.Database.KetQuaDanhGia
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien);
 			return ((ISingleResult<clsBangPhanBo>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_tblBKMauBangDanhGia_BangIn")]
+		public ISingleResult<clsBangIn> sp_tblBKMauBangDanhGia_BangIn([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Thang", DbType="SmallInt")] System.Nullable<short> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nam", DbType="Int")] System.Nullable<int> nam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDNhanVien", DbType="UniqueIdentifier")] System.Nullable<System.Guid> iDNhanVien)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam, iDNhanVien);
+			return ((ISingleResult<clsBangIn>)(result.ReturnValue));
+		}
 	}
 }
 #pragma warning restore 1591
