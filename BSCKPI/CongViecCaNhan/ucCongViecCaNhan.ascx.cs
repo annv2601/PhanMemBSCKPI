@@ -90,6 +90,12 @@ namespace BSCKPI.CongViecCaNhan
             }
         }
 
+        public string MaNhap
+        {
+            get { return txtMaNhap.Text.Trim(); }
+            set { txtMaNhap.Text = value; }
+        }
+
         public string NoiDung
         {
             get { return txtNoiDung.Text.Trim(); }
@@ -163,6 +169,7 @@ namespace BSCKPI.CongViecCaNhan
             txtNgayDenHan.SelectedValue = string.Empty;
             //txtGioDenHan.SelectedValue = "";
             IDMucDo = 0;
+            MaNhap = "";
             NoiDung = "";
             ChiDaoChung = "";
         }

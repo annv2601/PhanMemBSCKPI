@@ -67,6 +67,15 @@ namespace BSCKPI.CongViecCaNhan {
         protected global::Ext.Net.Store stoLanhDaoTD;
         
         /// <summary>
+        /// txtMaNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TextField txtMaNhap;
+        
+        /// <summary>
         /// txtNoiDung control.
         /// </summary>
         /// <remarks>

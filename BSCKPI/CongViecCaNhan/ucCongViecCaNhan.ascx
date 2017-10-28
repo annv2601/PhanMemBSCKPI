@@ -32,7 +32,7 @@
                 </ext:SelectBox>
             </Items>
         </ext:FieldContainer>
-        
+        <ext:TextField runat="server" ID="txtMaNhap" FieldLabel="Mã công việc" Width="740" LabelStyle="font-weight:bold;padding:0;"/>
         <ext:TextArea runat="server" ID="txtNoiDung" FieldLabel="Nội dung" Width="740" LabelStyle="font-weight:bold;padding:0;"/>
         <ext:FieldContainer runat="server" Layout="HBoxLayout">
             <Items>

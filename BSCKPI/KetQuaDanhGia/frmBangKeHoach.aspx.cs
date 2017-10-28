@@ -130,7 +130,7 @@ namespace BSCKPI.KetQuaDanhGia
             _CSo.AutoRender = true;
             _CSo.Maximizable = false;
             _CSo.Icon = Icon.Printer;
-            _CSo.Width = 810;
+            _CSo.Width = 900;
             _CSo.Height = 500;
             _CSo.Loader = _Loader;
 

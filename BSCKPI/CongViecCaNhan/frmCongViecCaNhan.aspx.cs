@@ -103,6 +103,7 @@ namespace BSCKPI.CongViecCaNhan
         {
             daCongViecCaNhan dCV = new daCongViecCaNhan();
             dCV.CVCN.Ma = CVCN1.MaCongViec;
+            dCV.CVCN.MaNhap = CVCN1.MaNhap;
             dCV.CVCN.NoiDung = CVCN1.NoiDung;
             dCV.CVCN.NguoiGiaoViec = CVCN1.NguoiGiaoViec;
             dCV.CVCN.NguoiTheoDoi = CVCN1.NguoiTheoDoi;
@@ -125,8 +126,7 @@ namespace BSCKPI.CongViecCaNhan
                     Message = "Ngày giao công việc không thể nhỏ hơn ngày đến hạn!",
                     Buttons = MessageBox.Button.OK,
                     Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR"),
-                    AnimEl = this.btnCapNhat.ClientID,
-                    Fn = new JFunction { Fn = "showResult" }
+                    AnimEl = this.btnCapNhat.ClientID
                 });
                 return;
             }
@@ -151,8 +151,7 @@ namespace BSCKPI.CongViecCaNhan
                 Message = "Công việc đã được cập nhật thành công!",
                 Buttons = MessageBox.Button.OK,
                 Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon),"INFO"),
-                AnimEl = this.btnCapNhat.ClientID,
-                Fn = new JFunction { Fn = "showResult" }
+                AnimEl = this.btnCapNhat.ClientID
             });
             
         }
@@ -225,6 +224,79 @@ namespace BSCKPI.CongViecCaNhan
                 ThongTinDanhGiaChung();
                 wDanhGiaCVCN.Show();
             }
+        }
+
+        protected void mnuitemGiaHan_Click(object sender, DirectEventArgs e)
+        {
+            string json = e.ExtraParams["Values"];
+            if (json == "")
+            {
+                return;
+            }
+            ucGHa1.KhoiTao();
+            Dictionary<string, string>[] companies = JSON.Deserialize<Dictionary<string, string>[]>(json);
+            bool _DHT=false;
+            bool _DQH;
+            foreach (Dictionary<string, string> row in companies)
+            {
+                try
+                {
+                    ucGHa1.MaCongViec = decimal.Parse(row["Ma"].ToString());
+                    ucGHa1.NguoiThucHien = daPhien.NguoiDung.IDNhanVien.Value;
+                    ucGHa1.HanNgayCu = DateTime.Parse(row["NgayDenHan"].ToString());
+                    ucGHa1.HanGioCu = TimeSpan.Parse(row["GioDenHan"].ToString());
+                    wGiaHan.Title = row["NoiDung"].ToString();
+
+                    _DHT = bool.Parse(row["DaHoanThanh"].ToString());
+                    _DQH = bool.Parse(row["QuaHan"].ToString());
+                }
+                catch
+                {
+                    ucGHa1.MaCongViec = 0;
+                }
+            }
+            if (ucGHa1.MaCongViec != 0)
+            {
+                if (_DHT)
+                {
+                    X.Msg.Show(new MessageBoxConfig
+                    {
+                        Title = "Cảnrh báo",
+                        Message = "Công việc đã kết thúc, không thể gia hạn!",
+                        Buttons = MessageBox.Button.OK,
+                        Icon = (MessageBox.Icon)Enum.Parse(typeof(MessageBox.Icon), "ERROR")
+                    });
+                    return;
+                }
+                ucGHa1.HanGioMoi = ucGHa1.HanGioCu;
+                ucGHa1.HanNgayMoi = ucGHa1.HanNgayCu.AddDays(7);
+                wGiaHan.Show();
+            }
+        }
+        protected void btnGiaHan_Click(object sender, DirectEventArgs e)
+        {
+            dacvcnGiaHan dGH = new dacvcnGiaHan();
+            dGH.GH.MaCongViecCaNhan = ucGHa1.MaCongViec;
+            dGH.GH.NguoiThucHien = ucGHa1.NguoiThucHien;
+            dGH.GH.HanNgayCu = ucGHa1.HanNgayCu;
+            dGH.GH.HanGioCu = ucGHa1.HanGioCu;
+            dGH.GH.HanNgayMoi = ucGHa1.HanNgayMoi;
+            dGH.GH.HanGioMoi = ucGHa1.HanGioMoi;
+            dGH.GH.LyDo = ucGHa1.LyDo;
+            dGH.Them();
+            X.Msg.Alert("Hoàn thành","Đã gia hạn công việc thành công").Show();
+            wGiaHan.Hide();
+            stoCVCN.Reload();
+        }
+
+        protected Field OnCreateFilterableField(object sender, ColumnBase column, Field defaultField)
+        {
+            if (column.DataIndex == "Id")
+            {
+                ((TextField)defaultField).Icon = Icon.Magnifier;
+            }
+
+            return defaultField;
         }
         #endregion
 

@@ -36,15 +36,36 @@
 
         var editCT = function (editor, e) {
             if (e.value !== e.originalValue) {
-                BangPBMTCTX.EditCT(e.record.data.ThuTu, e.field, e.originalValue, e.value, e.record.data);
+                if (e.field == "TrongSo")
+                {
+                    var sum = getSum(App.grdPBChiTieu,8);
+
+                    alert(sum);
+                    if (total > 100)
+                    {
+                        alert("Tong trong so trong nhom khong duoc vuot qua 100");
+                        return;
+                    }
+                }
+                //BangPBMTCTX.EditCT(e.record.data.ThuTu, e.field, e.originalValue, e.value, e.record.data);
             }
         }
+        var getSum = function (grid, index) {
+            var dataIndex = grid.getColumnModel().getDataIndex(index),
+                sum = 0;
+
+            grid.getStore().each(function (record) {
+                sum += record.get(dataIndex);
+            });
+
+            return sum;
+        };
     </script>
 </head>
 <body>
     <ext:ResourceManager runat="server" Locale="vi-VN"/>
     <form id="form1" runat="server">
-        <ext:FieldContainer runat="server" Layout="HBoxLayout">
+        <ext:FieldContainer runat="server" Layout="HBoxLayout" MarginSpec="10 0 0 0">
             <Items>
                 <ext:SelectBox runat="server" ID="slbThang" 
                             EmptyText="Tháng ...." DisplayField="Ten" ValueField="ID" MarginSpec="0 0 0 10" RenderXType="True">
@@ -141,11 +162,30 @@
                                 <ext:Label runat="server" ID="lblChucDanh" Text="" StyleSpec="font-weight:bold;" MarginSpec="0 0 0 20"/>
                                 <ext:Label runat="server" ID="lblMoTaCongViec" Text="" StyleSpec="font-weight:bold;" MarginSpec="0 0 0 20"/>
 
-                        <ext:Button runat="server" ID="btnInbangPhanBo" Text="In Bảng mục tiêu" Icon="Printer" MarginSpec="0 0 0 100">
+                        <ext:SplitButton runat="server" Scale="Medium" UI="Success" Text="Bản in" MarginSpec="0 0 0 50" Width="150">
+                            <Menu>
+                                <ext:Menu runat="server">
+                                    <Items>
+                                        <ext:MenuItem runat="server" Text="Bản in cá nhân" ID="btnInbangPhanBo" UI="Success">
+                                            <DirectEvents>
+                                                <Click OnEvent="btnInbangPhanBo_Click" />
+                                            </DirectEvents>
+                                        </ext:MenuItem>
+                                        <ext:MenuItem runat="server" Text="Bản in theo kế hoạch" ID="btnInKeHoach" UI="Success" >
+                                            <DirectEvents>
+                                                <Click OnEvent="btnInKeHoach_Click" />
+                                            </DirectEvents>
+                                        </ext:MenuItem>
+                                    </Items>
+                                </ext:Menu>
+                            </Menu>
+                        </ext:SplitButton>
+
+                        <%--<ext:Button runat="server" ID="btnInbangPhanBo" Text="In Bảng mục tiêu" Icon="Printer" MarginSpec="0 0 0 50">
                             <DirectEvents>
                                 <Click OnEvent="btnInbangPhanBo_Click" />
                             </DirectEvents>
-                        </ext:Button>
+                        </ext:Button>--%>
                     </Items>
                 </ext:Toolbar>
             </TopBar>

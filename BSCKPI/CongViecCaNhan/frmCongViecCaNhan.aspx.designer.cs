@@ -58,6 +58,15 @@ namespace BSCKPI.CongViecCaNhan {
         protected global::Ext.Net.MenuItem mnuitmThemNguoiThucHien;
         
         /// <summary>
+        /// mnuitemGiaHan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem mnuitemGiaHan;
+        
+        /// <summary>
         /// mnuitemDanhGia control.
         /// </summary>
         /// <remarks>
@@ -103,15 +112,6 @@ namespace BSCKPI.CongViecCaNhan {
         protected global::Ext.Net.Window wCongViecCaNhan;
         
         /// <summary>
-        /// tabCVCN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TabPanel tabCVCN;
-        
-        /// <summary>
         /// Panel2 control.
         /// </summary>
         /// <remarks>
@@ -146,6 +146,51 @@ namespace BSCKPI.CongViecCaNhan {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Button btnDong;
+        
+        /// <summary>
+        /// wGiaHan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Window wGiaHan;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Panel Panel1;
+        
+        /// <summary>
+        /// ucGHa1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BSCKPI.CongViecCaNhan.uccvcnGiaHan ucGHa1;
+        
+        /// <summary>
+        /// btnGiaHan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button btnGiaHan;
+        
+        /// <summary>
+        /// Button2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button Button2;
         
         /// <summary>
         /// txtMaCongViecCaNhan control.

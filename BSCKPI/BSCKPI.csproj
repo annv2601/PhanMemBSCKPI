@@ -114,6 +114,7 @@
     <Content Include="CongViecCaNhan\frmCongViecCaNhan.aspx" />
     <Content Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx" />
     <Content Include="CongViecCaNhan\ucCongViecCaNhan.ascx" />
+    <Content Include="CongViecCaNhan\uccvcnGiaHan.ascx" />
     <Content Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx" />
     <Content Include="DanhMuc\frmDanhMucTrongSoNhom.aspx" />
     <Content Include="Default.aspx" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="CongViecCaNhan\ucCongViecCaNhan.ascx.designer.cs">
       <DependentUpon>ucCongViecCaNhan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CongViecCaNhan\uccvcnGiaHan.ascx.cs">
+      <DependentUpon>uccvcnGiaHan.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\uccvcnGiaHan.ascx.designer.cs">
+      <DependentUpon>uccvcnGiaHan.ascx</DependentUpon>
     </Compile>
     <Compile Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx.cs">
       <DependentUpon>uccvcnNguoiThucHien.ascx</DependentUpon>

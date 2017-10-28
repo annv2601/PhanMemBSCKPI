@@ -1,7 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqCongViecCaNhanDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblcvCongViecCaNhan_DanhGiaKetQua" Method="sp_tblcvCongViecCaNhan_DanhGiaKetQua">
+    <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDTrangThai" Parameter="iDTrangThai" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DaHoanThanh" Parameter="daHoanThanh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NguoiDanhGia" Parameter="nguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="MucDoHoanThanh" Parameter="mucDoHoanThanh" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="KetQuaHoanThanh" Parameter="ketQuaHoanThanh" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NgayHoanThanh" Parameter="ngayHoanThanh" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhan_ThongTin" Method="sp_tblcvCongViecCaNhan_ThongTin">
+    <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="sp_tblcvCongViecCaNhan_ThongTinResult">
+      <Column Name="Ma" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNhap" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NguoiTheoDoi" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NgayGiaoViec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayDenHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GioDenHan" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="IDMucDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NguoiLamChinh" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ChiDaoChung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MaCongViecDonVi" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDDonVi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DaHoanThanh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MucDoHoanThanh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="KetQuaHoanThanh" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayHoanThanh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.sp_tblcvCongViecCaNhan_ThemSua" Method="sp_tblcvCongViecCaNhan_ThemSua">
     <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="MaNhap" Parameter="maNhap" Type="System.String" DbType="NVarChar(20)" />
     <Parameter Name="NoiDung" Parameter="noiDung" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="NguoiGiaoViec" Parameter="nguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" />
     <Parameter Name="NguoiTheoDoi" Parameter="nguoiTheoDoi" Type="System.Guid" DbType="UniqueIdentifier" />
@@ -28,6 +68,7 @@
     <ElementType Name="sp_tblcvCongViecCaNhan_DanhSachResult">
       <Column Name="STT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="Ma" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNhap" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="NguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="TenNguoiGiaoViec" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="NguoiLamChinh" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
@@ -42,44 +83,10 @@
       <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="QuaHan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ThoiGianQuaHan" Type="System.String" DbType="NVarChar(55)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblcvCongViecCaNhan_ThongTin" Method="sp_tblcvCongViecCaNhan_ThongTin">
-    <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="sp_tblcvCongViecCaNhan_ThongTinResult">
-      <Column Name="Ma" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NguoiGiaoViec" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NguoiTheoDoi" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NgayGiaoViec" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="NgayDenHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="GioDenHan" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="IDMucDo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NguoiLamChinh" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="ChiDaoChung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="MaCongViecDonVi" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IDKPI" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDDonVi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDPhongBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IDTrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DaHoanThanh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MucDoHoanThanh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="KetQuaHoanThanh" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="NgayHoanThanh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.sp_tblcvCongViecCaNhan_DanhGiaKetQua" Method="sp_tblcvCongViecCaNhan_DanhGiaKetQua">
-    <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IDTrangThai" Parameter="iDTrangThai" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DaHoanThanh" Parameter="daHoanThanh" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="NguoiDanhGia" Parameter="nguoiDanhGia" Type="System.Guid" DbType="UniqueIdentifier" />
-    <Parameter Name="MucDoHoanThanh" Parameter="mucDoHoanThanh" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="KetQuaHoanThanh" Parameter="ketQuaHoanThanh" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="NgayHoanThanh" Parameter="ngayHoanThanh" Type="System.DateTime" DbType="Date" />
-    <Return Type="System.Int32" />
   </Function>
 </Database>

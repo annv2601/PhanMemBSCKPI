@@ -145,7 +145,16 @@ namespace BSCKPI.KPI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button btnInbangPhanBo;
+        protected global::Ext.Net.MenuItem btnInbangPhanBo;
+        
+        /// <summary>
+        /// btnInKeHoach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem btnInKeHoach;
         
         /// <summary>
         /// RowNumbererColumn1 control.

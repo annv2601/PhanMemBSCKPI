@@ -91,7 +91,7 @@ namespace BSCKPI.KPI
             _CSo.AutoRender = true;
             _CSo.Maximizable = false;
             _CSo.Icon = Icon.Printer;
-            _CSo.Width = 810;
+            _CSo.Width = 900;
             _CSo.Height = 500;
             _CSo.Loader = _Loader;
 
@@ -175,6 +175,21 @@ namespace BSCKPI.KPI
             Ext.Net.Window CSo = new Ext.Net.Window();
             CSo = CuaSoChucNang("Bảng giao kế hoạch mục tiêu", "frmHienThiBaoCaoKPI.aspx?ThangBaoCao=" + slbThang.SelectedItem.Value + "&&NamBaoCao=" + slbNam.SelectedItem.Value + "&&NhanVienBaoCao=" + slbNhanVien.SelectedItem.Value + "&&BieuBaoCao=1");            
             
+            this.Form.Controls.Add(CSo);
+            CSo.Render();
+            CSo.Show();
+        }
+
+        protected void btnInKeHoach_Click(object sender, DirectEventArgs e)
+        {
+            if (slbThang.SelectedItem.Value == null || slbNam.SelectedItem.Value == null || slbNhanVien.SelectedItem.Value == null)
+            {
+                X.Msg.Alert("", "Thiếu dữ liệu chọn để in báo cáo").Show();
+                return;
+            }
+            Ext.Net.Window CSo = new Ext.Net.Window();
+            CSo = CuaSoChucNang("Bảng đánh giá kết quả", "frmHienThiBaoCaoKPI.aspx?ThangBaoCao=" + slbThang.SelectedItem.Value + "&&NamBaoCao=" + slbNam.SelectedItem.Value + "&&NhanVienBaoCao=" + slbNhanVien.SelectedItem.Value + "&&IDKeHoach=" + slbKeHoachDG.SelectedItem.Value + "&&BieuBaoCao=2");
+
             this.Form.Controls.Add(CSo);
             CSo.Render();
             CSo.Show();

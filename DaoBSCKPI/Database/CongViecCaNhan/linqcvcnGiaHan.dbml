@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqcvcnGiaHanDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_tblcvCongViecCaNhanGiaHan_Them" Method="sp_tblcvCongViecCaNhanGiaHan_Them">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="HanNgayCu" Parameter="hanNgayCu" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HanGioCu" Parameter="hanGioCu" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="HanNgayMoi" Parameter="hanNgayMoi" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="HanGioMoi" Parameter="hanGioMoi" Type="System.TimeSpan" DbType="Time" />
+    <Parameter Name="LyDo" Parameter="lyDo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="NguoiThucHien" Parameter="nguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanGiaHan_ThongTin" Method="sp_tblcvCongViecCaNhanGiaHan_ThongTin">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="LanGiaHan" Parameter="lanGiaHan" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="sp_tblcvCongViecCaNhanGiaHan_ThongTinResult">
+      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="HanNgayCu" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanGioCu" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HanNgayMoi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanGioMoi" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="LanGiaHan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LyDo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NgayThucHien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanGiaHan_DanhSach" Method="sp_tblcvCongViecCaNhanGiaHan_DanhSach">
+    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="sp_tblcvCongViecCaNhanGiaHan_DanhSachResult">
+      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="HanNgayCu" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanGioCu" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="HanNgayMoi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HanGioMoi" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="LanGiaHan" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="LyDo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="NgayThucHien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NguoiThucHien" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="TenNguoiThucHien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

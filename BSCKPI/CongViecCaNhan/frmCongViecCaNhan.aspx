@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCongViecCaNhan.aspx.cs" Inherits="BSCKPI.CongViecCaNhan.frmCongViecCaNhan" %>
 <%@ Register src="~/CongViecCaNhan/ucCongViecCaNhan.ascx" tagname="CVCN" tagprefix="uc1" %>
-
+<%@ Register src="~/CongViecCaNhan/uccvcnGiaHan.ascx" tagname="GHa" tagprefix="uc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,6 +83,7 @@
                         <ext:ModelField Name="NgayGiaoViec" />
                         <ext:ModelField Name="NgayDenHan" />
                         <ext:ModelField Name="GioDenHan"/>
+                        <ext:ModelField Name="MaNhap" />
                         <ext:ModelField Name="NoiDung" />
                         <ext:ModelField Name="IDMucDo" />
                         <ext:ModelField Name="MucDo" />
@@ -90,6 +91,10 @@
                         <ext:ModelField Name="TrangThai" />
                         <ext:ModelField Name="QuaHan" />
                         <ext:ModelField Name="ThoiGianQuaHan" />
+                        <ext:ModelField Name="DaHoanThanh" />
+                        <ext:ModelField Name="MucDoHoanThanh" />
+                        <ext:ModelField Name="KetQuaHoanThanh" />
+                        <ext:ModelField Name="NgayHoanThanh" />
                     </Fields>
                 </ext:Model>
             </Model>
@@ -103,6 +108,15 @@
                 <ext:MenuItem runat="server" ID="mnuitmThemNguoiThucHien" Text="Thêm người phối hợp" Icon="UserAdd">
                     <DirectEvents>
                         <Click OnEvent="mnuitmThemNguoiThucHien_Click">
+                            <ExtraParams>
+                                <ext:Parameter Name="Values" Value="Ext.encode(#{grdCVCN}.getRowsValues({selectedOnly:true}))" Mode="Raw" />
+                            </ExtraParams>
+                        </Click>
+                    </DirectEvents>
+                </ext:MenuItem>
+                <ext:MenuItem runat="server" ID="mnuitemGiaHan" Text="Gia hạn xử lý công việc" Icon="DateGo">
+                    <DirectEvents>
+                        <Click OnEvent="mnuitemGiaHan_Click">
                             <ExtraParams>
                                 <ext:Parameter Name="Values" Value="Ext.encode(#{grdCVCN}.getRowsValues({selectedOnly:true}))" Mode="Raw" />
                             </ExtraParams>
@@ -141,6 +155,7 @@
             <ColumnModel runat="server">
                 <Columns>
                     <ext:Column runat="server" DataIndex="STT" Width="50" Text="STT"  Align="Center"/>
+                    <ext:Column runat="server" DataIndex="MaNhap" Text="Mã" Align="Center" />
                     <ext:DateColumn runat="server" DataIndex="NgayGiaoViec" Text="Ngày giao" Align="Center" Format="dd/MM/yyyy"/>
                     <ext:Column runat="server" DataIndex="NoiDung" Text="Nội dung công việc" Width="500" CellWrap="true"/>
                     <ext:Column runat="server" DataIndex="TenNguoiGiaoViec" Text="Lãnh đạo giao việc" Align="Center" Width="150" />
@@ -163,6 +178,9 @@
             <SelectionModel>
                 <ext:RowSelectionModel runat="server" Mode="Single" />
             </SelectionModel>
+            <Plugins>
+                <ext:FilterHeader runat="server" OnCreateFilterableField="OnCreateFilterableField" />
+            </Plugins>
             <BottomBar>
                 <ext:PagingToolbar runat="server"
                     DisplayMsg="Số lượng công việc từ {0} - {1} trên tổng {2}" EmptyMsg="Không có công việc nào" FirstText="Trang đầu" LastText="Trang cuối" NextText="Trang tiếp" PrevText="Trang trước" AfterPageText="trên {0}" BeforePageText="Trang">
@@ -191,29 +209,13 @@
         <ext:Window runat="server" ID="wCongViecCaNhan" Icon="World" Title="Công việc cá nhân" TitleAlign="Center" Width="800" ButtonAlign="Center"
             Hidden="true">
             <Items>
-                <ext:TabPanel runat="server" ID="tabCVCN" ButtonAlign="Center" MinWidth="150">                    
-                    <Items>
-                        <ext:Panel ID="Panel2" runat="server" Header="false"  Border="false" Layout="FormLayout" Closable="false">
+                <ext:Panel ID="Panel2" runat="server" Header="false"  Border="false" Layout="FormLayout" Closable="false">
                              <Content>
                                    <uc1:CVCN ID="CVCN1" runat="server" Title="" />
                              </Content>
-                        </ext:Panel>
-                        <%--<ext:Panel ID="Panel3" runat="server" Header="false" Title="Nhân viên thực hiện" Border="false" Layout="FitLayout" Closable="false">
-                             <Content>
-                                   <uc1:NTH ID="NTH1" runat="server" Title="" />
-                             </Content>
-                        </ext:Panel>
-                        <ext:Panel ID="Panel1" runat="server" Header="false" Title="Quá trình xử lý" Border="false" Layout="FitLayout" Closable="false">
-                             
-                        </ext:Panel>
-                        <ext:Panel ID="Panel4" runat="server" Header="false" Title="Hồ sơ" Border="false" Layout="FitLayout" Closable="false">
-                             
-                        </ext:Panel>
-                        <ext:Panel ID="Panel5" runat="server" Header="false" Title="Đánh giá công việc" Border="false" Layout="FitLayout" Closable="false">
-                             
-                        </ext:Panel>--%>
-                    </Items>
-                    <Buttons>
+                        </ext:Panel>                
+            </Items>
+             <Buttons>
                         <ext:Button runat="server" ID="btnCapNhat" Text="Cập nhật" Icon="Accept">
                             <DirectEvents>
                                 <Click OnEvent="btnCapNhat_Click" />
@@ -225,8 +227,29 @@
                             </Listeners>
                         </ext:Button>
                     </Buttons>
-                </ext:TabPanel>
+        </ext:Window>
+
+        <ext:Window runat="server" ID="wGiaHan" Icon="DateGo" Title="" TitleAlign="Center" Width="400" ButtonAlign="Center"
+            Hidden="true">
+            <Items>
+                <ext:Panel ID="Panel1" runat="server" Header="false"  Border="false" Layout="FormLayout" Closable="false">
+                             <Content>
+                                   <uc1:GHa ID="ucGHa1" runat="server" Title="" />
+                             </Content>
+                        </ext:Panel>                
             </Items>
+             <Buttons>
+                        <ext:Button runat="server" ID="btnGiaHan" Text="Cập nhật" Icon="Accept">
+                            <DirectEvents>
+                                <Click OnEvent="btnGiaHan_Click" />
+                            </DirectEvents>
+                        </ext:Button>
+                        <ext:Button runat="server" ID="Button2" Text="Đóng" Icon="Cross">
+                            <Listeners>
+                                <Click Handler="#{wGiaHan}.hide();" />
+                            </Listeners>
+                        </ext:Button>
+                    </Buttons>
         </ext:Window>
 
         <ext:Hidden runat="server" ID="txtMaCongViecCaNhan" />

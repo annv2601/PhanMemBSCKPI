@@ -48,6 +48,7 @@
     <Compile Include="ChiTieuKPI\daChiTieuKPIPhong.cs" />
     <Compile Include="ChiTieuKPI\daTrongSoNhomKPI.cs" />
     <Compile Include="CongViecCaNhan\daCongViecCaNhan.cs" />
+    <Compile Include="CongViecCaNhan\dacvcnGiaHan.cs" />
     <Compile Include="CongViecCaNhan\dacvcnKetQuaDanhGia.cs" />
     <Compile Include="CongViecCaNhan\dacvcnNguoiThucHien.cs" />
     <Compile Include="CongViecCaNhan\dacvcnQuaTrinhXuLy.cs" />
@@ -88,6 +89,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>linqCongViecCaNhan.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CongViecCaNhan\linqcvcnGiaHan.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>linqcvcnGiaHan.dbml</DependentUpon>
     </Compile>
     <Compile Include="Database\CongViecCaNhan\linqcvcnKetQuaDanhGia.designer.cs">
       <AutoGen>True</AutoGen>
@@ -273,6 +279,14 @@
     </None>
     <None Include="Database\CongViecCaNhan\linqCongViecCaNhan.dbml.layout">
       <DependentUpon>linqCongViecCaNhan.dbml</DependentUpon>
+    </None>
+    <None Include="Database\CongViecCaNhan\linqcvcnGiaHan.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>linqcvcnGiaHan.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\CongViecCaNhan\linqcvcnGiaHan.dbml.layout">
+      <DependentUpon>linqcvcnGiaHan.dbml</DependentUpon>
     </None>
     <None Include="Database\CongViecCaNhan\linqcvcnKetQuaDanhGia.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
