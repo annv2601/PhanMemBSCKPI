@@ -1,35 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BSCKPI" Class="linqcvcnQuaTrinhXuLyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.200.160;Initial Catalog=BSCKPI;Persist Security Info=True;User ID=chay" SettingsObjectName="DaoBSCKPI.Properties.Settings" SettingsPropertyName="BSCKPIConnectionString" Provider="System.Data.SqlClient" />
-  <Function Name="dbo.sp_tblcvCongViecCaNhanQuaTrinhXuLy_DanhSach" Method="sp_tblcvCongViecCaNhanQuaTrinhXuLy_DanhSach">
-    <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="sp_tblcvCongViecCaNhanQuaTrinhXuLy_DanhSachResult">
-      <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IDNguoiXuLy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="NguoiThucHien" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NgayXuLy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IDHuongXuLy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HuongXuLy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NoiDungXuLy" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="YKienChiDao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </ElementType>
+  <Function Name="dbo.sp_tblcvCongViecCaNhan_DanhSachTienTrinh" Method="sp_tblcvCongViecCaNhan_DanhSachTienTrinh">
+    <Parameter Name="Ma" Parameter="ma" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_tblcvCongViecCaNhanQuaTrinhXuLy_CapNhatChiDao" Method="sp_tblcvCongViecCaNhanQuaTrinhXuLy_CapNhatChiDao">
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDNguoiChiDao" Parameter="iDNguoiChiDao" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Parameter Name="YKienChiDao" Parameter="yKienChiDao" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThongTin" Method="sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThongTin">
     <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IDNguoiXuLy" Parameter="iDNguoiXuLy" Type="System.Guid" DbType="UniqueIdentifier" />
     <ElementType Name="sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThongTinResult">
+      <Column Name="ID" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="MaCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="IDNguoiXuLy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="NgayXuLy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IDHuongXuLy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NoiDungXuLy" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IDNguoiChiDao" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="YKienChiDao" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NgayChiDao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThemSua" Method="sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThemSua">
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="MaCongViecCaNhan" Parameter="maCongViecCaNhan" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IDNguoiXuLy" Parameter="iDNguoiXuLy" Type="System.Guid" DbType="UniqueIdentifier" />
     <Parameter Name="IDHuongXuLy" Parameter="iDHuongXuLy" Type="System.Int32" DbType="Int" />
     <Parameter Name="NoiDungXuLy" Parameter="noiDungXuLy" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="IDNguoiChiDao" Parameter="iDNguoiChiDao" Type="System.Guid" DbType="UniqueIdentifier" />
     <Parameter Name="YKienChiDao" Parameter="yKienChiDao" Type="System.String" DbType="NVarChar(500)" />
     <Return Type="System.Int32" />
   </Function>

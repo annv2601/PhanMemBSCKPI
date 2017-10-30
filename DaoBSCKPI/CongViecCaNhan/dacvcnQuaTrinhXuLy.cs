@@ -30,13 +30,18 @@ namespace DaoBSCKPI.CongViecCaNhan
 
         public void ThemSua()
         {
-            lQTXL.sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThemSua(QTXL.MaCongViecCaNhan, QTXL.IDNguoiXuLy, QTXL.IDHuongXuLy, QTXL.NoiDungXuLy, QTXL.YKienChiDao);
+            lQTXL.sp_tblcvCongViecCaNhanQuaTrinhXuLy_ThemSua(QTXL.ID,QTXL.MaCongViecCaNhan, QTXL.IDNguoiXuLy, QTXL.IDHuongXuLy, QTXL.NoiDungXuLy, QTXL.IDNguoiChiDao, QTXL.YKienChiDao);
+        }
+
+        public void CapNhatChiDao()
+        {
+            lQTXL.sp_tblcvCongViecCaNhanQuaTrinhXuLy_CapNhatChiDao(QTXL.ID, QTXL.IDNguoiChiDao, QTXL.YKienChiDao);
         }
 
         public DataTable DanhSach()
         {
-            List<sp_tblcvCongViecCaNhanQuaTrinhXuLy_DanhSachResult> lst;
-            lst = lQTXL.sp_tblcvCongViecCaNhanQuaTrinhXuLy_DanhSach(QTXL.MaCongViecCaNhan).ToList();
+            List<clsCongViecCaNhan> lst;
+            lst = lQTXL.sp_tblcvCongViecCaNhan_DanhSachTienTrinh(QTXL.MaCongViecCaNhan).ToList();
             return daDatatableVaList.ToDataTable(lst);
         }
     }

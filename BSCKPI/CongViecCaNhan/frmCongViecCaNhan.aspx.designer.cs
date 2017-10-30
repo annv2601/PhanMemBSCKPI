@@ -103,6 +103,15 @@ namespace BSCKPI.CongViecCaNhan {
         protected global::Ext.Net.GridView GridView1;
         
         /// <summary>
+        /// HyperlinkColumn1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.HyperlinkColumn HyperlinkColumn1;
+        
+        /// <summary>
         /// wCongViecCaNhan control.
         /// </summary>
         /// <remarks>

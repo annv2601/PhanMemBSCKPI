@@ -23,6 +23,7 @@ namespace BSCKPI
                 dTTNV.TTNV.IDDonVi = 2;
                 dTTNV.TTNV.IDPhongBan = 2;
                 dTTNV.TTNV.IDNhanVien = Guid.Parse("F2A8A332-84F8-4EB3-B223-03A785D3A337");
+                dTTNV.TTNV.IDChucVu = 8;
                 daPhien.NguoiDung = dTTNV.TTNV;
 
 

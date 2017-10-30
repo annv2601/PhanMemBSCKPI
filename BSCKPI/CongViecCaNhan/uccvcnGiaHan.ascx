@@ -16,6 +16,6 @@
                 <ext:TimeField runat="server" ID="txtGioHanMoi" MinTime="08:00:00" MaxTime="20:00:00" Increment="30" Format="H:mm:ss" FieldLabel="Giờ Hạn mới" LabelStyle="font-weight:bold;padding:0;" MarginSpec="0 0 0 20"/>
             </Items>
         </ext:FieldContainer>
-        <ext:TextArea runat="server" ID="txtLyDo" FieldLabel="Lý do" LabelStyle="font-weight:bold;padding:0;" Width="380" />
+        <ext:TextArea runat="server" ID="txtLyDo" FieldLabel="Lý do" LabelStyle="font-weight:bold;padding:0;" Width="580" />
     </Items>
  </ext:Panel>

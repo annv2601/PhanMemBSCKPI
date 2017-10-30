@@ -156,6 +156,36 @@ namespace BSCKPI.CongViecCaNhan
             
         }
 
+        protected void mnuitmThongTinCVCN_Click(object sender, DirectEventArgs e)
+        {
+            string json = e.ExtraParams["Values"];
+            if (json == "")
+            {
+                return;
+            }
+            Dictionary<string, string>[] companies = JSON.Deserialize<Dictionary<string, string>[]>(json);
+            string _IDCV = "0";
+            string _NgayGiao = "";
+            string _TenCV = "";
+            foreach (Dictionary<string, string> row in companies)
+            {
+                try
+                {
+                    _IDCV = row["Ma"].ToString();
+                    _NgayGiao = row["NgayGiaoViec"].ToString();
+                    _TenCV = row["NoiDung"].ToString();
+                }
+                catch
+                {
+                    _IDCV = "0";
+                }
+            }
+            if (_IDCV != "0")
+            {
+                
+            }
+        }
+
         protected void mnuitmThemNguoiThucHien_Click(object sender, DirectEventArgs e)
         {
             string json = e.ExtraParams["Values"];

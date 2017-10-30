@@ -113,6 +113,7 @@
     <Content Include="BSC\frmGiaoBSC.aspx" />
     <Content Include="CongViecCaNhan\frmCongViecCaNhan.aspx" />
     <Content Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx" />
+    <Content Include="CongViecCaNhan\frmQuaTrinhXuLy.aspx" />
     <Content Include="CongViecCaNhan\ucCongViecCaNhan.ascx" />
     <Content Include="CongViecCaNhan\uccvcnGiaHan.ascx" />
     <Content Include="CongViecCaNhan\uccvcnNguoiThucHien.ascx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="CongViecCaNhan\frmcvcnNguoiThucHien.aspx.designer.cs">
       <DependentUpon>frmcvcnNguoiThucHien.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CongViecCaNhan\frmQuaTrinhXuLy.aspx.cs">
+      <DependentUpon>frmQuaTrinhXuLy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CongViecCaNhan\frmQuaTrinhXuLy.aspx.designer.cs">
+      <DependentUpon>frmQuaTrinhXuLy.aspx</DependentUpon>
     </Compile>
     <Compile Include="CongViecCaNhan\ucCongViecCaNhan.ascx.cs">
       <DependentUpon>ucCongViecCaNhan.ascx</DependentUpon>

@@ -102,8 +102,14 @@
 
         <ext:Menu runat="server" ID="mnuCongViecCaNhan" Width="300">
             <Items>
-                <ext:MenuItem runat="server" ID="mnuitmThongTinCVCN" Text="Thông tin Công việc" Icon="Information">
-
+                <ext:MenuItem runat="server" ID="mnuitmThongTinCVCN" Text="Thông tin Công việc" Icon="Information" Visible="False">
+                    <DirectEvents>
+                        <Click OnEvent="mnuitmThongTinCVCN_Click">
+                            <ExtraParams>
+                                <ext:Parameter Name="Values" Value="Ext.encode(#{grdCVCN}.getRowsValues({selectedOnly:true}))" Mode="Raw" />
+                            </ExtraParams>
+                        </Click>
+                    </DirectEvents>
                 </ext:MenuItem>
                 <ext:MenuItem runat="server" ID="mnuitmThemNguoiThucHien" Text="Thêm người phối hợp" Icon="UserAdd">
                     <DirectEvents>
@@ -157,7 +163,15 @@
                     <ext:Column runat="server" DataIndex="STT" Width="50" Text="STT"  Align="Center"/>
                     <ext:Column runat="server" DataIndex="MaNhap" Text="Mã" Align="Center" />
                     <ext:DateColumn runat="server" DataIndex="NgayGiaoViec" Text="Ngày giao" Align="Center" Format="dd/MM/yyyy"/>
-                    <ext:Column runat="server" DataIndex="NoiDung" Text="Nội dung công việc" Width="500" CellWrap="true"/>
+                    <%--<ext:Column runat="server" DataIndex="NoiDung" Text="Nội dung công việc" Width="500" CellWrap="true"/>--%>
+                    <ext:HyperlinkColumn
+                        ID="HyperlinkColumn1"
+                        runat="server"
+                        Text="Nội dung công việc"
+                        DataIndex="NoiDung"
+                        DataIndexHref="Ma"
+                        Pattern="{text:uppercase}"
+                        HrefPattern="frmQuaTrinhXuLy.aspx?MaCongViec={href}" Width="500" CellWrap="true"/>
                     <ext:Column runat="server" DataIndex="TenNguoiGiaoViec" Text="Lãnh đạo giao việc" Align="Center" Width="150" />
                     <ext:Column runat="server" DataIndex="TenNguoiLamChinh" Text="Nhân viên làm chính" Align="Center" Width="150" />
 
@@ -229,7 +243,7 @@
                     </Buttons>
         </ext:Window>
 
-        <ext:Window runat="server" ID="wGiaHan" Icon="DateGo" Title="" TitleAlign="Center" Width="400" ButtonAlign="Center"
+        <ext:Window runat="server" ID="wGiaHan" Icon="DateGo" Title="" TitleAlign="Center" Width="620" ButtonAlign="Center"
             Hidden="true">
             <Items>
                 <ext:Panel ID="Panel1" runat="server" Header="false"  Border="false" Layout="FormLayout" Closable="false">
